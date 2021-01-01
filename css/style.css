@@ -1,0 +1,312 @@
+html {
+	font-family: 'Noto Sans KR', sans-serif, 'Noto Serif KR', serif;
+	font-size: 14px;
+}
+body {
+	font-family: 'Noto Sans KR', sans-serif, 'Noto Serif KR', serif;
+	overflow-x: hidden;
+	color: rgb(34, 34, 34);
+	letter-spacing: -0.05em;
+	background: white;
+}
+p {line-height: 1.6;}
+a {color: rgb(29, 29, 31); text-decoration: none;}
+
+body.before-load{overflow: hidden;}
+header{height:100vh;}
+.container {overflow-x: hidden;}
+
+.local-nav {
+    position: absolute;
+	/* top: 45px; */
+    bottom:0;
+	left: 0;
+	z-index: 11;
+	width: 100%;
+	height: 52px;
+	padding: 0 1rem;
+    background-color:rgba(255,255,255,0.7);
+	color:rgb(51, 51, 51);
+	-webkit-backdrop-filter: saturate(180%) blur(15px);
+	-moz-backdrop-filter: saturate(180%) blur(15px);
+	-o-backdrop-filter: saturate(180%) blur(15px);
+	backdrop-filter: saturate(180%) blur(15px);}
+.local-nav-sticky .local-nav {
+	position: fixed;
+	top: 0;
+	background: rgba(255, 255, 255, 0.1);
+	/* for iPhone */
+	-webkit-backdrop-filter: saturate(180%) blur(15px);
+	-moz-backdrop-filter: saturate(180%) blur(15px);
+	-o-backdrop-filter: saturate(180%) blur(15px);
+	backdrop-filter: saturate(180%) blur(15px);
+}
+.local-nav-sticky .local-nav a div{display:none;}
+.global-nav-links,
+.local-nav-links {
+	display: flex;
+	align-items: center;
+	max-width: 1000px;
+	height: 100%;
+	margin: 0 auto;
+}
+.global-nav-links{justify-content: space-between;}
+.local-nav-links .product-name {
+    margin-right: auto;
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+.local-nav-links a {
+	font-size: 0.8rem;
+}
+.local-nav-links a:not(.product-name) {
+	margin-left: 2em;
+}
+
+.sticky-elem-canvas {
+	top: 0;
+	height: 100%;
+}
+.sticky-elem-canvas canvas {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.scroll-section{position:relative; 	padding-top:50vh;}
+.cover {position:absolute; top:0; left:0; z-index:2; width:100%; height:100%;}
+
+.tv {display:grid; justify-content:center; position: absolute; top: 0; left: 0; z-index: 1; width: 100%; height: 100%; overflow: hidden;}
+
+.sticky-elem {display: none; position: fixed; left: 0; width: 100%;}
+#show-scene-0 #scroll-section-0 .sticky-elem,
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-2 #scroll-section-2 .sticky-elem,
+#show-scene-3 #scroll-section-3 .sticky-elem { display: block; will-change: transform, opacity;}
+#scroll-section-0{background:#709295;}
+#scroll-section-1{background:rgb(199, 198, 187);}
+#scroll-section-2{background:#cfd8e4}
+#scroll-section-3{background:#779598;} 
+#scroll-section-4{background:#879d9f;}
+#scroll-section-5{background:#818075;}
+#scroll-section-6{background:#142765;}
+
+/*팝업 레이아웃*/
+.modal-popup{display:none; position:fixed; top:0; width:100%; height:100%; z-index: 10;}
+.modal-popup .content{position:absolute; width:67%; height:46.3%; margin:13% 16%; background:#fff; z-index:30;}
+.modal-popup .content02{position:absolute; width:28.65%; height:65.55%; margin:10% 36%; background:#fff; z-index:30;}
+.modal-popup .backdrop{position: absolute; width:100%; height:100%; background:rgba(0,0,0,0.6);z-index:20;}
+.modal-popup.show-modal{display:block;}
+
+/********************************************
+*02 교회 역사
+*********************************************/
+h2 {font-size:5.750rem; font-family: 'Noto Sans KR', sans-serif; font-weight:900; margin-bottom:0.4em;}
+
+.desc {font-size:1.563em; line-height:1.25em; font-family: 'Noto Sans KR', sans-serif; font-weight:500;}
+.section-history .tit{top:33%; text-align:center; opacity:0; color:rgb(51, 51, 51);}
+.section-history .tit0{margin-top:-30%; opacity: 1;}
+.section-history .sub_menu {opacity:0; top:82.4%;}
+.ch_history_mn_wrap {display: flex; justify-content: space-around;}
+.ch_history_mn_wrap li {padding-left:1.563em; position:relative; padding-bottom:0.625em; color:rgb(68, 68, 68)}
+.ch_history_mn_wrap li:hover {color:rgb(51, 97, 141); transition:all .4s ease;}
+.ch_history_mn_wrap li::before {width: 3px; height: 0; position:absolute; left:0; bottom:0; background:rgb(51, 97, 141); content:""; transition:all .7s cubic-bezier(.6,.1,.18,1);}
+.ch_history_mn_wrap li:hover::before {height:50%;}
+.ch_history_mn_wrap li.active_on::before {height: 100%;} /*.active_on: 마우스클릭 시*/
+.ch_history_no {display: flex; margin-bottom:0.813em; font-size:1rem; font-weight:700;}
+.ch_history_mn {font-size:1.25rem; font-family:'Noto Serif KR', serif; font-weight:500; line-height:1.5em;}
+
+/*02 교회 역사:팝업 */
+.history_con_mov {float:left; width:49%; height:100%; background:#ddd;}
+.history_con_text {float:left; width:51%; height:100%; padding:2.5em 3.75em 2.5em 3.125em; overflow-y: auto;}
+h3 {margin-bottom:1.471em; font-size:2.25rem; color:rgb(51, 97, 141); font-family:'Noto Serif KR', serif; font-weight:700; }
+.history_con_text p {line-height:1.813em;}
+
+
+/********************************************
+*03 교회 분포
+*********************************************/
+h4 {font-size:1.125rem; color:rgb(68, 68, 68); font-weight:500; text-align: center;}
+h4.sticky-elem {bottom:3.75em;}
+.slides{top:0;}
+.slides-scroll-wrap{position: absolute;}
+.slide{float:left; height:100%;}
+.slide:nth-child(1){background:rgb(177, 185, 197);}
+.map-frame{position:relative; width:100%; height:100%; overflow-x:scroll; scroll-behavior: smooth; }
+.map-frame .map{position:absolute; height:100%;}
+.map-frame #map1{background-image:url('../images/map1.png'); background-repeat: no-repeat; background-size:contain;}
+.map-frame #map2{background-image:url('../images/map2.png'); background-repeat: no-repeat; background-size:contain;}
+.map .spot{position: absolute; width:11px; height:11px; background:rgba(20,39,101,1); border-radius: 50%; opacity:0; border:3px solid rgba(125, 147, 164);}
+.map#map2 .spot{opacity: 1;}
+.map .spot .label{width:max-content;}
+.map .spot.show-label .label{display:block;}
+.slide_right {transform: translateX(-100%); transition:all .4s ease; }
+.map .spot:hover{animation-duration: 0.6s; animation-name: glitter; animation-iteration-count:infinite;}
+
+/*03 교회 분포: 팝업*/
+.church-pic {width:100%; height:52.5%; background:#ddd;}
+.content02 ul {margin:3.5em 0 0 3.125em;}
+.church-name {margin-bottom:0.9em; font-size:1.875rem; color:rgb(20, 39, 101); font-family:'Noto Serif KR', serif; font-weight:600;}
+.since, .site {margin-left:0.75em; font-size:1.125em; color:rgb(68, 68, 68);}
+.txt_0 {font-size:0;}
+.ch_fn {width:100%; margin-top:5.0em; padding:0 3.125em; box-sizing: border-box;}
+.ch_fn button {margin-left:0.75em;}
+.btn_ch_pre {width:51px; height:51px; border:2px solid rgb(177, 185, 197); border-radius:50%;  background: #fff url("../images/btn_bg_pre.svg");}
+.btn_ch_next {width:51px; height:51px; border:2px solid rgb(177, 185, 197); border-radius:50%;  background: #fff url("../images/btn_bg_next.svg");}
+select {float:right; padding: 0.5em 3.0em 0.5em 1.12em; border: 2px solid rgb(177, 185, 197); font-size: 1.125rem; line-height: 1.125em; background: #fff url("../images/select_arr.svg")  no-repeat 92% center; background-size:1em ; border-radius: 0.313em; -webkit-appearance: none; -moz-appearance: none; appearance: none;}
+
+/*03 교회 분포: 슬라이드*/
+.section-church .slides{height:100%;}
+.section-church .btn-slide{position: absolute; top:48%;}
+.section-church .btn-slide.prev{left:3%;}
+.section-church .btn-slide.next{right:3%;}
+
+/********************************************
+*04 우리의 신앙
+*********************************************/
+.section-belief h2{margin-top:-0.3em; text-align: center; color:#fff; font-size:4.0em;}
+.section-belief h3{text-align: center; color:#c7c6bb; font-size:1.2em;}
+.belief_board{position:absolute; top:10%; width:100%; min-height:100%; margin:0 auto;}
+.belief_board .belief{position:absolute; width:15%; height:400px;  background-position:top center; background-repeat: no-repeat; background-size: contain;}
+.belief_board .belief:hover{transform:scale(1.1);}
+
+.belief_board .belief01{left:6.77%; top:6.66%; width:316px; height:294px; background-image: url(../images/belief/belief01.png);}
+.belief_board .belief01:hover {background-image: url(../images/belief/belief01_o.png);}
+.belief_board .belief02{left:77.91%; top:60%; width:338px; height:270px; background-image: url(../images/belief/belief02.png);}
+.belief_board .belief02:hover{background-image: url(../images/belief/belief02_o.png);}
+.belief_board .belief03{left:0.78%; top:52.96%; width:252px; height:369px; background-image: url(../images/belief/belief03.png);}
+.belief_board .belief03:hover{background-image: url(../images/belief/belief03_o.png);}
+.belief_board .belief04{left:49.68%; top:55.74%; width:212px; height:293px; background-image: url(../images/belief/belief04.png);}
+.belief_board .belief04:hover{background-image: url(../images/belief/belief04_o.png);}
+.belief_board .belief05{left:35.73%; top:60.37%; width:213px; height:226px; background-image: url(../images/belief/belief05.png);}
+.belief_board .belief06{left:26.4%; top:4.35%; width:264px; height:324px;  background-image: url(../images/belief/belief06.png);}
+.belief_board .belief06:hover{background-image: url(../images/belief/belief06_o.png);}
+.belief_board .belief07{left:42.8%; top:8.52%; width:365px; height:274px; background-image: url(../images/belief/belief07.png);}
+.belief_board .belief07:hover {background-image: url(../images/belief/belief07_o.png);}
+.belief_board .belief08{left:62.86%; top:59.44%; width:240px; height:268px; background-image: url(../images/belief/belief08.png);}
+.belief_board .belief09{left:14%; top:34.35%; width:386px; height:501px; background-image: url(../images/belief/belief09.png);}
+.belief_board .belief09:hover{background-image: url(../images/belief/belief09_o.png);}
+.belief_board .belief10{left:64.48%; top:5.3%; width:498px; height:576px; background-image: url(../images/belief/belief10.png);}
+
+.belief_menu{position:absolute; bottom:3%; width:100%; text-align: center; z-index:100;}
+.belief_menu li{display: inline-block; margin:5px;}
+.belief_menu li.ico_belief{width:60px; height:60px; border-radius: 50%; border:1px solid #dfdfdf; background-size: 80%; background-repeat:no-repeat; background-position: center;}
+.belief_menu li.ico_belief01{background-image:url(../images/belief/ico_belief01.svg);}
+.belief_menu li.ico_belief01:hover{background-image:url(../images/belief/ico_belief01_o.svg); border-color:#e6bcac}
+.belief_menu li.ico_belief02{background-image:url(../images/belief/ico_belief02.svg);}
+.belief_menu li.ico_belief02:hover{background-image:url(../images/belief/ico_belief02_o.svg); border-color:#e7b9a8;}
+.belief_menu li.ico_belief03{background-image:url(../images/belief/ico_belief03.svg);}
+.belief_menu li.ico_belief03:hover{background-image:url(../images/belief/ico_belief03_o.svg); border-color:#ecb125;}
+.belief_menu li.ico_belief04{background-image:url(../images/belief/ico_belief04.svg);}
+.belief_menu li.ico_belief04:hover{background-image:url(../images/belief/ico_belief04_o.svg); border-color:#de751c;}
+.belief_menu li.ico_belief05{background-image:url(../images/belief/ico_belief05.svg);}
+.belief_menu li.ico_belief05:hover{background-image:url(../images/belief/ico_belief05_o.svg); border-color:#6ca095;  }
+.belief_menu li.ico_belief06{background-image:url(../images/belief/ico_belief06.svg);}
+.belief_menu li.ico_belief06:hover{background-image:url(../images/belief/ico_belief06_o.svg); border-color:#296986;}
+.belief_menu li.ico_belief07{background-image:url(../images/belief/ico_belief07.svg);}
+.belief_menu li.ico_belief07:hover{background-image:url(../images/belief/ico_belief07_o.svg); border-color:#6b8350;}
+.belief_menu li.ico_belief08{background-image:url(../images/belief/ico_belief08.svg);}
+.belief_menu li.ico_belief08:hover{background-image:url(../images/belief/ico_belief08_o.svg); border-color:#b8bc5a;}
+.belief_menu li.ico_belief09{background-image:url(../images/belief/ico_belief09.svg);}
+.belief_menu li.ico_belief09:hover{background-image:url(../images/belief/ico_belief09_o.svg); border-color:#984d45;}
+.belief_menu li.ico_belief10{background-image:url(../images/belief/ico_belief10.svg);}
+.belief_menu li.ico_belief10:hover{background-image:url(../images/belief/ico_belief10_o.svg); border-color:#764356;}
+
+#belief_modal .content > div{display:inline-block;}
+#belief_modal .content {width:62.5%; height:46.2%; margin:14% 16%;}
+#belief_modal .content .view{float:left; width:54.3%; height:100%; overflow: hidden;  position: relative; }
+#belief_modal .content .view .image{width:100%; }
+#belief_modal .content .view .image img {min-height: 100%; min-width: 100%; width: auto;}
+#belief_modal .content .belief_con_text{float:left; position:absolute; width:45%; height:100%; padding: 40px; box-sizing: border-box;} 
+#belief_modal .content h3 {float:left; width:100%; margin-bottom:1em; font-size:2.25rem; color:rgb(51, 97, 141); text-align: left;}
+#belief_modal .content span {float:left; width:100%; display: block; }
+#belief_modal .content span.belief_num {font-size:1.5rem;}
+#belief_modal .content .description {float:left; line-height: 1.813em}
+#belief_modal .content .view iframe{width:100%;} 
+#belief_modal .content .view .youtube{position: absolute; top:0; width:100%;}
+#belief_modal .content .view .btn_close{position: absolute; top:10px; right:10px; padding:5px; z-index: 1000; border-radius:50%; background-color: #fff;}
+
+
+.youtube_list li{display:inline-block; width:120px; height:80px; background-size: cover; background-repeat: no-repeat;}
+
+
+/********************************************
+*05 FAQ
+*********************************************/
+.section-faq{padding:13.750em 0; display: flex; align-items: stretch; flex-flow: wrap;color:#fff; box-sizing:border-box;}
+.section-faq .faq_title{float:left; display: flex; align-items: flex-end; justify-content: flex-end; width:20%; border-right:2px solid rgb(51, 97, 141);}
+.section-faq .faq_title h2{color:rgb(237, 236, 226); transform: rotate(-90deg);} 
+.section-faq .content{float:left; display:inline-block; width:60%;}
+
+.section-faq .faq_nav{display:inline-block;}
+.section-faq .faq_nav li{display:inline-block;}
+.section-faq .faq_nav li .menu{padding:0 2em; text-align: center; border-right:1px solid rgba(255,255,255,0.5);}
+.section-faq .faq_nav li .menu .num{margin-bottom:0.3em; font-size: 2em; font-weight:600;}
+.section-faq .faq_nav li .menu .title{font-family:'Noto Serif KR', serif;}
+.faq {padding: 5.625em 2.5em; box-sizing: border-box;} 
+.faq_tit_con {float:left; width:45%;}
+.faq h3 {font-size:1rem; font-family: 'Noto Sans KR', sans-serif; margin:1.25em 0 2.5em;}
+.section-faq .faq_content {float:right; width:52%; height:36.250em; padding:1.875em 2.5em 2.5em 2.5em; background: #fff; color:#000;}
+.section-faq .faq_content h4{margin-bottom:1.444em; color:rgb(51, 97, 141); text-align: left; font-size:2.25rem; font-family:'Noto Serif KR', serif; font-weight:600;}
+.section-faq .faq_list li {margin-bottom:1.25em; font-family:'Noto Serif KR', serif; font-size:1.25rem;}
+.section-faq .faq_list li.current{font-weight:bold;}
+.section-faq .faq_content .discription {font-size:1rem; color:#222; line-height:1.813em; }
+
+/********************************************
+*06 간행물
+*********************************************/
+.section-books{padding:170px 200px 0 200px; color:#fff; box-sizing: border-box;}
+.section-books h2 {color:rgb(237, 236, 226); font-size:4.0em; margin-bottom: 0.844em;}
+.book_list{width:100%; display:flex; justify-content: space-between;}
+.book_list li{width:330px; }
+.book_list .title {font-size:1.125rem; margin:2.5em 0 1.389em; font-weight: 500;}
+.book_list p {height:2.9em; margin-bottom:2.083em; overflow: hidden; text-overflow:ellipsis; word-wrap: break-word; font-family:'Noto Serif KR', serif; font-size:1.5rem;}
+
+.book_list .book_more span.more_arr {position: absolute; top: 2px; width: 12px; height: 12px; border-right: 2px solid #fff; border-bottom: 2px solid #fff; -webkit-transform: rotate(-45deg); transform: rotate(-45deg); -webkit-animation: sdb 2s infinite; animation: sdb 2s infinite; opacity: 0; box-sizing: border-box;}
+.book_more span.more_arr:nth-of-type(1) { -webkit-animation-delay: 0s; animation-delay: 0s;}
+.book_more span.more_arr:nth-of-type(2) {left: 10px; -webkit-animation-delay: .15s; animation-delay: .15s;}
+.book_more span.more_arr:nth-of-type(3) {left: 20px; -webkit-animation-delay: .3s; animation-delay: .3s;}
+.book_more span.more_link {float: left; width: 100%; height: 30px; position: relative; box-sizing: border-box;}
+.book_more span.more_txt {display: inline-block; font-size: 1rem; color: #fff; padding-left: 44px;}
+.book_more span.more_line {float: left; width: 0%; height: 7px; background: rgb(51, 97, 141); transition: width 0.3s linear;}
+.book_list .book_more:hover > .more_line {width:80%;}
+
+#pdf_view{position:absolute; left:10%; top:10%; width:80%; height:80%; z-index:100;}
+
+/********************************************
+* 07 커뮤니티
+*********************************************/
+
+.section-community {padding: 170px 200px 0 170px;}
+.section-community  h2 {color: rgb(237, 236, 226); font-size: 5.75rem;}
+.section-community .community_mn {float:left; width:100%; margin-top:10.45%;}
+.section-community .community_mn li {float:left; width:50%; margin-bottom: 7.4%;}
+.section-community .community_mn li img {width:90%; display: block;}
+.section-community .community_mn li img.img_on {display: none;}
+.section-community .community_mn li:hover img.img_origin {display: none;}
+.section-community .community_mn li:hover img.img_on {display: block;}
+
+
+@-webkit-keyframes sdb {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+@keyframes sdb {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+/********************************************
+* 애니메이션 효과
+*********************************************/
+
+/* div, li{ transition: all ease 0.5s 0s; box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1) inset} */
+
+/*교회분포 점: 크기, 투명도*/
+@keyframes glitter{
+	from { transform: scale(1); }
+	30% { transform: scale(1.5); opacity: 0.5; }
+  	to { transform: scale(1);}
+}
