@@ -85,7 +85,7 @@ header{height:100vh;}
 #show-scene-3 #scroll-section-3 .sticky-elem { display: block; will-change: transform, opacity;}
 #scroll-section-0{background:#709295;}
 #scroll-section-1{background:rgb(199, 198, 187);}
-#scroll-section-2{background:#cfd8e4}
+#scroll-section-2{background:#b1b8c5;}
 #scroll-section-3{background:#779598;} 
 #scroll-section-4{background:#879d9f;}
 #scroll-section-5{background:#818075;}
@@ -135,8 +135,8 @@ h4.sticky-elem {bottom:3.75em;}
 .map-frame{position:relative; width:100%; height:100%; overflow-x:scroll; scroll-behavior: smooth; }
 .map-frame .map{position:absolute; height:100%;}
 .map-frame #map1{background-image:url('../images/map1.png'); background-repeat: no-repeat; background-size:contain;}
-.map-frame #map2{background-image:url('../images/map2.png'); background-repeat: no-repeat; background-size:contain;}
-.map .spot{position: absolute; width:11px; height:11px; background:rgba(20,39,101,1); border-radius: 50%; opacity:0; border:3px solid rgba(125, 147, 164);}
+.map-frame #map2{background-image:url('../images/map3.png'); background-repeat: no-repeat; background-size:contain;}
+.map .spot{position: absolute; width:11px; height:11px; background:rgba(20,39,101,1); border-radius: 50%; opacity:0; border:3px solid rgb(125, 147, 164);}
 .map#map2 .spot{opacity: 1;}
 .map .spot .label{width:max-content;}
 .map .spot.show-label .label{display:block;}
@@ -160,6 +160,24 @@ select {float:right; padding: 0.5em 3.0em 0.5em 1.12em; border: 2px solid rgb(17
 .section-church .btn-slide{position: absolute; top:48%;}
 .section-church .btn-slide.prev{left:3%;}
 .section-church .btn-slide.next{right:3%;}
+.btn-slide .mouse_arr {width: 46px; height: 46px; display: flex; border: 1px solid #fff; border-radius: 100%; box-sizing: border-box;}
+.btn-slide .mouse_arr::before {display: flex; z-index: 0; content: ''; width: 44px; height: 44px; box-shadow: 0 0 0 0 rgba(255,255,255,.1); border-radius: 100%; opacity: 0; -webkit-animation: sdb2 3s infinite; animation: sdb2 3s infinite; box-sizing: border-box;}
+.next .mouse_arr::after {content: ''; width: 16px; height: 16px; margin: 14px 0 0 -35px; border-right: 1px solid #fff; border-bottom: 1px solid #fff; -webkit-transform: rotate(-45deg); transform: rotate(-45deg); box-sizing: border-box;}
+.prev .mouse_arr::after { content: ''; width: 16px; height: 16px; margin: 14px 0 0 -27px; border-top: 1px solid #fff; border-left: 1px solid #fff; -webkit-transform: rotate(-45deg); transform: rotate(-45deg); box-sizing: border-box;}
+
+@-webkit-keyframes sdb2 {
+  0% {opacity: 0;}
+  30% {opacity: 1;}
+  60% { box-shadow: 0 0 0 60px rgba(255,255,255,.1); opacity: 0; }
+  100% {opacity: 0;}
+}
+@keyframes sdb2 {
+  0% {opacity: 0;}
+  30% {opacity: 1;}
+  60% {box-shadow: 0 0 0 60px rgba(255,255,255,.1); opacity: 0;}
+  100% {opacity: 0;}
+}
+
 
 /********************************************
 *04 우리의 신앙
