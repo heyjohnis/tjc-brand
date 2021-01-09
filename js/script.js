@@ -9,7 +9,8 @@
 	let delayedYOffset = 0;
 	let rafId;
 	let rafState;
-    let winWith = 0;
+	let winWith = 0;
+	let setRdbg = 0;
     
 	const sceneInfo = [
 		{
@@ -27,7 +28,7 @@
 		{
 			// 1 : 교회역사
 			type: 'sticky',
-			heightNum: 5,
+			heightNum: 8,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('.section-history'),
@@ -101,8 +102,8 @@
 
 				btnChNext: document.querySelector('.section-church .btn_ch_next'),
 				btnChPrev: document.querySelector('.section-church .btn_ch_pre'),
-
-
+				conYear : document.querySelector('#con_year'),
+				conChurch : document.querySelector('#con_church')
 			},
 			values: {
 
@@ -111,11 +112,13 @@
 		{
 			// 3 : 우리의 믿음 
 			type: 'sticky',
-			heightNum: 1,
+			heightNum: 3,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-3'),
+				belief_content: document.querySelector('#scroll-section-3 .belief_board'),
 				belief_board: document.querySelectorAll('#scroll-section-3 .belief_board .belief'),
+				belief_menu_set: document.querySelector('#scroll-section-3 .belief_menu'),
 				belief_menu: document.querySelectorAll('#scroll-section-3 .belief_menu .ico_belief'),
 				modal_title: document.querySelector('#belief_modal .title'),
 				modal_description: document.querySelector('#belief_modal .description'),
@@ -127,6 +130,9 @@
 				
 			},
 			values: {
+				belief_board_opacity_in: [0, 1, { start: 0, end: 0.2 }],
+				belief_menu_opacity_in: [0, 1, { start: 0.1, end: 0.25 }],
+
 			}
 		},
 		{
@@ -858,6 +864,7 @@
 					spots2[i].style.opacity = calcValues([0, 1, { start: interval2*i, end: interval2*1.05*i}], currentYOffset);
 				}
 				
+				console.log("currentYOffset : ", currentYOffset);
 
 				console.log("slide : ", sceneInfo[2].currentSlide);
 				let currentSlide = sceneInfo[2].currentSlide;
@@ -879,8 +886,14 @@
 				const map_size = map.style.width;
 				
 				let currentSpot = Math.round(currentYOffset/scrollHeight/interval);
+
+
 				currentSpot = currentSpot >= mapSpot.length ? mapSpot.length -1 : currentSpot;
 				currentSpot = currentSpot < 0 ? 0 : currentSpot;
+
+				// 교회설립연도
+				sceneInfo[2].objs.conYear.innerText = mapSpot[currentSpot].since;
+				sceneInfo[2].objs.conChurch.innerText = mapSpot[currentSpot].name;
 
 				let angle = fr_map.scrollLeft + winWith;
 				currentLeft = mapSpot[currentSpot].left * parseInt(map_size) * 0.01;
@@ -896,17 +909,53 @@
 			break;
 			case 3:		// 우리의 신앙
 				console.log('3 play');
+
+				if(scrollRatio <=0.5) {
+					objs.belief_content.style.opacity = calcValues(values.belief_board_opacity_in, currentYOffset);
+					objs.belief_menu_set.style.opacity = calcValues(values.belief_menu_opacity_in, currentYOffset);
+				} else if (scrollRatio <= 0.7){
+					if(setRdbg != 1){setRandomColor(0);	setRandomColor(1);}
+					setRdbg = 1;
+				} else if (scrollRatio <= 0.85){
+					if(setRdbg != 2){setRandomColor(0);	setRandomColor(1);}
+					setRdbg = 2;
+				} else if (scrollRatio <= 1){
+					if(setRdbg != 3){setRandomColor(0);	setRandomColor(1);}
+					setRdbg = 3;
+				}
+
+
 			break;
 			case 4:		// FAQ
 				console.log('4 play');
-				setRandomColor(0);
 
+			if (scrollRatio <= 0.2){
+				if(setRdbg != 1){setRandomColor(0);	setRandomColor(1);}
+				setRdbg = 1;
+			} else if (scrollRatio <= 0.6){
+				if(setRdbg != 2){setRandomColor(0);	setRandomColor(1);}
+				setRdbg = 2;
+			} else if (scrollRatio <= 0.8){
+				if(setRdbg != 3){setRandomColor(0);	setRandomColor(1);}
+				setRdbg = 3;
+			}
 
 			break;
 			case 5:		// 발행서적
 				console.log('5 play');
-				setRandomColor(1);
-			break;
+				if (scrollRatio <= 0.2){
+					if(setRdbg != 1){setRandomColor(0);	setRandomColor(1);}
+					setRdbg = 1;
+				} else if (scrollRatio <= 0.6){
+					if(setRdbg != 2){setRandomColor(0);	setRandomColor(1);}
+					setRdbg = 2;
+				} else if (scrollRatio <= 0.8){
+					if(setRdbg != 3){setRandomColor(0);	setRandomColor(1);}
+					setRdbg = 3;
+				}
+	
+
+				break;
 			case 6:
 				console.log('6 play');
 			break;
@@ -978,6 +1027,9 @@
 		setFaqContentList("01");
 		setBelieveModal();
 		setBookList();
+
+		//우리의 믿음
+		setBelieveView();
 		//FAQ 
 		setBackground();
 	}
@@ -1106,6 +1158,12 @@
 	******************************/
 
 	// 우리의 믿음 모달 팝업 기본 셋
+	function setBelieveView(){
+		sceneInfo[3].objs.belief_content.style.height = window.innerHeight + 'px';
+
+	}
+
+
 	function setBelieveModal(){
 		let board = sceneInfo[3].objs.belief_board;
 		board.forEach(function(el){
@@ -1406,7 +1464,7 @@
 	function setBackground(){
 		let bg = document.querySelectorAll('.random-background');
 		for(let i = 0; i < bg.length; i++) {
-			for( let j = 0; j < 6; j ++ ){
+			for( let j = 0; j < 20; j ++ ){
 				const child = document.createElement('div');
 				child.classList.add('rand-bg'+j);
 				bg[i].appendChild(child);
