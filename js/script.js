@@ -894,14 +894,18 @@
 
 
 			break;
-			case 3:
+			case 3:		// 우리의 신앙
 				console.log('3 play');
 			break;
-			case 4:
+			case 4:		// FAQ
 				console.log('4 play');
+				setRandomColor(0);
+
+
 			break;
-			case 5:
+			case 5:		// 발행서적
 				console.log('5 play');
+				setRandomColor(1);
 			break;
 			case 6:
 				console.log('6 play');
@@ -974,6 +978,8 @@
 		setFaqContentList("01");
 		setBelieveModal();
 		setBookList();
+		//FAQ 
+		setBackground();
 	}
 
 	/***************************** 
@@ -1184,7 +1190,6 @@
 		if(obj != null) obj.classList.add('current');
 	}
 
-
 	/***************************** 
 	간행물
 	******************************/
@@ -1390,12 +1395,46 @@
             setTimeout(setLayout, 500);
 		});
 
+		// 동적 이미지 세팅
+		setCanvasImages();
+
 	});
 	
-	// 동적 이미지 세팅
-	setCanvasImages();
 
-    
+
+	
+	function setBackground(){
+		let bg = document.querySelectorAll('.random-background');
+		for(let i = 0; i < bg.length; i++) {
+			for( let j = 0; j < 6; j ++ ){
+				const child = document.createElement('div');
+				child.classList.add('rand-bg'+j);
+				bg[i].appendChild(child);
+			}
+			setRandomColor(i);
+		}
+	}
+
+	function setRandomColor(n){
+		let bgs = document.querySelectorAll('.random-background');
+		
+		let bg = bgs[n].querySelectorAll('.random-background > div');
+		for(let i = 0; i < bg.length; i++) {
+			const rdColor = Math.floor(Math.random()*16777215).toString(16);
+			bg[i].style.backgroundColor = "#" + rdColor;
+			const rd1 = (Math.random()*2-1) * 100;
+			const rd2 = (Math.random()*2-1) * 100;
+			const rd3 = (Math.random()*2-1) * 100;
+			const rd4 = (Math.random()*2-1) * 100;
+			bg[i].style.boxShadow = `${rd1}px ${rd2}px ${rd3}px ${rd4}px #${rdColor}`;
+			bg[i].style.transform = `translate(${(Math.random()*2-1) * 100}px, ${(Math.random()*2-1) * 100}px)`;
+		}
+
+
+	}
+
+	
+
 // })();
 
 

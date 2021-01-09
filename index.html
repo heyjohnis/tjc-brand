@@ -9,6 +9,11 @@
 	<link rel="stylesheet" href="css/default.css">
 	<link rel="stylesheet" href="css/style.css">
 
+	<style>
+		.random-background{width:100%; height:100vh; position:absolute; top:0; left:0;}
+		.random-background > div{display:inline-block; width:33%; height:50vh; opacity:0.1;}
+	</style>
+
 </head>
 	
 	
@@ -346,60 +351,61 @@
 		</section>
 
 		<section class="scroll-section section-faq" id="scroll-section-4">
-			<div class="faq_title">
+			<div class="random-background"></div>
+			<div class="faq_title" style="z-index: 1;">
 				<h2>FAQ</h2>                     
 			</div>
-			<div class="content">
+			<div class="content" style="z-index: 1;">
 				<ul class="faq_nav">
-					<li class="faq_menu faq_menu01 current" onclick="setFaqContents('01');">
+					<li class="faq_menu faq_menu01 current" onclick="setFaqContentList('01');">
 						<div class="menu">
 							<div class="num">01</div>
 							<div class="title">교단/창시자</div>
 						</div>
 					</li>
-					<li class="faq_menu faq_menu02"  onclick="setFaqContents('02');">
+					<li class="faq_menu faq_menu02"  onclick="setFaqContentList('02');">
 						<div class="menu">
 							<div class="num">02</div>
 							<div class="title">성경</div>
 						</div>
 					</li>
-					<li class="faq_menu faq_menu03"  onclick="setFaqContents('03');">
+					<li class="faq_menu faq_menu03"  onclick="setFaqContentList('03');">
 						<div class="menu">
 							<div class="num">03</div>
 							<div class="title">신관</div>
 						</div>
 					</li>
-					<li class="faq_menu faq_menu04"  onclick="setFaqContents('04');">
+					<li class="faq_menu faq_menu04"  onclick="setFaqContentList('04');">
 						<div class="menu">
 							<div class="num">04</div>
 							<div class="title">성령</div>
 						</div>
 					</li>
-					<li class="faq_menu faq_menu05" onclick="setFaqContents('05');">
+					<li class="faq_menu faq_menu05" onclick="setFaqContentList('05');">
 						<div class="menu">
 							<div class="num">05</div>
 							<div class="title">사회/가정</div>
 						</div>
 					</li>
-					<li class="faq_menu faq_menu06" onclick="setFaqContents('06');">
+					<li class="faq_menu faq_menu06" onclick="setFaqContentList('06');">
 						<div class="menu">
 							<div class="num">06</div>
 							<div class="title">세례</div>
 						</div>
 					</li>
-					<li class="faq_menu faq_menu07" onclick="setFaqContents('07');">
+					<li class="faq_menu faq_menu07" onclick="setFaqContentList('07');">
 						<div class="menu">
 							<div class="num">07</div>
 							<div class="title">안식일</div>
 						</div>
 					</li>
-					<li class="faq_menu faq_menu08" onclick="setFaqContents('08');">
+					<li class="faq_menu faq_menu08" onclick="setFaqContentList('08');">
 						<div class="menu">
 							<div class="num">08</div>
 							<div class="title">제도/절기</div>
 						</div>
 					</li>
-					<li class="faq_menu faq_menu09" onclick="setFaqContents('09');">
+					<li class="faq_menu faq_menu09" onclick="setFaqContentList('09');">
 						<div class="menu">
 							<div class="num">09</div>
 							<div class="title">종말론</div>
@@ -419,11 +425,13 @@
 						</div>
 					</div>
 				</div>
-
+				
 			</div>
+
 		</section>
 
 		<section class="scroll-section section-books" id="scroll-section-5">
+			<div class="random-background"></div>
 			<div class="tit tit0">
 				<h2>간행물</h2>
 			</div>
