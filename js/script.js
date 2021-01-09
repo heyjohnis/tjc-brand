@@ -41,6 +41,7 @@
 				tit5: document.querySelector('.section-history .tit5'),
 				tit6: document.querySelector('.section-history .tit6'),
 				tit7: document.querySelector('.section-history .tit7'),
+				// randBg: document.querySelector('.section-history .random-background'),
 
 				canvas: document.querySelector('#video-canvas-0'),
 				context: document.querySelector('#video-canvas-0').getContext('2d'),
@@ -48,9 +49,10 @@
 			},
 			values: {
 				videoImageCount: 30,
-				imageSequence: [0, 30],
+				imageSequence: [0, 30, { start: 0, end: 0.55 }],
+				randBg_opacity_in: [0, 1, { start: 0, end: 0.1 }],
 				canvas_opacity_in: [0, 1, { start: 0, end: 0.1 }],
-				canvas_opacity_out: [1, 0, { start: 0.75, end: 0.85 }],
+				canvas_opacity_out: [1, 0, { start: 0.45, end: 0.48 }],
 
                 menu_opacity_in: [0, 1, { start: 0, end: 0.05 }],
 
@@ -106,13 +108,14 @@
 				conChurch : document.querySelector('#con_church')
 			},
 			values: {
-
+				slidesWrap_opacity_in: [0, 1, { start: 0, end: 0.1 }],
+				slidesWrap_opacity_out: [1, 0, { start: 0.8, end: 0.95 }],
 			}
 		},
 		{
 			// 3 : 우리의 믿음 
 			type: 'sticky',
-			heightNum: 3,
+			heightNum: 1,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-3'),
@@ -795,8 +798,7 @@
 			case 1:     // 역사
                 // objs.slides.style.position = 'fixed';
 				console.log('1 play');
-				//  let sequence2 = Math.round(calcValues(values.imageSequence, currentYOffset));
-				//  objs.context.drawImage(objs.videoImages[sequence2], 0, 0);
+
 				if (scrollRatio <= 0.2) {
 					objs.menu.style.opacity = calcValues(values.menu_opacity_in, currentYOffset);
 					objs.canvas.style.opacity = calcValues(values.canvas_opacity_in, currentYOffset);
@@ -805,12 +807,17 @@
 					objs.canvas.style.opacity = calcValues(values.canvas_opacity_out, currentYOffset);
 				}
 
+				if (scrollRatio <= 0.5) {
+					let sequence2 = Math.round(calcValues(values.imageSequence, currentYOffset));
+					objs.context.drawImage(objs.videoImages[sequence2], 0, 0);
+				}
+
 
                 if(scrollRatio <=0.2) {
 					removeActive();
 					objs.menu_li[0].classList.add('active_on');
 					objs.tit1.style.opacity = calcValues(values.tit1_opacity_in, currentYOffset);
-				
+					
 				} else if(scrollRatio <=0.32) {
 					removeActive();
 					objs.menu_li[1].classList.add('active_on');
@@ -850,6 +857,13 @@
 			break;
             case 2:		// 교회 분포 
 				console.log('2 play');
+
+				if(scrollRatio <=0.2) {
+					objs.slidesWrap.style.opacity = calcValues(values.slidesWrap_opacity_in, currentYOffset);
+				} else if(scrollRatio > 0.8 && scrollRatio <=0.95) {
+					objs.slidesWrap.style.opacity = calcValues(values.slidesWrap_opacity_out, currentYOffset);
+				}
+
 				const spots = document.querySelectorAll('#map1 .spot');
 				const spots2 = document.querySelectorAll('#map2 .spot');
 
@@ -909,52 +923,12 @@
 			break;
 			case 3:		// 우리의 신앙
 				console.log('3 play');
-
-				if(scrollRatio <=0.5) {
-					objs.belief_content.style.opacity = calcValues(values.belief_board_opacity_in, currentYOffset);
-					objs.belief_menu_set.style.opacity = calcValues(values.belief_menu_opacity_in, currentYOffset);
-				} else if (scrollRatio <= 0.7){
-					if(setRdbg != 1){setRandomColor(0);	setRandomColor(1);}
-					setRdbg = 1;
-				} else if (scrollRatio <= 0.85){
-					if(setRdbg != 2){setRandomColor(0);	setRandomColor(1);}
-					setRdbg = 2;
-				} else if (scrollRatio <= 1){
-					if(setRdbg != 3){setRandomColor(0);	setRandomColor(1);}
-					setRdbg = 3;
-				}
-
-
 			break;
 			case 4:		// FAQ
 				console.log('4 play');
-
-			if (scrollRatio <= 0.2){
-				if(setRdbg != 1){setRandomColor(0);	setRandomColor(1);}
-				setRdbg = 1;
-			} else if (scrollRatio <= 0.6){
-				if(setRdbg != 2){setRandomColor(0);	setRandomColor(1);}
-				setRdbg = 2;
-			} else if (scrollRatio <= 0.8){
-				if(setRdbg != 3){setRandomColor(0);	setRandomColor(1);}
-				setRdbg = 3;
-			}
-
 			break;
 			case 5:		// 발행서적
 				console.log('5 play');
-				if (scrollRatio <= 0.2){
-					if(setRdbg != 1){setRandomColor(0);	setRandomColor(1);}
-					setRdbg = 1;
-				} else if (scrollRatio <= 0.6){
-					if(setRdbg != 2){setRandomColor(0);	setRandomColor(1);}
-					setRdbg = 2;
-				} else if (scrollRatio <= 0.8){
-					if(setRdbg != 3){setRandomColor(0);	setRandomColor(1);}
-					setRdbg = 3;
-				}
-	
-
 				break;
 			case 6:
 				console.log('6 play');
@@ -1255,6 +1229,7 @@
 	function setBookList(){
 
 		const book_list = sceneInfo[5].objs.book_list;
+		sceneInfo[5].objs.book_list.innerHTML = '';
 		BOOKS.forEach(function(book, idx){
 			let li = document.createElement('li');
 			const html = `<div class="image">
@@ -1269,8 +1244,7 @@
 							<span class="more_arr"></span>
 							<span class="more_txt">샘플보기</span>
 						</span>
-						<span class="more_line"></span>
-						`;
+						<span class="more_line"></span>`;
 			li.innerHTML = html;
 			book_list.append(li);
 		});
@@ -1308,6 +1282,7 @@
 			currentScene--;
 			document.body.setAttribute('id', `show-scene-${currentScene}`);
 		}
+
 
 		if (enterNewScene) return;
         playAnimation();
@@ -1413,7 +1388,14 @@
             yOffset = window.pageYOffset;
             scrollLoop();
             checkMenu();
-  			
+			  
+			
+			// Scroll 시 배경 랜덤하게 처리
+			let bg_idx = Math.floor(yOffset / 500);
+			if(bg_idx != setRdbg) setRandomColor();
+			setRdbg = bg_idx;
+
+
             if (!rafState) {
   				rafId = requestAnimationFrame(loop);
   				rafState = true;
@@ -1469,26 +1451,15 @@
 				child.classList.add('rand-bg'+j);
 				bg[i].appendChild(child);
 			}
-			setRandomColor(i);
+			setRandomColor();
 		}
 	}
 
-	function setRandomColor(n){
-		let bgs = document.querySelectorAll('.random-background');
-		
-		let bg = bgs[n].querySelectorAll('.random-background > div');
+	function setRandomColor(){
+		let bg = document.querySelectorAll('.random-background > div');
 		for(let i = 0; i < bg.length; i++) {
-			const rdColor = Math.floor(Math.random()*16777215).toString(16);
-			bg[i].style.backgroundColor = "#" + rdColor;
-			const rd1 = (Math.random()*2-1) * 100;
-			const rd2 = (Math.random()*2-1) * 100;
-			const rd3 = (Math.random()*2-1) * 100;
-			const rd4 = (Math.random()*2-1) * 100;
-			bg[i].style.boxShadow = `${rd1}px ${rd2}px ${rd3}px ${rd4}px #${rdColor}`;
-			bg[i].style.transform = `translate(${(Math.random()*2-1) * 100}px, ${(Math.random()*2-1) * 100}px)`;
+			bg[i].style.opacity = Math.random()*0.2;
 		}
-
-
 	}
 
 	

@@ -40,6 +40,7 @@ header{height:100vh;}
 	-moz-backdrop-filter: saturate(180%) blur(15px);
 	-o-backdrop-filter: saturate(180%) blur(15px);
 	backdrop-filter: saturate(180%) blur(15px);
+	z-index: 20;
 }
 .local-nav-sticky .local-nav a div{display:none;}
 .global-nav-links,
@@ -78,7 +79,7 @@ header{height:100vh;}
 
 .tv {display:grid; justify-content:center; position: absolute; top: 0; left: 0; z-index: 1; width: 100%; height: 100%; overflow: hidden;}
 
-.sticky-elem {display: none; position: fixed; left: 0; width: 100%;}
+.sticky-elem {display: none; position: fixed; left: 0; width: 100%; z-index:11;}
 #show-scene-0 #scroll-section-0 .sticky-elem,
 #show-scene-1 #scroll-section-1 .sticky-elem,
 #show-scene-2 #scroll-section-2 .sticky-elem,
@@ -96,16 +97,18 @@ header{height:100vh;}
 .modal-popup .content{position:absolute; width:67%; height:46.3%; margin:13% 16%; background:#fff; z-index:30;}
 .modal-popup .content02{position:absolute; width:28.65%; height:65.55%; margin:10% 36%; background:#fff; z-index:30;}
 .modal-popup .backdrop{position: absolute; width:100%; height:100%; background:rgba(0,0,0,0.6);z-index:20;}
-.modal-popup.show-modal{display:block;}
+.modal-popup.show-modal{display:block; z-index:15;}
 
 
-.random-background{width:100%; height:100vh; position:absolute; top:0; left:0;}
-.random-background > div{display:inline-block; width:20%; height:25vh; opacity:0.1;}
+.random-background{width:100%; height:100vh; position:absolute; top:0; left:0; z-index:1;}
+.random-background > div{float:left; width:20%; height:25vh; background:#000; transition: all ease 1s 0s; box-shadow:0px 0px 10px 10px rgba(0,0,0,0.1);}
 
 /********************************************
 *02 교회 역사
 *********************************************/
 h2 {font-size:5.750rem; font-family: 'Noto Sans KR', sans-serif; font-weight:900; margin-bottom:0.4em;}
+
+.section-history{background-image: url(../images/history.jpg) !important; background-size: contain !important; background-repeat: no-repeat !important;}
 
 .desc {font-size:1.563em; line-height:1.25em; font-family: 'Noto Sans KR', sans-serif; font-weight:500;}
 .section-history .tit{top:33%; text-align:center; opacity:0; color:rgb(51, 51, 51);}
@@ -165,7 +168,7 @@ h4.sticky-elem {bottom:3.75em;}
 select {float:right; padding: 0.5em 3.0em 0.5em 1.12em; border: 2px solid rgb(177, 185, 197); font-size: 1.125rem; line-height: 1.125em; background: #fff url("../images/select_arr.svg")  no-repeat 92% center; background-size:1em ; border-radius: 0.313em; -webkit-appearance: none; -moz-appearance: none; appearance: none;}
 
 /*03 교회 분포: 슬라이드*/
-.section-church .slides{height:100%;}
+.section-church .slides{height:100%; z-index:11;}
 .section-church .btn-slide{position: absolute; top:48%;}
 .section-church .btn-slide.prev{left:3%;}
 .section-church .btn-slide.next{right:3%;}
@@ -193,8 +196,8 @@ select {float:right; padding: 0.5em 3.0em 0.5em 1.12em; border: 2px solid rgb(17
 *********************************************/
 .section-belief h2{margin-top:-0.3em; text-align: center; color:#fff; font-size:4.0em;}
 .section-belief h3{text-align: center; color:#c7c6bb; font-size:1.2em;}
-.belief_board{top:10%; width:100%; min-height:100%; margin:0 auto;}
-.belief_board .belief{position:absolute; width:15%; height:400px;  background-position:top center; background-repeat: no-repeat; background-size: contain;}
+.belief_board{position:absolute; top:10%; width:100%; min-height:100%; margin:0 auto;}
+.belief_board .belief{position:absolute; width:15%; height:400px;  background-position:top center; background-repeat: no-repeat; background-size: contain; z-index: 11;}
 .belief_board .belief:hover{transform:scale(1.1);}
 
 .belief_board .belief01{left:6.77%; top:6.66%; width:316px; height:294px; background-image: url(../images/belief/belief01.png);}
@@ -263,7 +266,7 @@ select {float:right; padding: 0.5em 3.0em 0.5em 1.12em; border: 2px solid rgb(17
 .section-faq{padding:13.750em 0; display: flex; align-items: stretch; flex-flow: wrap;color:#fff; box-sizing:border-box; overflow:hidden;}
 .section-faq .faq_title{float:left; display: flex; align-items: flex-end; justify-content: flex-end; width:20%; border-right:2px solid rgb(51, 97, 141);}
 .section-faq .faq_title h2{color:rgb(237, 236, 226); transform: rotate(-90deg);} 
-.section-faq .content{float:left; display:inline-block; width:60%;}
+.section-faq .content{display:inline-block; width:60%; z-index:11;}
 
 .section-faq .faq_nav{display:inline-block;}
 .section-faq .faq_nav li{display:inline-block;}
@@ -306,6 +309,7 @@ select {float:right; padding: 0.5em 3.0em 0.5em 1.12em; border: 2px solid rgb(17
 
 .section-community {padding: 170px 200px 0 170px;}
 .section-community  h2 {color: rgb(237, 236, 226); font-size: 5.75rem;}
+.section-community .content{position: absolute; z-index:11;}
 .section-community .community_mn {float:left; width:100%; margin-top:10.45%;}
 .section-community .community_mn li {float:left; width:50%; margin-bottom: 7.4%;}
 .section-community .community_mn li img {width:90%; display: block;}
