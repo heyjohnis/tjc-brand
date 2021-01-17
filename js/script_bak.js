@@ -9,7 +9,8 @@
 	let delayedYOffset = 0;
 	let rafId;
 	let rafState;
-    let winWith = 0;
+	let winWith = 0;
+	let setRdbg = 0;
     
 	const sceneInfo = [
 		{
@@ -27,7 +28,7 @@
 		{
 			// 1 : 교회역사
 			type: 'sticky',
-			heightNum: 5,
+			heightNum: 8,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('.section-history'),
@@ -40,6 +41,7 @@
 				tit5: document.querySelector('.section-history .tit5'),
 				tit6: document.querySelector('.section-history .tit6'),
 				tit7: document.querySelector('.section-history .tit7'),
+				// randBg: document.querySelector('.section-history .random-background'),
 
 				canvas: document.querySelector('#video-canvas-0'),
 				context: document.querySelector('#video-canvas-0').getContext('2d'),
@@ -47,9 +49,10 @@
 			},
 			values: {
 				videoImageCount: 30,
-				imageSequence: [0, 30],
+				imageSequence: [0, 30, { start: 0, end: 0.55 }],
+				randBg_opacity_in: [0, 1, { start: 0, end: 0.1 }],
 				canvas_opacity_in: [0, 1, { start: 0, end: 0.1 }],
-				canvas_opacity_out: [1, 0, { start: 0.75, end: 0.85 }],
+				canvas_opacity_out: [1, 0, { start: 0.45, end: 0.48 }],
 
                 menu_opacity_in: [0, 1, { start: 0, end: 0.05 }],
 
@@ -81,7 +84,7 @@
 		{
 			// 2 : 교회분포
 			type: 'sticky',
-			heightNum: 5,
+			heightNum: 8,
 			scrollHeight: 0,
 			slides: 2,
 			currentSlide: 0,
@@ -101,11 +104,12 @@
 
 				btnChNext: document.querySelector('.section-church .btn_ch_next'),
 				btnChPrev: document.querySelector('.section-church .btn_ch_pre'),
-
-
+				conYear : document.querySelector('#con_year'),
+				conChurch : document.querySelector('#con_church')
 			},
 			values: {
-
+				slidesWrap_opacity_in: [0, 1, { start: 0, end: 0.1 }],
+				slidesWrap_opacity_out: [1, 0, { start: 0.8, end: 0.95 }],
 			}
 		},
 		{
@@ -115,7 +119,9 @@
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-3'),
+				belief_content: document.querySelector('#scroll-section-3 .belief_board'),
 				belief_board: document.querySelectorAll('#scroll-section-3 .belief_board .belief'),
+				belief_menu_set: document.querySelector('#scroll-section-3 .belief_menu'),
 				belief_menu: document.querySelectorAll('#scroll-section-3 .belief_menu .ico_belief'),
 				modal_title: document.querySelector('#belief_modal .title'),
 				modal_description: document.querySelector('#belief_modal .description'),
@@ -127,6 +133,9 @@
 				
 			},
 			values: {
+				belief_board_opacity_in: [0, 1, { start: 0, end: 0.2 }],
+				belief_menu_opacity_in: [0, 1, { start: 0.1, end: 0.25 }],
+
 			}
 		},
 		{
@@ -155,6 +164,7 @@
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-5'),
+				book_list: document.querySelector('.book_list'),
 				book_title: document.querySelector('#scroll-section-5 .book_title'),
 				book_img: document.querySelector('#scroll-section-5 .book_img'),
 				book_description: document.querySelector('#scroll-section-5 .book_img'),
@@ -175,7 +185,7 @@
 		}
 	];
 	
-	// 해외교회 정보
+	//해외교회 정보
 	let mapSpot = [
 		{name: '중국', left: 41, top:41, since:'1919', site:'http://www.tjc.org.cn', desc: '중국교회 소개'},
 		{name: '대만', left: 42.8, top:46.6, since:'1926', site:'http://www.tjc.org.tw', desc: '대만교회 소개'},
@@ -244,42 +254,41 @@
 
 	// 국내교회 정보
 	let mapSpot2 = [
-		{name: '김천교회', left: 50, top:50, since:'1947', site:'경상북도 김천시 평화중앙3길 30', tel: '054-434-2071', image:"./image/church/김천.jpg"},
-		{name: '삼계교회', left: 36.7, top:62.9, since:'1949', site:'전라북도 임실군 삼계면 삼계리 충효로 1315-3', tel: '063-642-7619', image:"./image/church/삼계.jpg"},
+		{name: '김천교회', left: 50, top:50, since:'1947', site:'경상북도 김천시 평화중앙3길 30', tel: '054-434-2071', image:"./image/church/gimcheon.jpg"},
+		{name: '삼계교회', left: 36.7, top:62.9, since:'1949', site:'전라북도 임실군 삼계면 삼계리 충효로 1315-3', tel: '063-642-7619', image:"./image/church/samgye.jpg"},
 		{name: '쌍치기도소', left: 20.3, top:63.3, since:'1949', site:'전라북도 순창군 쌍치면 금성내동길 49-30', tel: '', image:""},
-		{name: '전주교회', left: 35.3, top:57.5, since:'1949', site:'전라북도 전주시 완산구 백제대로 20-37(평화동1가)', tel: '063-223-6451', image:"./image/church/전주.jpg"},
-		{name: '서도교회', left: 37.7, top:64.7, since:'1949', site:'전라북도 남원시 사매면 노봉길 9', desc: '063-634-8430', image:"./image/church/서도.jpg"},
-		{name: '동부교회', left: 34, top:23, since:'1949', site:'서울특별시 동대문구 회기로 23가길 12(회기동)', tel: '02-966-4294', image:"./image/church/동부.jpg"},
-		{name: '남원교회', left: 39.1, top:66, since:'1952', site:'전라북도 남원시 노송로 1261 (노암동)', tel: '063-625-6219', image:"./image/church/남원.jpg"},
-		{name: '부산교회', left: 65.8, top:70.5, since:'1954', site:'부산광역시 금정구 서금로 37-10, (서동)', tel: '070-7343-0278', image:"./image/church/부산.jpg"},
-		{name: '대구교회', left: 59.1, top:56.4, since:'1955', site:'대구광역시 동구 신암로14길 3-1 (신암동)', tel: '053-959-7880', image:"./image/church/대구.jpg"},
-		{name: '대전교회', left: 40, top:47.5, since:'1956', site:'대전시 동구 천동 72-1', tel: '042-283-3865', image:"./image/church/"},
-		{name: '대방교회', left: 31, top:25, since:'1957', site:'서울특별시 동작구 알마타길 29(대방동)', tel: '02-815-1344', image:"./image/church/대방.jpg"},
-		{name: '서천교회', left: 28, top:52.3, since:'1958', site:'충청남도 서천군 서천읍 군청로 81', tel: '', image:""},
-		{name: '안동교회', left: 60.8, top:40.7, since:'1960', site:'경상북도 안동시 득심골길 32-8 (상아동)', tel: '054-852-3207', image:"./image/church/안동.jpg"},
-		{name: '수문교회', left: 33.2, top:77.9, since:'1963', site:'전라남도 장흥군 안양면 수문4길 6', tel: '061-862-1092', image:"./image/church/수문.jpg"},
-		{name: '서부교회', left: 31, top:23, since:'1963', site:'서울특별시 은평구 통일로50길 2-2 (녹번동)', tel: '02-355-8851', image:"./image/church/서부.jpg"},
-		{name: '광주교회', left: 30.1, top:67.7, since:'1965', site:'광주광역시 광산구 목련로394번길 10-12 (신가동)', tel: '062-951-2334', image:"./image/church/광주.jpg"},
-		{name: '화산교회', left: 24.8, top:81.4, since:'1967', site:'전라남도 해남군 화산면 가장길 31-4', tel: '', image:""},
-		{name: '안산교회', left: 30.8, top:28.3, since:'1968', site:'경기 안산시 상록구 사동 1528-15번지, 2층', tel: '031-408-2301', image:"./image/church/안산.jpg"},
-		{name: '청주교회', left: 40.2, top:42.2, since:'1969', site:'충청북도 청주시 상당구 영운천로119번길 25 (용정동)', tel: '043-284-3705', image:"./image/church/청주.jpg"},
-		{name: '목포교회', left: 22.3, top:78.1, since:'1975', site:'전라남도 목포시 복산길6번길 34 (옥암동)', tel: '061-238-5732', image:"./image/church/목포.jpg"},
-		{name: '평택기도소', left: 32.9, top:33.9, since:'1980', site:'경기도 오산시 은여울로7번길 13-3 (궐동)', tel: '', image:"./image/church/평택기도소.jpg"},
-		{name: '광양교회', left: 41.8, top:74.1, since:'1980', site:'전남 광양시 광양읍 덕례리 1673-2', tel: '061-762-0513', image:"./image/church/광양.jpg"},
-		{name: '인천교회', left: 28, top:24.7, since:'1982', site:'인천광역시 남동구 백범로73번길 15 (만수동)', tel: '032-473-1009', image:"./image/church/인천.jpg"},
-		{name: '거제교회', left: 60.3, top:75.4, since:'1983', site:'경상남도 거제시 연초면 다공2길 27', tel: '055-681-3550', image:"./image/church/거제.jpg"},
-		{name: '원주교회', left: 47.8, top:27.6, since:'1986', site:'강원도 원주시 행가리1길 67 (무실동) ', tel: '033-766-1348', image:"./image/church/원주.jpg"},
-		{name: '수원교회', left: 34, top:32.7, since:'1988', site:'경기도 수원시 권선구 매송고색로533번길 7(오목천동,태산아파트)상가3동 301-304호', tel: '031-293-3504', image:"./image/church/수원.jpg"},
-		{name: '강남교회', left: 34, top:26, since:'1989', site:'서울특별시 강남구 일원로3길 30 (일원동)', tel: '02-459-8557', image:"./image/church/강남.jpg"},
-		{name: '장항서부교회', left: 30.1, top:53.6, since:'1993', site:'충청남도 서천군 장항읍 장항로 91번길 17', tel: '041-956-5746', image:"./image/church/장항서부.jpg"},
-		{name: '분당교회', left: 37.5, top:23.3, since:'1998', site:'경기도 성남시 분당구 벌말로 41 (야탑동) 성원프라자 5층 503호', tel: '031-709-0191', image:"./image/church/분당.jpg"},
-		{name: '천안교회', left: 36.3, top:34.8, since:'1998', site:'충청남도 천안시 서북구 쌍용대로 43 (쌍용동)(유웅선 내과 4층)', tel: '041-568-0568', image:"./image/church/천안.jpg"},
-		{name: '안양교회', left: 33.8, top:23.6, since:'2003', site:'경기도 안양시 만안구 석천로211번길 82 (석수동) 삼우BD 3층', tel: '031-473-0291', image:"./image/church/안양.jpg"},
-		{name: '하남교회', left: 40.4, top:21.2, since:'2010', site:'경기도 하남시 덕산로 68 (덕풍동)(한솔빌딩6층)', tel: '031-795-8183', image:"./image/church/하남.jpg"},
-		{name: '의정부교회', left: 34.8, top:16, since:'2016', site:'경기도 의정부시 가능로 97번길 26', tel: '010-3657-2831', image:"./image/church/의정부.jpg"},
-		{name: '보령기도소', left: 26.9, top:47.6, since:'', site:'충청남도 보령시 명천중앙길 20(명천동) 정은스카이빌 103동1003호', tel: '', image:""},
-		{name: '제주기도소', left: 17, top:93.2, since:'', site:'제주도 제주시 애월읍 하귀1리 143-5', tal: '', image:"./image/church/제주.jpg"},
-		{name: '참예수교회 한국총회', left: 40, top:48.1, since:'', site:'대전광역시 동구 동대전로 110번길 74-10', tel: '042-638-6611', image:"./image/church/총회.jpg"}
+		{name: '전주교회', left: 35.3, top:57.5, since:'1949', site:'전라북도 전주시 완산구 백제대로 20-37(평화동1가)', tel: '063-223-6451', image:"./image/church/jeonju.jpg"},
+		{name: '서도교회', left: 37.7, top:64.7, since:'1949', site:'전라북도 남원시 사매면 노봉길 9', desc: '063-634-8430', image:"./image/church/seodo.jpg"},
+		{name: '동부교회', left: 34, top:23, since:'1949', site:'서울특별시 동대문구 회기로 23가길 12(회기동)', tel: '02-966-4294', image:"./image/church/dongbu.jpg"},
+		{name: '남원교회', left: 39.1, top:66, since:'1952', site:'전라북도 남원시 노송로 1261 (노암동)', tel: '063-625-6219', image:"./image/church/namwon.jpg"},
+		{name: '부산교회', left: 65.8, top:70.5, since:'1954', site:'부산광역시 금정구 서금로 37-10, (서동)', tel: '070-7374-0278', image:"./image/church/busan.jpg"},
+		{name: '대구교회', left: 59.1, top:56.4, since:'1955', site:'대구광역시 동구 신암로14길 3-1 (신암동)', tel: '053-959-7880', image:"./image/church/daegu.jpg"},
+		{name: '대전교회', left: 40, top:47.5, since:'1956', site:'대전시 동구 천동 72-1', tel: '042-283-3865', image:"./image/church/daejeon.jpg"},
+		{name: '대방교회', left: 31, top:25, since:'1957', site:'서울특별시 동작구 알마타길 29(대방동)', tel: '02-815-1344', image:"./image/church/daebang.jpg"},
+		{name: '서천교회', left: 28, top:52.3, since:'1958', site:'충청남도 서천군 서천읍 군청로 81', tel: '953-0725', image:""},
+		{name: '안동교회', left: 60.8, top:40.7, since:'1960', site:'경상북도 안동시 득심골길 32-8 (상아동)', tel: '054-852-3207', image:"./image/church/andong.jpg"},
+		{name: '수문교회', left: 33.2, top:77.9, since:'1963', site:'전라남도 장흥군 안양면 수문4길 6', tel: '061-862-1092', image:"./image/church/sumun.jpg"},
+		{name: '서부교회', left: 31, top:23, since:'1963', site:'서울특별시 은평구 통일로50길 2-2 (녹번동)', tel: '02-355-8851', image:"./image/church/seobu.jpg"},
+		{name: '광주교회', left: 30.1, top:67.7, since:'1965', site:'광주광역시 광산구 목련로394번길 10-12 (신가동)', tel: '062-951-2334', image:"./image/church/gwangju.jpg"},
+		{name: '안산교회', left: 30.8, top:28.3, since:'1968', site:'경기 안산시 상록구 사동 1528-15번지, 2층', tel: '031-408-2301', image:"./image/church/ansan.jpg"},
+		{name: '청주교회', left: 40.2, top:42.2, since:'1969', site:'충청북도 청주시 상당구 영운천로119번길 25 (용정동)', tel: '043-284-3705', image:"./image/church/cheongju.jpg"},
+		{name: '목포교회', left: 22.3, top:78.1, since:'1975', site:'전라남도 목포시 복산길6번길 34 (옥암동)', tel: '061-238-5732', image:"./image/church/mokpo.jpg"},
+		{name: '평택기도소', left: 32.9, top:33.9, since:'1980', site:'경기도 오산시 은여울로7번길 13-3 (궐동)', tel: '373-2641', image:"./image/church/pyeongtaek.jpg"},
+		{name: '광양교회', left: 41.8, top:74.1, since:'1980', site:'전남 광양시 광양읍 덕례리 1673-2', tel: '061-762-0513', image:"./image/church/gwangyang.jpg"},
+		{name: '인천교회', left: 28, top:24.7, since:'1982', site:'인천광역시 남동구 백범로73번길 15 (만수동)', tel: '032-473-1009', image:"./image/church/incheon.jpg"},
+		{name: '거제교회', left: 60.3, top:75.4, since:'1983', site:'경상남도 거제시 연초면 다공2길 27', tel: '070-4143-7834', image:"./image/church/geoje.jpg"},
+		{name: '원주교회', left: 47.8, top:27.6, since:'1986', site:'강원도 원주시 행가리1길 67 (무실동) ', tel: '033-766-1348', image:"./image/church/wonju.jpg"},
+		{name: '수원교회', left: 34, top:32.7, since:'1988', site:'경기도 수원시 권선구 매송고색로533번길 7(오목천동,태산아파트)상가3동 301-304호', tel: '031-293-3504', image:"./image/church/suwon.jpg"},
+		{name: '강남교회', left: 34, top:26, since:'1989', site:'서울특별시 강남구 일원로3길 30 (일원동)', tel: '02-459-8557', image:"./image/church/gangnam.jpg"},
+		{name: '장항서부교회', left: 30.1, top:53.6, since:'1993', site:'충청남도 서천군 장항읍 장항로 91번길 17', tel: '041-956-5746', image:"./image/church/janghang-seobu.jpg"},
+		{name: '분당교회', left: 37.5, top:23.3, since:'1998', site:'경기도 성남시 분당구 벌말로 41 (야탑동) 성원프라자 5층 503호', tel: '031-709-0191', image:"./image/church/bundang.jpg"},
+		{name: '천안교회', left: 36.3, top:34.8, since:'1998', site:'충청남도 천안시 서북구 쌍용대로 43 (쌍용동)(유웅선 내과 4층)', tel: '041-568-0568', image:"./image/church/cheonan.jpg"},
+		{name: '안양교회', left: 33.8, top:23.6, since:'2003', site:'경기도 안양시 만안구 석천로211번길 82 (석수동) 삼우BD 3층', tel: '031-473-0291', image:"./image/church/anyang.jpg"},
+		{name: '하남교회', left: 40.4, top:21.2, since:'2010', site:'경기도 하남시 덕산로 68 (덕풍동)(한솔빌딩6층)', tel: '031-795-8183', image:"./image/church/hanam.jpg"},
+		{name: '의정부교회', left: 34.8, top:16, since:'2016', site:'경기도 의정부시 가능로 97번길 26', tel: '070-8791-9191', image:"./image/church/uijeongbu.jpg"},
+		{name: '보령기도소', left: 26.9, top:47.6, since:'', site:'충청남도 보령시 명천중앙길 20(명천동) 정은스카이빌 103동1003호', tel: '935-6254', image:""},
+		{name: '제주기도소', left: 17, top:93.2, since:'', site:'제주도 제주시 애월읍 하귀1리 143-5', tal: '', image:"./image/church/jeju.jpg"},
+		{name: '참예수교회 한국총회', left: 40, top:48.1, since:'', site:'대전광역시 동구 동대전로 110번길 74-10', tel: '042-638-6611', image:"./image/church/General-Assembly.jpg"}
 	];
 
 	// 우리의 신앙 데이터
@@ -318,7 +327,7 @@
 		{ 
 			subject: "<span>제 2 항</span> 성경에 대한 우리의 믿음", 
 			description: "신,구약 성경은 하나님의 계시로 된 것임을 믿으며, 참 진리의 유일한 근거가 됨과 동시에 신도생활의 기준이 됨을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image02.jpg",
+			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
 			[
 				{
@@ -348,7 +357,7 @@
 		{ 
 			subject: "<span>제 3 항</span> 교회에 대한 우리의 믿음", 
 			description: "본 교회는 예수 그리스도께서 늦은 비 성령으로 세우신 교회로서 사도교회의 부흥된 참 교회임을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image03.jpg",
+			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
 			[
 				{
@@ -378,7 +387,7 @@
 		{ 
 			subject: "<span>제 4 항</span> 세례에 대한 우리의 믿음", 
 			description: "세례(침례)는 죄 사함을 받는 중생의 성례이며 반드시 물과 성령으로 거듭난 자가 주 예수 그리스도의 이름으로 흐르는 물에서 베풀며 받는 자는 머리를 숙이고 전신이 물에 잠기는 침례를 받아야 함을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image04.jpg",
+			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
 			[
 				{
@@ -407,7 +416,7 @@
 		{ 
 			subject: "<span>제 5 항</span> 성령에 대한 우리의 믿음", 
 			description: "성령을 받는 것은 천국의 기업을 얻는 보증이며 방언(영언)을 말하는 것은 성령을 받은 증거가 됨을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image05.jpg",
+			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
 			[
 				{
@@ -436,7 +445,7 @@
 		{ 
 			subject: "<span>제 6 항</span> 세족례에 대한 우리의 믿음", 
 			description: "세족례는 주님과 상관을 맺고 서로 사랑하고 성결, 겸손, 봉사, 용서의 교훈을 가르치는 성례이며 세례(침례)를 받은 모든 신자는 주 예수 그리스도의 이름으로 세족례를 일차 행하며 신자들 상호 간의 세족례는 필요시에 시행할 수 있음을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image06.jpg",
+			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
 			[
 				{
@@ -460,7 +469,7 @@
 		{ 
 			subject: "<span>제 7 항</span> 성찬례에 대한 우리의 믿음", 
 			description: "성찬례는 주의 죽으심을 기념하며 주의 살과 피에 동참하여 주와 연합하고 영생(永生)을 받으며 마지막 날에 부활하는 성례임을 믿는다. 이 성례는 필요할 때마다 거행하며 반드시 한 개의 누룩 없는 떡과 포도즙으로 거행한다.",
-			image_path: "./images/belief/thumb/belief_image07.jpg",
+			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
 			[
 				{
@@ -484,7 +493,7 @@
 		{ 
 			subject: "<span>제 8 항</span> 안식일에 대한 우리의 믿음", 
 			description: "안식일(금요일 일몰부터 토요일 일몰까지)은 하나님께서 복 주신 거룩한 날임을 믿는다. 단, 이 날을 은혜 아래서 하나님의 창조와 구속의 은혜를 기념하고 내세의 영원한 안식을 소망하며 지킨다.",
-			image_path: "./images/belief/thumb/belief_image08.jpg",
+			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
 			[
 				{
@@ -513,7 +522,7 @@
 		{ 
 			subject: "<span>제 9 항</span> 구원에 대한 우리의 믿음", 
 			description: "구원은 본래 하나님의 은혜를 인하여 믿음으로 얻는 것임을 믿는다. 그리고 성령을 힘입어 성결을 이루도록 추구하고 하나님을 경외하며 사람을 사랑하는 성경교훈의 실천에 힘쓴다.",
-			image_path: "./images/belief/thumb/belief_image09.jpg",
+			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
 			[
 				{
@@ -542,7 +551,7 @@
 		{ 
 			subject: "<span>제 10 항</span> 재림에 대한 우리의 믿음", 
 			description: "주 예수 그리스도께서 반드시 세상 끝 날에 하늘로부터 강림하셔서 만민을 심판하시되 의인은 영생을 얻게 하시고 악인은 영벌을 받게 하신다는 것을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image10.jpg",
+			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
 			[
 				{
@@ -571,7 +580,7 @@
 
 
 	// FAQ 데이터
-	let faq_data = {
+	const faq_data = {
 		"01":
 		{ 
 			subject : "교단과 창시자", 
@@ -741,29 +750,33 @@
 		}
 	}
 
-	let BOOKS = [
-		{
-			book_id: "001",
-			book_title: "성경의 핵심 진리",
-			book_img: "./images/book/book001.jpg",
-			book_description: "원본인 중문의 ‘성경의 핵심 진리＇(구 성경요도)는 1960년에 처음 출판되었고 짧은 기간에 2천부가 판매되었다. 서술식이 아닌 요약식의 구성은 본서의 한계를 나타내고 있지만 순수한 성경의 가르침은 오늘날에도 진지하게 성경을 연구하려는 분들에게 좋은 안내자가 될 것이다."
-		},
+	const BOOKS = [
+		// {
+		// 	book_id: "001",
+		// 	book_title: "성경의 핵심 진리",
+		// 	book_img: "./images/book/book001.jpg",
+		// 	book_pdf: "book001",
+		// 	book_description: "원본인 중문의 ‘성경의 핵심 진리＇(구 성경요도)는 1960년에 처음 출판되었고 짧은 기간에 2천부가 판매되었다. 서술식이 아닌 요약식의 구성은 본서의 한계를 나타내고 있지만 순수한 성경의 가르침은 오늘날에도 진지하게 성경을 연구하려는 분들에게 좋은 안내자가 될 것이다."
+		// },
 		{
 			book_id: "002",
 			book_title: "성령론",
 			book_img: "./images/book/book002.jpg",
+			book_pdf: "book002",
 			book_description: "성령론은 대만 참예수교회의 1세대 지도자요 교회 역사의 산 증인이신 사순도 장로님의 역작이다. 오랜 기간 ‘성령보’라는 월간지에 연재된 내용을 단행본으로 출간했고 1913년 한국 참예수교회 빛처럼 출판사에서 출간하게 되었다. 이는 본회의 성령론이 얼마나 성경적인지를 보여주고 성령에 대한 진리를 갈구하는 자들에게 좋은 길잡이가 될 것이다."
 		},
 		{
 			book_id: "003",
 			book_title: "참예수교회 한국설립 70주년 기념호",
 			book_img: "./images/book/book003.jpg",
+			book_pdf: "book003",
 			book_description: "2018년은 참예수교회 한국 총회 선교 70주년이 되는 해이다. 이를 기념하여 참한총의 빛처럼 출판사에서는 그 동안 30주년, 30주년, 50주년 기념호를 총망라하여 70주년 기념호를 발행하게 되었다. 참예수교회의 역사에 대해서 궁금한 분들은 이 한 권으로 그 발자취를 더듬을 수 있을 것이다."
 		},
 		{
 			book_id: "004",
 			book_title: "한국 땅에 임한 성령의 역사",
 			book_img: "./images/book/book004.jpg",
+			book_pdf: "book004",
 			book_description: "2018년은 참예수교회 한국 총회 선교 70주년이 되는 해이다. 이를 기념하여 참한총의 빛처럼 출판사에서는 70주년 기념호의 부록의 성격으로 본 사진집을 발행하게 되었다. 이 사진집은 과거를 추억하는 신도들에게 소중한 자료가 될 것이다."
 		}
 	]
@@ -774,7 +787,7 @@
 		const currentYOffset = yOffset - prevScrollHeight;
 		const scrollHeight = sceneInfo[currentScene].scrollHeight;
 		const scrollRatio = currentYOffset / scrollHeight;
-		console.log(objs.menu_li);
+		// console.log(objs.menu_li);
 
 		switch (currentScene) {
 			case 0:
@@ -783,8 +796,7 @@
 			case 1:     // 역사
                 // objs.slides.style.position = 'fixed';
 				console.log('1 play');
-				//  let sequence2 = Math.round(calcValues(values.imageSequence, currentYOffset));
-				//  objs.context.drawImage(objs.videoImages[sequence2], 0, 0);
+
 				if (scrollRatio <= 0.2) {
 					objs.menu.style.opacity = calcValues(values.menu_opacity_in, currentYOffset);
 					objs.canvas.style.opacity = calcValues(values.canvas_opacity_in, currentYOffset);
@@ -793,12 +805,17 @@
 					objs.canvas.style.opacity = calcValues(values.canvas_opacity_out, currentYOffset);
 				}
 
+				if (scrollRatio <= 0.5) {
+					let sequence2 = Math.round(calcValues(values.imageSequence, currentYOffset));
+					objs.context.drawImage(objs.videoImages[sequence2], 0, 0);
+				}
+
 
                 if(scrollRatio <=0.2) {
 					removeActive();
 					objs.menu_li[0].classList.add('active_on');
 					objs.tit1.style.opacity = calcValues(values.tit1_opacity_in, currentYOffset);
-				
+					
 				} else if(scrollRatio <=0.32) {
 					removeActive();
 					objs.menu_li[1].classList.add('active_on');
@@ -838,29 +855,79 @@
 			break;
             case 2:		// 교회 분포 
 				console.log('2 play');
-				let spots = document.querySelectorAll('#map1 .spot');
 
-				let map_size = sceneInfo[2].objs.map1.style.width;
-				let over_size = parseInt(map_size) - winWith;
+				if(scrollRatio <=0.2) {
+					objs.slidesWrap.style.opacity = calcValues(values.slidesWrap_opacity_in, currentYOffset);
+				} else if(scrollRatio > 0.8 && scrollRatio <=0.95) {
+					objs.slidesWrap.style.opacity = calcValues(values.slidesWrap_opacity_out, currentYOffset);
+				}
+
+				const spots = document.querySelectorAll('#map1 .spot');
+				const spots2 = document.querySelectorAll('#map2 .spot');
+
+				const interval1 = 0.8 / MAPSOPT1.length;
+				const interval2 = 0.8 / MAPSOPT2.length;
+
+
 				for(i = 0; i < spots.length; i++){
-					spots[i].style.opacity = calcValues([0, 1, { start: 0.01*i, end: 0.02*i }], currentYOffset);
-
-					// 좌우 이동
-					if (scrollRatio >=  (i-1) * 0.1 && scrollRatio <  i * 0.1) {
-						objs.fr_map1.scrollLeft = parseInt(over_size * mapSpot[i].left * 0.01);
-					}
+					spots[i].style.opacity = calcValues([0, 1, { start: interval1*i, end: interval1*1.05*i}], currentYOffset);
+				}
+				for(i = 0; i < spots2.length; i++){
+					spots2[i].style.opacity = calcValues([0, 1, { start: interval2*i, end: interval2*1.05*i}], currentYOffset);
 				}
 				
+				console.log("currentYOffset : ", currentYOffset);
+
+				console.log("slide : ", sceneInfo[2].currentSlide);
+				let currentSlide = sceneInfo[2].currentSlide;
+				let fr_map = null;
+				let map = null;
+				let mapSpot = null;
+				if(currentSlide == 0) {
+					fr_map = objs.fr_map1;
+					map = sceneInfo[2].objs.map1;
+					mapSpot = MAPSOPT1;
+					interval = interval1;
+				} else {
+					fr_map = objs.fr_map2;
+					map = sceneInfo[2].objs.map2;
+					mapSpot = MAPSOPT2;
+					interval = interval2;
+				}
+				// 지도 size
+				const map_size = map.style.width;
+				
+				let currentSpot = Math.round(currentYOffset/scrollHeight/interval);
+
+
+				currentSpot = currentSpot >= mapSpot.length ? mapSpot.length -1 : currentSpot;
+				currentSpot = currentSpot < 0 ? 0 : currentSpot;
+
+				// 교회설립연도
+				sceneInfo[2].objs.conYear.innerText = mapSpot[currentSpot].since;
+				sceneInfo[2].objs.conChurch.innerText = mapSpot[currentSpot].name;
+
+				let angle = fr_map.scrollLeft + winWith;
+				currentLeft = mapSpot[currentSpot].left * parseInt(map_size) * 0.01;
+
+				if(currentSpot == 0) fr_map.scrollLeft = currentLeft - winWith / 2;
+
+				if(currentLeft < fr_map.scrollLeft || currentLeft > angle) {
+					console.log("넘어감");
+					fr_map.scrollLeft = currentLeft - winWith / 2;
+				} 
+
+
 			break;
-			case 3:
+			case 3:		// 우리의 신앙
 				console.log('3 play');
 			break;
-			case 4:
+			case 4:		// FAQ
 				console.log('4 play');
 			break;
-			case 5:
+			case 5:		// 발행서적
 				console.log('5 play');
-			break;
+				break;
 			case 6:
 				console.log('6 play');
 			break;
@@ -880,6 +947,7 @@
 	
     function setLayout() {
 		// 각 스크롤 섹션의 높이 세팅
+		console.log("resize");
 		for (let i = 0; i < sceneInfo.length; i++) {
 			if (sceneInfo[i].type === 'sticky') {
 				sceneInfo[i].scrollHeight = sceneInfo[i].heightNum * window.innerHeight;
@@ -895,9 +963,10 @@
                 sceneInfo[i].objs.slidesWrap.style.width = winWith * sceneInfo[i].slides + 'px';
                 sceneInfo[i].objs.slidesWrap.style.height = window.innerHeight+'px';
                 
-                let slideObj = sceneInfo[i].objs.slide;
+				let slideObj = sceneInfo[i].objs.slide;
                 for(let i = 0; i < slideObj.length; i++){
-                    slideObj[i].style.width = winWith+'px';
+					slideObj[i].style.width = winWith+'px';
+					console.log("win : ", winWith+'px');
                 }
                 
             } 
@@ -924,11 +993,17 @@
 		sceneInfo[2].objs.map1.style.width = window.innerHeight * 1.8 + 'px';
 		sceneInfo[2].objs.map2.style.width = window.innerHeight * 1 + 'px';
 		
-		setMapSpot(document.querySelector('#map1'), mapSpot);
-		setMapSpot(document.querySelector('#map2'), mapSpot2);
+		setMapSpot(document.querySelector('#map1'), MAPSOPT1);
+		setMapSpot(document.querySelector('#map2'), MAPSOPT2);
 
-		setFaqContents("01");
+		setFaqContentList("01");
 		setBelieveModal();
+		setBookList();
+
+		//우리의 믿음
+		setBelieveView();
+		//FAQ 
+		setBackground();
 	}
 
 	/***************************** 
@@ -937,11 +1012,17 @@
     
 	// 지도상 Spot 세팅
 	function setMapSpot(mapObj, mapSpotObj){
-		for (let i = 0; i < mapSpot.length; i++){
+		for (let i = 0; i < mapSpotObj.length; i++){
 			
 			let objSpot = document.createElement('div')
 			objSpot.classList.add('spot');
 
+			// Label
+			let objSpotDot = document.createElement('div')
+			objSpotDot.classList.add('dot');
+
+			objSpot.appendChild(objSpotDot);
+			
 			// Label
 			let objSpotLabel = document.createElement('div')
 			objSpotLabel.classList.add('label');
@@ -994,10 +1075,10 @@
 	function currentSlide(){
 		let objs = sceneInfo[2].objs;
 		let currentSlide = sceneInfo[2].currentSlide;
-		var container = document.querySelector('.container');
+		
 		objs.slidesWrap.style.left = currentSlide * winWith * -1 + 'px'
-		container.scrollTop = sceneInfo[0].scrollHeight + sceneInfo[1].scrollHeight;
-		console.log("scrollTop : ", sceneInfo[0].scrollHeight + sceneInfo[1].scrollHeight);
+		document.querySelector('body, html').scrollTop = sceneInfo[0].scrollHeight + sceneInfo[1].scrollHeight;
+		console.log("scrollTop : ", sceneInfo[0].scrollHeight + sceneInfo[1].scrollHeight); 
 		if(currentSlide < 1) {
 			objs.btnPrev.style.display = 'none';
 			objs.btnNext.style.display = 'block';
@@ -1040,6 +1121,8 @@
 
 	// 교회 상세 Popup 세팅
 	function setChurchPopup(i){
+		if(sceneInfo[2].currentSlide == 0) mapSpot = MAPSOPT1;
+		else  mapSpot = MAPSOPT2;
 		let pop = document.querySelector('#church-modal .content02');
 		pop.querySelector('.church-name').innerText = mapSpot[i].name;
 		pop.querySelector('.since').innerText = mapSpot[i].since;
@@ -1053,6 +1136,12 @@
 	******************************/
 
 	// 우리의 믿음 모달 팝업 기본 셋
+	function setBelieveView(){
+		sceneInfo[3].objs.belief_content.style.height = window.innerHeight + 'px';
+
+	}
+
+
 	function setBelieveModal(){
 		let board = sceneInfo[3].objs.belief_board;
 		board.forEach(function(el){
@@ -1106,7 +1195,7 @@
 	******************************/
 
 	// FAQ 컨텐츠 세팅
-	function setFaqContents(num){
+	function setFaqContentList(num){
 
 		sceneInfo[4].objs.faq_subject.innerHTML = faq_data[num].subject;
 		let faq_list = sceneInfo[4].objs.faq_list;
@@ -1137,11 +1226,40 @@
 		if(obj != null) obj.classList.add('current');
 	}
 
-
 	/***************************** 
 	간행물
 	******************************/
 
+	function setBookList(){
+
+		const book_list = sceneInfo[5].objs.book_list;
+		sceneInfo[5].objs.book_list.innerHTML = '';
+		BOOKS.forEach(function(book, idx){
+			let li = document.createElement('li');
+			const html = `<div class="image">
+							<img src="${book.book_img}" />
+						</div>
+						<div class="title">${book.book_title}</div>
+						<p>${book.book_description}</p>
+						<a href="javascript:modalBook(${idx});" class="book_more">
+						<span class="more_link">
+							<span class="more_arr"></span>
+							<span class="more_arr"></span>
+							<span class="more_arr"></span>
+							<span class="more_txt">샘플보기</span>
+						</span>
+						<span class="more_line"></span>`;
+			li.innerHTML = html;
+			book_list.append(li);
+		});
+
+	}
+
+	function modalBook(idx){
+		const pdf = document.querySelector('#pdf_view');
+		pdf.src = `./pdf/web/viewer.html?fileNm=${BOOKS[idx].book_pdf}`;
+		openModal('books_modal');
+	}
 
 
 
@@ -1169,6 +1287,7 @@
 			document.body.setAttribute('id', `show-scene-${currentScene}`);
 		}
 
+
 		if (enterNewScene) return;
         playAnimation();
 	}
@@ -1186,8 +1305,8 @@
 		// 현재 씬(스크롤섹션)에서 스크롤된 범위를 비율로 구하기
 		const scrollHeight = sceneInfo[currentScene].scrollHeight;
 		const scrollRatio = currentYOffset / scrollHeight;
-        console.log("scrollHeight : ", scrollHeight);
-        console.log("scrollRatio : ", scrollRatio);
+        // console.log("scrollHeight : ", scrollHeight);
+        // console.log("scrollRatio : ", scrollRatio);
 		if (values.length === 3) {
 			// start ~ end 사이에 애니메이션 실행
 			const partScrollStart = values[2].start * scrollHeight;
@@ -1273,7 +1392,14 @@
             yOffset = window.pageYOffset;
             scrollLoop();
             checkMenu();
-  			
+			  
+			
+			// Scroll 시 배경 랜덤하게 처리
+			let bg_idx = Math.floor(yOffset / 500);
+			if(bg_idx != setRdbg) setRandomColor();
+			setRdbg = bg_idx;
+
+
             if (!rafState) {
   				rafId = requestAnimationFrame(loop);
   				rafState = true;
@@ -1282,10 +1408,10 @@
 
         window.addEventListener('resize', () => {
             if (window.innerWidth > 900) {
-                setLayout();
+                
                 sceneInfo[3].values.rectStartY = 0;  
             }
-
+			setLayout();
             // Scene 3의 요소들은 위치나 크기가 미리 정해지지 않고
             // 현재 창 사이즈나 스크롤 위치에 따라 가변적으로 변하기 때문에
             // 리사이즈에 일일이 대응시키기가 까다롭습니다.
@@ -1313,12 +1439,35 @@
             setTimeout(setLayout, 500);
 		});
 
+		// 동적 이미지 세팅
+		setCanvasImages();
+
 	});
 	
-	// 동적 이미지 세팅
-	setCanvasImages();
 
-    
+
+	
+	function setBackground(){
+		let bg = document.querySelectorAll('.random-background');
+		for(let i = 0; i < bg.length; i++) {
+			for( let j = 0; j < 20; j ++ ){
+				const child = document.createElement('div');
+				child.classList.add('rand-bg'+j);
+				bg[i].appendChild(child);
+			}
+			setRandomColor();
+		}
+	}
+
+	function setRandomColor(){
+		let bg = document.querySelectorAll('.random-background > div');
+		for(let i = 0; i < bg.length; i++) {
+			bg[i].style.opacity = Math.random()*0.2;
+		}
+	}
+
+	
+
 // })();
 
 
