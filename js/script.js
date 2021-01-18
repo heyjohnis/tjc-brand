@@ -1,4 +1,4 @@
-// (() => {
+ (() => {
     
     
 	let yOffset = 0; // window.pageYOffset 대신 쓸 변수
@@ -867,20 +867,18 @@
 				const spots = document.querySelectorAll('#map1 .spot');
 				const spots2 = document.querySelectorAll('#map2 .spot');
 
-				const interval1 = 0.8 / MAPSOPT1.length;
-				const interval2 = 0.8 / MAPSOPT2.length;
+				const interval1 = 0.7 / MAPSOPT1.length;
+				const interval2 = 0.7 / MAPSOPT2.length;
 
+				const first_percent = 0.1;
 
 				for(i = 0; i < spots.length; i++){
-					spots[i].style.opacity = calcValues([0, 1, { start: interval1*i, end: interval1*1.05*i}], currentYOffset);
+					spots[i].style.opacity = calcValues([0, 1, { start: first_percent + interval1*i, end: first_percent + interval1*1.05*i}], currentYOffset);
 				}
 				for(i = 0; i < spots2.length; i++){
-					spots2[i].style.opacity = calcValues([0, 1, { start: interval2*i, end: interval2*1.05*i}], currentYOffset);
+					spots2[i].style.opacity = calcValues([0, 1, { start: first_percent + interval2*i, end: first_percent + interval2*1.05*i}], currentYOffset);
 				}
-				
-				console.log("currentYOffset : ", currentYOffset);
 
-				console.log("slide : ", sceneInfo[2].currentSlide);
 				let currentSlide = sceneInfo[2].currentSlide;
 				let fr_map = null;
 				let map = null;
@@ -899,7 +897,10 @@
 				// 지도 size
 				const map_size = map.style.width;
 				
-				let currentSpot = Math.round(currentYOffset/scrollHeight/interval);
+				// 시작시 인터벌을 둠으로써 밀리는 현상 방지
+				const first_interval = Math.round(first_percent/interval);
+
+				let currentSpot = Math.round((currentYOffset/scrollHeight/interval)) - first_interval;
 
 
 				currentSpot = currentSpot >= mapSpot.length ? mapSpot.length -1 : currentSpot;
@@ -1475,7 +1476,7 @@
 
 	
 
-// })();
+ })();
 
 
 function openModal(id){
