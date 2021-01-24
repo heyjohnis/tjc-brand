@@ -1,4 +1,8 @@
- (() => {
+if (window.NodeList && !NodeList.prototype.forEach) {
+	NodeList.prototype.forEach = Array.prototype.forEach;
+  } 
+ 
+ (function() {
     
     
 	let yOffset = 0; // window.pageYOffset 대신 쓸 변수
@@ -191,106 +195,104 @@
 		{name: '대만', left: 42.8, top:46.6, since:'1926', site:'http://www.tjc.org.tw', desc: '대만교회 소개'},
 		{name: '싱가폴', left: 38.9, top:60, since:'1927', site:'http://www.truejesuschurch.sg', desc: '싱가폴교회 소개'},
 		{name: '사바', left: 38.9, top:60, since:'1928', site:'', desc: '사바교회 소개'},
-		{name: '말레이지아', left: 38.7, top:61.5, since:'1928', site:'http://', desc: '말레이지아교회 소개'},
+		{name: '말레이지아', left: 38.7, top:61.5, since:'1928', site:'', desc: '말레이지아교회 소개'},
 		{name: '홍콩', left: 41, top:48, since:'1929', site:'http://www.tjchkga.com/Chin/Default.asp', desc: '홍콩교회 소개'},
-		{name: '하와이', left: 45.8, top:46, since:'1930', site:'http://', desc: '하와이교회 소개'},
-		{name: '인도', left: 31.8, top:47.5, since:'1932', site:'http://', desc: '인도교회 소개'},
-		{name: '인도네시아', left: 41, top:64.5, since:'1939', site:'http://', desc: '인도네시아교회 소개'},
+		{name: '하와이', left: 55.8, top:46, since:'1930', site:'', desc: '하와이교회 소개'},
+		{name: '인도', left: 31.8, top:47.5, since:'1932', site:'', desc: '인도교회 소개'},
+		{name: '인도네시아', left: 41, top:64.5, since:'1939', site:'', desc: '인도네시아교회 소개'},
 		{name: '일본', left: 46.5, top:40.5, since:'1947', site:'http://www.tjc.or.jp', desc: '일본교회 소개'},
 		{name: '한국', left: 43.3, top:40, since:'1948', site:'http://www.tjc.or.kr', desc: '한국교회 소개'},
 		{name: '태국', left: 38, top:52, since:'1953', site:'https://www.facebook.com/TJC-Thailand-116920721662481/timeline/', desc: '태국교회 소개'},
-		{name: '브루나이', left: 37, top:52.7, since:'1956', site:'http://', desc: '브루나이교회 소개'},
+		{name: '브루나이', left: 37, top:52.7, since:'1956', site:'', desc: '브루나이교회 소개'},
 		{name: '미국', left: 71, top:40, since:'1969', site:'http://www.tjc.us', desc: '미국교회 소개'},
 		{name: '캐나다', left: 65, top:30, since:'1975', site:'http://tjccanada.org', desc: '캐나다교회 소개'},
 		{name: '영국', left: 11.6, top:31, since:'1976', site:'http://www.tjc.org.uk', desc: '영국교회 소개'},
-		{name: '나이지리아', left: 13.5, top:56.4, since:'1979', site:'http://', desc: '나이지리아교회 소개'},
-		{name: '호주', left: 50, top:80, since:'1982', site:'http://', desc: '호주교회 소개'},
-		{name: '프랑스',left: 12, top:33, since:'1983', site:'http://', desc: '프랑스교회 소개'},
+		{name: '나이지리아', left: 13.5, top:56.4, since:'1979', site:'', desc: '나이지리아교회 소개'},
+		{name: '호주', left: 50, top:80, since:'1982', site:'', desc: '호주교회 소개'},
+		{name: '프랑스',left: 12, top:33, since:'1983', site:'', desc: '프랑스교회 소개'},
 		{name: '필리핀', left: 43, top:52.2, since:'1983', site:'https://www.facebook.com/True-Jesus-church-Mansilingan-Bacolod-City-Philippines-175489899176559/timeline/', desc: '필리핀교회 소개'},
-		{name: '라이베리아',left: 8.8, top:54.7, since:'1985', site:'http://', desc: '라이베리아교회 소개'},
-		{name: '가나',left: 9.7, top:57.4, since:'1985', site:'http://', desc: '가나교회 소개'},
-		{name: '독일', left: 14, top:31, since:'1985', site:'http://', desc: '독일교회 소개'},
-		{name: '아르헨티나',left: 76.2, top:80.3, since:'1989', site:'http://', desc: '아르헨티나교회 소개'},
+		{name: '라이베리아',left: 8.8, top:54.7, since:'1985', site:'', desc: '라이베리아교회 소개'},
+		{name: '가나',left: 9.7, top:57.4, since:'1985', site:'', desc: '가나교회 소개'},
+		{name: '독일', left: 14, top:31, since:'1985', site:'', desc: '독일교회 소개'},
+		{name: '아르헨티나',left: 76.2, top:80.3, since:'1989', site:'', desc: '아르헨티나교회 소개'},
 		{name: '뉴질랜드', left: 53, top:83, since:'1990', site:'http://tjc.org.nz', desc: '뉴질랜드교회 소개'},
-		{name: '사모아', left: 56.4, top:67.7, since:'1990', site:'http://', desc: '사모아교회 소개'},
-		{name: '스페인', left: 10.7, top:37.7, since:'1991', site:'http://', desc: '스페인교회 소개'},
-		{name: '미얀마', left: 36.3, top:48.1, since:'1992', site:'http://', desc: '미얀마교회 소개'},
-		{name: '네델란드', left: 12.9, top:31.4, since:'1992', site:'http://', desc: '네델란드교회 소개'},
-		{name: '벨기에', left: 12.7, top:32, since:'1993', site:'http://', desc: '벨기에교회 소개'},
-		{name: '피지', left: 53.8, top:70.9, since:'1994', site:'http://', desc: '피지교회 소개'},
-		{name: '오스트리아', left: 14.8, top:33.3, since:'1995', site:'http://', desc: '오스트리아교회 소개'},
-		{name: '러시아', left: 31.5, top:23.7, since:'1995', site:'http://', desc: '러시아교회 소개'},
-		{name: '브라질', left: 79, top:68.6, since:'1996', site:'http://', desc: '브라질교회 소개'},
-		{name: '베트남', left: 39.9, top:53, since:'1996', site:'http://', desc: '베트남교회 소개'},
-		{name: '케냐', left: 21.3, top:60.6, since:'1996', site:'http://', desc: '케냐교회 소개'},
-		{name: '볼리비아', left: 75.2, top:70.9, since:'1996', site:'http://', desc: '볼리비아교회 소개'},
-		{name: '남아프리카', left: 17.3, top:77.7, since:'1997', site:'http://', desc: '남아프리카교회 소개'},
-		{name: '도미니카', left: 73.6, top:49.4, since:'1997', site:'http://', desc: '도미니카교회 소개'},
-		{name: '베냉', left: 12, top:55.7, since:'1998', site:'http://', desc: '베냉교회 소개'},
-		{name: '칠레', left: 74.2, top:81.5, since:'1998', site:'http://', desc: '칠레교회 소개'},
-		{name: '북아일랜드', left: 10.1, top:29.4, since:'1998', site:'http://', desc: '북아일랜드교회 소개'},
-		{name: '우간다', left: 20, top:59.7, since:'2000', site:'http://', desc: '우간다교회 소개'},
-		{name: '토고', left: 11.6, top:36.7, since:'2001', site:'http://', desc: '토고교회 소개'},
-		{name: '남아일랜드', left: 9.8, top:30.4, since:'2003', site:'http://', desc: '남아일렌드랜교회 소개'},
-		{name: '시에라리온', left: 8.2, top:56.7, since:'2004', site:'http://', desc: '시에라리온교회 소개'},
-		{name: '탄자니아', left: 20.7, top:64.5, since:'2004', site:'http://', desc: '탄자니아교회 소개'},
-		{name: '콩고', left: 17.7, top:61.5, since:'2004', site:'http://', desc: '콩고교회 소개'},
-		{name: '통가', left: 55.1, top:72.6, since:'2004', site:'http://', desc: '통가교회 소개'},
-		{name: '캄보디아', left: 38.9, top:53.4, since:'2005', site:'http://', desc: '캄보디아교회 소개'},
-		{name: '파라과이', left: 78, top:74.6, since:'2006', site:'http://', desc: '파라과이교회 소개'},
-		{name: '레소토', left: 18.8, top:78.3, since:'2007', site:'http://', desc: '레소토교회 소개'},
-		{name: '잠비아', left: 18.8, top:89.3, since:'2007', site:'http://', desc: '잠비아교회 소개'},
-		{name: '아랍 에미리트', left: 25.7, top:46.4, since:'2007', site:'http://', desc: '아랍 에미리트교회 소개'},
-		{name: '르완다', left: 19.4, top:61.9, since:'2007', site:'http://', desc: '르완다교회 소개'},
-		{name: '마카오', left: 40, top:47.3, since:'2008', site:'http://', desc: '마카오교회 소개'},
-		{name: '이탈리아', left: 14.3, top:35.6, since:'2009', site:'http://', desc: '이탈리아교회 소개'},
-		{name: '그리스', left: 16.9, top:38.6, since:'2010', site:'http://', desc: '그리스교회 소개'},
-		{name: '키프로스', left: 19.8, top:41.1, since:'2010', site:'http://', desc: '키프로스교회 소개'},
-		{name: '파푸아 뉴기니', left: 49.8, top:63.8, since:'2010', site:'http://', desc: '파푸아 뉴기니교회 소개'},
-		{name: '에콰도르', left: 71, top:61.4, since:'2011', site:'http://', desc: '에콰도르교회 소개'},
-		{name: '말라위', left: 20.7, top:75.8, since:'2014', site:'http://', desc: '말라위교회 소개'},
-		{name: '파키스탄', left: 29, top:44.3, since:'2016', site:'http://', desc: '파키스탄교회 소개'}
+		{name: '사모아', left: 56.4, top:67.7, since:'1990', site:'', desc: '사모아교회 소개'},
+		{name: '스페인', left: 10.7, top:37.7, since:'1991', site:'', desc: '스페인교회 소개'},
+		{name: '미얀마', left: 36.3, top:48.1, since:'1992', site:'', desc: '미얀마교회 소개'},
+		{name: '네델란드', left: 12.9, top:31.4, since:'1992', site:'', desc: '네델란드교회 소개'},
+		{name: '벨기에', left: 12.7, top:32, since:'1993', site:'', desc: '벨기에교회 소개'},
+		{name: '피지', left: 53.8, top:70.9, since:'1994', site:'', desc: '피지교회 소개'},
+		{name: '오스트리아', left: 14.8, top:33.3, since:'1995', site:'', desc: '오스트리아교회 소개'},
+		{name: '러시아', left: 31.5, top:23.7, since:'1995', site:'', desc: '러시아교회 소개'},
+		{name: '브라질', left: 79, top:68.6, since:'1996', site:'', desc: '브라질교회 소개'},
+		{name: '베트남', left: 39.9, top:53, since:'1996', site:'', desc: '베트남교회 소개'},
+		{name: '케냐', left: 21.3, top:60.6, since:'1996', site:'', desc: '케냐교회 소개'},
+		{name: '볼리비아', left: 75.2, top:70.9, since:'1996', site:'', desc: '볼리비아교회 소개'},
+		{name: '남아프리카', left: 17.3, top:77.7, since:'1997', site:'', desc: '남아프리카교회 소개'},
+		{name: '도미니카', left: 73.6, top:49.4, since:'1997', site:'', desc: '도미니카교회 소개'},
+		{name: '베냉', left: 12, top:55.7, since:'1998', site:'', desc: '베냉교회 소개'},
+		{name: '칠레', left: 74.2, top:81.5, since:'1998', site:'', desc: '칠레교회 소개'},
+		{name: '북아일랜드', left: 10.1, top:29.4, since:'1998', site:'', desc: '북아일랜드교회 소개'},
+		{name: '우간다', left: 20, top:59.7, since:'2000', site:'', desc: '우간다교회 소개'},
+		{name: '토고', left: 11.6, top:36.7, since:'2001', site:'', desc: '토고교회 소개'},
+		{name: '남아일랜드', left: 9.8, top:30.4, since:'2003', site:'', desc: '남아일렌드랜교회 소개'},
+		{name: '시에라리온', left: 8.2, top:56.7, since:'2004', site:'', desc: '시에라리온교회 소개'},
+		{name: '탄자니아', left: 20.7, top:64.5, since:'2004', site:'', desc: '탄자니아교회 소개'},
+		{name: '콩고', left: 17.7, top:61.5, since:'2004', site:'', desc: '콩고교회 소개'},
+		{name: '통가', left: 55.1, top:72.6, since:'2004', site:'', desc: '통가교회 소개'},
+		{name: '캄보디아', left: 38.9, top:53.4, since:'2005', site:'', desc: '캄보디아교회 소개'},
+		{name: '파라과이', left: 78, top:74.6, since:'2006', site:'', desc: '파라과이교회 소개'},
+		{name: '레소토', left: 18.8, top:78.3, since:'2007', site:'', desc: '레소토교회 소개'},
+		{name: '잠비아', left: 18.8, top:69.3, since:'2007', site:'', desc: '잠비아교회 소개'},
+		{name: '아랍 에미리트', left: 25.7, top:46.4, since:'2007', site:'', desc: '아랍 에미리트교회 소개'},
+		{name: '르완다', left: 19.4, top:61.9, since:'2007', site:'', desc: '르완다교회 소개'},
+		{name: '마카오', left: 40, top:47.3, since:'2008', site:'', desc: '마카오교회 소개'},
+		{name: '이탈리아', left: 14.3, top:35.6, since:'2009', site:'', desc: '이탈리아교회 소개'},
+		{name: '그리스', left: 16.9, top:38.6, since:'2010', site:'', desc: '그리스교회 소개'},
+		{name: '키프로스', left: 19.8, top:41.1, since:'2010', site:'', desc: '키프로스교회 소개'},
+		{name: '파푸아 뉴기니', left: 49.8, top:63.8, since:'2010', site:'', desc: '파푸아 뉴기니교회 소개'},
+		{name: '에콰도르', left: 71, top:61.4, since:'2011', site:'', desc: '에콰도르교회 소개'},
+		{name: '말라위', left: 20.7, top:69.8, since:'2014', site:'', desc: '말라위교회 소개'},
+		{name: '파키스탄', left: 29, top:44.3, since:'2016', site:'', desc: '파키스탄교회 소개'}
 	];
 
 	// 국내교회 정보
-	const MAPSOPT2 = [
-		{name: '김천교회', left: 53, top:83, since:'1947', site:'경상북도 김천시 평화중앙3길 30', tel: '000-000-0000', 	image: "./images/church/gimcheon.jpg"},
-		{name: '삼계교회', left: 53, top:83, since:'1949', site:'전라북도 임실군 삼계면 삼계리 충효로 1315-3', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '쌍치기도소', left: 53, top:83, since:'1949', site:'전라북도 순창군 쌍치면 금성내동길 49-30', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '전주교회', left: 53, top:83, since:'1949', site:'전라북도 전주시 완산구 백제대로 20-37(평화동1가)', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '서도교회', left: 53, top:83, since:'1949', site:'전라북도 남원시 사매면 노봉길 9',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '동부교회', left: 34, top:23, since:'1949', site:'서울특별시 동대문구 회기로 23가길 12(회기동)',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '남원교회', left: 50, top:80, since:'1952', site:'전라북도 남원시 노송로 1261 (노암동)',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '부산교회', left: 53, top:83, since:'1954', site:'부산광역시 금정구 서금로 37-10, (서동)',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '대구교회', left: 53, top:83, since:'1955', site:'대구광역시 동구 신암로14길 3-1 (신암동)',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '대전교회', left: 65, top:30, since:'1956', site:'대전시 동구 천동 72-1 17/3', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '대방교회', left: 31, top:25, since:'1957', site:'서울특별시 동작구 알마타길 29(대방동)', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '서천교회', left: 31, top:25, since:'1958', site:'충청남도 서천군 서천읍 군청로 81', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '안동교회', left: 53, top:83, since:'1960', site:'경상북도 안동시 득심골길 32-8 (상아동)',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '수문교회', left: 53, top:83, since:'1963', site:'전라남도 장흥군 안양면 수문4길 6',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '서부교회', left: 31, top:23, since:'1963', site:'서울특별시 은평구 통일로50길 2-2 (녹번동)', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '광주교회', left: 14, top:31, since:'1965', site:'광주광역시 광산구 목련로394번길 10-12 (신가동)',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '강진교회', left: 11.6, top:31, since:'1966', site:'',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '화산교회', left: 11.6, top:31, since:'1967', site:'전라남도 해남군 화산면 가장길 31-4', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '안산교회', left: 38.7, top:61.5, since:'1968', site:'경기 안산시 상록구 사동 1528-15번지, 2층',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '청주교회', left: 11.6, top:31, since:'1969', site:'충청북도 청주시 상당구 영운천로119번길 25 (용정동)', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '여우치교회', left: 38.7, top:61.5, since:'1971', site:'',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '목포교회', left: 53, top:83, since:'1975', site:'전라남도 목포시 복산길6번길 34 (옥암동)',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '오산교회', left: 41, top:64.5, since:'1980', site:'경기도 오산시 은여울로7번길 13-3 (궐동)', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '광양교회', left: 12, top:33, since:'1980', site:'전남 광양시 광양읍 덕례리 1673-2', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '인천교회', left: 38, top:52, since:'1982', site:'인천광역시 남동구 백범로73번길 15 (만수동)',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '거제교회', left: 50, top:50, since:'1983', site:'경상남도 거제시 연초면 다공2길 27',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '원주교회', left: 53, top:83, since:'1986', site:'강원도 원주시 행가리1길 67 (무실동) ',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '수원교회', left: 38.9, top:60, since:'1988', site:'경기도 수원시 권선구 매송고색로533번길 7(오목천동,태산아파트)상가3동 301-304호',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '강남교회', left: 34, top:26, since:'1989', site:'서울특별시 강남구 일원로3길 30 (일원동)', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '장항서부교회', left: 11.6, top:31, since:'1993', site:'충청남도 서천군 장항읍 장항로 91번길 17',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '분당교회', left: 41, top:48, since:'1998', site:'경기도 성남시 분당구 벌말로 41 (야탑동) 성원프라자 5층 503호',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '천안교회', left: 11.6, top:31, since:'1998', site:'충청남도 천안시 서북구 쌍용대로 43 (쌍용동)(유웅선 내과 4층)', tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '안양교회', left: 42, top:58, since:'2003', site:'경기도 안양시 만안구 석천로211번길 82 (석수동) 삼우BD 3층',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '하남교회', left: 43, top:52.2, since:'2010', site:'경기도 하남시 덕산로 68 (덕풍동)(한솔빌딩6층)',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '의정부교회', left: 71, top:40, since:'2016', site:'경기도 의정부시 가능로 97번길 26',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '보령기도소', left: 11.6, top:31, since:'1919', site:'충청남도 보령시 명천중앙길 20(명천동) 정은스카이빌 103동1003호',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
-		{name: '제주기도소', left: 53, top:83, since:'1919', site:'제주도 제주시 애월읍 하귀1리 143-5',  tel: '000-000-0000', image: "./images/church/gimcheon.jpg"},
+	let MAPSOPT2 = [
+		{name: '김천교회', left: 50, top:50, since:'1947', site:'경상북도 김천시 평화중앙3길 30', tel: '054-434-2071', image:"./images/church/gimcheon.jpg"},
+		{name: '삼계교회', left: 36.7, top:62.9, since:'1949', site:'전라북도 임실군 삼계면 삼계리 충효로 1315-3', tel: '063-642-7619', image:"./images/church/samgye.jpg"},
+		{name: '쌍치기도소', left: 20.3, top:63.3, since:'1949', site:'전라북도 순창군 쌍치면 금성내동길 49-30', tel: '', image:""},
+		{name: '전주교회', left: 35.3, top:57.5, since:'1949', site:'전라북도 전주시 완산구 백제대로 20-37(평화동1가)', tel: '063-223-6451', image:"./images/church/jeonju.jpg"},
+		{name: '서도교회', left: 37.7, top:64.7, since:'1949', site:'전라북도 남원시 사매면 노봉길 9', desc: '063-634-8430', image:"./images/church/seodo.jpg"},
+		{name: '동부교회', left: 34, top:23, since:'1949', site:'서울특별시 동대문구 회기로 23가길 12(회기동)', tel: '02-966-4294', image:"./images/church/dongbu.jpg"},
+		{name: '남원교회', left: 39.1, top:66, since:'1952', site:'전라북도 남원시 노송로 1261 (노암동)', tel: '063-625-6219', image:"./images/church/namwon.jpg"},
+		{name: '부산교회', left: 65.8, top:70.5, since:'1954', site:'부산광역시 금정구 서금로 37-10, (서동)', tel: '070-7374-0278', image:"./images/church/busan.jpg"},
+		{name: '대구교회', left: 59.1, top:56.4, since:'1955', site:'대구광역시 동구 신암로14길 3-1 (신암동)', tel: '053-959-7880', image:"./images/church/daegu.jpg"},
+		{name: '대전교회', left: 40, top:47.5, since:'1956', site:'대전시 동구 천동 72-1', tel: '042-283-3865', image:"./images/church/daejeon.jpg"},
+		{name: '대방교회', left: 31, top:25, since:'1957', site:'서울특별시 동작구 알마타길 29(대방동)', tel: '02-815-1344', image:"./images/church/daebang.jpg"},
+		{name: '서천교회', left: 28, top:52.3, since:'1958', site:'충청남도 서천군 서천읍 군청로 81', tel: '953-0725', image:""},
+		{name: '안동교회', left: 60.8, top:40.7, since:'1960', site:'경상북도 안동시 득심골길 32-8 (상아동)', tel: '054-852-3207', image:"./images/church/andong.jpg"},
+		{name: '수문교회', left: 33.2, top:77.9, since:'1963', site:'전라남도 장흥군 안양면 수문4길 6', tel: '061-862-1092', image:"./images/church/sumun.jpg"},
+		{name: '서부교회', left: 31, top:23, since:'1963', site:'서울특별시 은평구 통일로50길 2-2 (녹번동)', tel: '02-355-8851', image:"./images/church/seobu.jpg"},
+		{name: '광주교회', left: 30.1, top:67.7, since:'1965', site:'광주광역시 광산구 목련로394번길 10-12 (신가동)', tel: '062-951-2334', image:"./images/church/gwangju.jpg"},
+		{name: '안산교회', left: 30.8, top:28.3, since:'1968', site:'경기 안산시 상록구 사동 1528-15번지, 2층', tel: '031-408-2301', image:"./images/church/ansan.jpg"},
+		{name: '청주교회', left: 40.2, top:42.2, since:'1969', site:'충청북도 청주시 상당구 영운천로119번길 25 (용정동)', tel: '043-284-3705', image:"./images/church/cheongju.jpg"},
+		{name: '목포교회', left: 22.3, top:78.1, since:'1975', site:'전라남도 목포시 복산길6번길 34 (옥암동)', tel: '061-238-5732', image:"./images/church/mokpo.jpg"},
+		{name: '평택기도소', left: 32.9, top:33.9, since:'1980', site:'경기도 오산시 은여울로7번길 13-3 (궐동)', tel: '373-2641', image:"./images/church/pyeongtaek.jpg"},
+		{name: '광양교회', left: 41.8, top:74.1, since:'1980', site:'전남 광양시 광양읍 덕례리 1673-2', tel: '061-762-0513', image:"./images/church/gwangyang.jpg"},
+		{name: '인천교회', left: 28, top:24.7, since:'1982', site:'인천광역시 남동구 백범로73번길 15 (만수동)', tel: '032-473-1009', image:"./images/church/incheon.jpg"},
+		{name: '거제교회', left: 60.3, top:75.4, since:'1983', site:'경상남도 거제시 연초면 다공2길 27', tel: '070-4143-7834', image:"./images/church/geoje.jpg"},
+		{name: '원주교회', left: 47.8, top:27.6, since:'1986', site:'강원도 원주시 행가리1길 67 (무실동) ', tel: '033-766-1348', image:"./images/church/wonju.jpg"},
+		{name: '수원교회', left: 34, top:32.7, since:'1988', site:'경기도 수원시 권선구 매송고색로533번길 7(오목천동,태산아파트)상가3동 301-304호', tel: '031-293-3504', image:"./images/church/suwon.jpg"},
+		{name: '강남교회', left: 34, top:26, since:'1989', site:'서울특별시 강남구 일원로3길 30 (일원동)', tel: '02-459-8557', image:"./images/church/gangnam.jpg"},
+		{name: '장항서부교회', left: 30.1, top:53.6, since:'1993', site:'충청남도 서천군 장항읍 장항로 91번길 17', tel: '041-956-5746', image:"./images/church/janghang-seobu.jpg"},
+		{name: '분당교회', left: 37.5, top:23.3, since:'1998', site:'경기도 성남시 분당구 벌말로 41 (야탑동) 성원프라자 5층 503호', tel: '031-709-0191', image:"./images/church/bundang.jpg"},
+		{name: '천안교회', left: 36.3, top:34.8, since:'1998', site:'충청남도 천안시 서북구 쌍용대로 43 (쌍용동)(유웅선 내과 4층)', tel: '041-568-0568', image:"./images/church/cheonan.jpg"},
+		{name: '안양교회', left: 33.8, top:23.6, since:'2003', site:'경기도 안양시 만안구 석천로211번길 82 (석수동) 삼우BD 3층', tel: '031-473-0291', image:"./images/church/anyang.jpg"},
+		{name: '하남교회', left: 40.4, top:21.2, since:'2010', site:'경기도 하남시 덕산로 68 (덕풍동)(한솔빌딩6층)', tel: '031-795-8183', image:"./images/church/hanam.jpg"},
+		{name: '의정부교회', left: 34.8, top:16, since:'2016', site:'경기도 의정부시 가능로 97번길 26', tel: '070-8791-9191', image:"./images/church/uijeongbu.jpg"},
+		{name: '보령기도소', left: 26.9, top:47.6, since:'', site:'충청남도 보령시 명천중앙길 20(명천동) 정은스카이빌 103동1003호', tel: '935-6254', image:""},
+		{name: '제주기도소', left: 17, top:93.2, since:'', site:'제주도 제주시 애월읍 하귀1리 143-5', tal: '', image:"./images/church/jeju.jpg"},
+		{name: '참예수교회 한국총회', left: 40, top:48.1, since:'', site:'대전광역시 동구 동대전로 110번길 74-10', tel: '042-638-6611', image:"./images/church/General-Assembly.jpg"}
 	];
 
 	// 우리의 신앙 데이터
@@ -942,7 +944,7 @@
 		let imgElem;
 		for (let i = 0; i < sceneInfo[1].values.videoImageCount; i++) {
 			imgElem = new Image();
-			imgElem.src = `./video/dove/${1 + i}.png`;
+			imgElem.src = './video/dove/'+ (1 + i) +'.png';
 			sceneInfo[1].objs.videoImages.push(imgElem);
 		}
 	}
@@ -957,7 +959,7 @@
 			} else if (sceneInfo[i].type === 'normal')  {
                 sceneInfo[i].scrollHeight = sceneInfo[i].objs.container.offsetHeight;
 			}
-            sceneInfo[i].objs.container.style.height = `${sceneInfo[i].scrollHeight}px`;
+            sceneInfo[i].objs.container.style.height = sceneInfo[i].scrollHeight + 'px';
             
             // 화면 슬라이드 폭 세팅
             if (sceneInfo[i].slides != null) {
@@ -986,10 +988,10 @@
 			}
 		}
         
-		document.body.setAttribute('id', `show-scene-${currentScene}`);
+		document.body.setAttribute('id', 'show-scene-'+currentScene);
 
 		const heightRatio = window.innerHeight / 1080;
-		sceneInfo[1].objs.canvas.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`;
+		sceneInfo[1].objs.canvas.style.transform = 'translate3d(-50%, -50%, 0) scale('+heightRatio+')';
 
 		
 		// 기타 obj Size Setting
@@ -1039,15 +1041,15 @@
 			objSpot.style.top = mapSpotObj[i].top + '%';
 
 			// Label Show
-			objSpot.addEventListener('mouseover', ()=>{
+			objSpot.addEventListener('mouseover', function(){
 				objSpot.classList.add('show-label');
 			});
-			objSpot.addEventListener('mouseout', ()=>{
+			objSpot.addEventListener('mouseout', function(){
 				objSpot.classList.remove('show-label');
 			});
 
 			// Modal Popup
-			objSpot.addEventListener('click', ()=>{
+			objSpot.addEventListener('click', function(){
 
 				setChurchPopup(i)
 				// 팝업 Select
@@ -1069,7 +1071,7 @@
 			select.appendChild(opt);
 		}
 
-		select.addEventListener('change', (e)=>{
+		select.addEventListener('change', function(e){
 			setChurchPopup(e.target.value);
 		});
 	}
@@ -1093,28 +1095,28 @@
 	}
 
 	// goto 한국교회
-	sceneInfo[2].objs.btnNext.addEventListener('click', ()=>{
+	sceneInfo[2].objs.btnNext.addEventListener('click', function(){
 		sceneInfo[2].currentSlide ++;
 		console.log("sceneInfo[2].currentSlide ++ : ", sceneInfo[2].currentSlide);
 		currentSlide();
 	});
 
 	// goto 세계교회
-	sceneInfo[2].objs.btnPrev.addEventListener('click', ()=>{
+	sceneInfo[2].objs.btnPrev.addEventListener('click', function(){
 		sceneInfo[2].currentSlide --;
 		console.log("sceneInfo[2].currentSlide ++ : ", sceneInfo[2].currentSlide);
 		currentSlide();
 	});
 
 	// Popup 이전 교회
-	sceneInfo[2].objs.btnChPrev.addEventListener('click', ()=>{
+	sceneInfo[2].objs.btnChPrev.addEventListener('click', function(){
 		let i = sceneInfo[2].currentPop - 1; 
 		if (i < 0) i = mapSpot.length - 1;
 		setChurchPopup(i)
 	});
 
 	// Popup 다음 교회
-	sceneInfo[2].objs.btnChNext.addEventListener('click', ()=>{
+	sceneInfo[2].objs.btnChNext.addEventListener('click', function(){
 		let i = sceneInfo[2].currentPop + 1; 
 		if (i > mapSpot.length - 1) i = 0;
 		setChurchPopup(i)
@@ -1218,7 +1220,7 @@
 				if(i == 0) {
 					li.classList.add('current');
 				}
-				faq_list.append(li);
+				faq_list.appendChild(li);
 			}
 		}
 	}
@@ -1244,28 +1246,28 @@
 		sceneInfo[5].objs.book_list.innerHTML = '';
 		BOOKS.forEach(function(book, idx){
 			let li = document.createElement('li');
-			const html = `<div class="image">
-							<img src="${book.book_img}" />
-						</div>
-						<div class="title">${book.book_title}</div>
-						<p>${book.book_description}</p>
-						<a href="javascript:modalBook(${idx});" class="book_more">
-						<span class="more_link">
-							<span class="more_arr"></span>
-							<span class="more_arr"></span>
-							<span class="more_arr"></span>
-							<span class="more_txt">샘플보기</span>
-						</span>
-						<span class="more_line"></span>`;
+			const html = '<div class="image">'
+					+ '<img src="'+book.book_img+'" />'
+					+ '</div>'
+					+ '<div class="title">'+book.book_title+'</div>'
+					+ '<p>'+book.book_description+'</p>'
+					+ '  <a onclick="modalBook('+idx+');" class="book_more">'
+					+ '	<span class="more_link">'
+					+ '		<span class="more_arr"></span>'
+					+ '		<span class="more_arr"></span>'
+					+ '		<span class="more_arr"></span>'
+					+ '		<span class="more_txt">샘플보기</span>'
+					+ '	</span>'
+					+ '	<span class="more_line"></span>';
 			li.innerHTML = html;
-			book_list.append(li);
+			book_list.appendChild(li);
 		});
 
 	}
 
 	function modalBook(idx){
 		const pdf = document.querySelector('#pdf_view');
-		pdf.src = `./pdf/web/viewer.html?fileNm=${BOOKS[idx].book_pdf}`;
+		pdf.src = './pdf/web/viewer.html?fileNm='+BOOKS[idx].book_pdf;
 		openModal('books_modal');
 	}
 
@@ -1284,7 +1286,7 @@
 			if (currentScene < sceneInfo.length - 1) {
 				currentScene++;
 			}
-			document.body.setAttribute('id', `show-scene-${currentScene}`);
+			document.body.setAttribute('id', 'show-scene-'+currentScene);
 		}
 
 		if (delayedYOffset < prevScrollHeight) {
@@ -1292,7 +1294,7 @@
 			// 브라우저 바운스 효과로 인해 마이너스가 되는 것을 방지(모바일)
 			if (currentScene === 0) return;
 			currentScene--;
-			document.body.setAttribute('id', `show-scene-${currentScene}`);
+			document.body.setAttribute('id', 'show-scene-'+currentScene);
 		}
 
 
@@ -1377,14 +1379,14 @@
 		}
 	}
     
-    window.addEventListener('load', () => {
+    window.addEventListener('load', function(){
 		setLayout();
 
 		// 중간에서 새로고침 했을 경우 자동 스크롤로 제대로 그려주기
         let tempYOffset = yOffset;
         let tempScrollCount = 0;
         if (tempYOffset > 0) {
-            let siId = setInterval(() => {
+            let siId = setInterval(function() {
                 scrollTo(0, tempYOffset);
                 tempYOffset += 5;
 
@@ -1396,7 +1398,7 @@
         }
 
     
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             yOffset = window.pageYOffset;
             scrollLoop();
             checkMenu();
@@ -1414,7 +1416,7 @@
   			}
         });
 
-        window.addEventListener('resize', () => {
+        window.addEventListener('resize', function() {
             if (window.innerWidth > 900) {
                 
                 sceneInfo[3].values.rectStartY = 0;  
@@ -1430,7 +1432,7 @@
                 let tempYOffset = yOffset;
                 let tempScrollCount = 0;
                 if (tempYOffset > 0) {
-                    let siId = setInterval(() => {
+                    let siId = setInterval(function() {
                         scrollTo(0, tempYOffset);
                         tempYOffset -= 50;
 
@@ -1441,18 +1443,33 @@
                     }, 20);
                 }
             }
-        });
+		});
+		
 
-        window.addEventListener('orientationchange', () => {
+
+
+
+        window.addEventListener('orientationchange', function(){
             setTimeout(setLayout, 500);
 		});
 
 		// 동적 이미지 세팅
 		setCanvasImages();
 
+
 	});
 	
 
+	// document.addEventListener(
+	// 	'DOMContentLoaded',
+	// 	function (){
+	// 	  const scroller = new SweetScroll({
+	// 		/* some options */
+	// 	  });
+	// 	},
+	// 	false,
+	//   );
+	  	
 
 	
 	function setBackground(){
@@ -1474,6 +1491,8 @@
 		}
 	}
 
+
+
 	
 
  })();
@@ -1485,7 +1504,7 @@ function openModal(id){
 	backdrop.classList.add('backdrop');
 	modal.appendChild(backdrop);
 	modal.classList.add('show-modal');
-	backdrop.addEventListener('click', ()=>{
+	backdrop.addEventListener('click', function(){
 		modal.classList.remove('show-modal');
 		let backdrop = document.querySelector('#'+ id + ' .backdrop');
 		backdrop.remove();
