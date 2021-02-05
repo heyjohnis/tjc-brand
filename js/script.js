@@ -1,8 +1,8 @@
-if (window.NodeList && !NodeList.prototype.forEach) {
-	NodeList.prototype.forEach = Array.prototype.forEach;
-  } 
+// if (window.NodeList && !NodeList.prototype.forEach) {
+// 	NodeList.prototype.forEach = Array.prototype.forEach;
+//   } 
  
- (function() {
+//  (function() {
     
     
 	let yOffset = 0; // window.pageYOffset 대신 쓸 변수
@@ -555,28 +555,28 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 		{ 
 			subject: "<span>제 10 항</span> 재림에 대한 우리의 믿음", 
 			description: "주 예수 그리스도께서 반드시 세상 끝 날에 하늘로부터 강림하셔서 만민을 심판하시되 의인은 영생을 얻게 하시고 악인은 영벌을 받게 하신다는 것을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image01.jpg",
+			image_path: "./images/belief/thumb/belief_image10.jpg",
 			youtube:
 			[
 				{
-					title: "참예수교회 기본신앙 10항 성일론 1부 에덴동산에서 예수님 시대까지의 안식일",
-					url: "https://www.youtube.com/embed/z6tyRRfdaTQ", 
-					thumb: "./images/belief/thumb/belief08_1.jpg"
+					title: "참예수교회 기본신앙 10항 재림관 1부 역사의 종말에 대한 근거들",
+					url: "https://www.youtube.com/embed/hQ50s8mlgOo", 
+					thumb: "./images/belief/thumb/belief10_1.jpg"
 				},
 				{
-					title: "참예수교회 기본신앙 10항 성일론 2부 안식일을 지키는 의미는 이런 것입니다.",
-					url: "https://www.youtube.com/embed/aNwdvjxWZzw", 
-					thumb: "./images/belief/thumb/belief08_1.jpg"
+					title: "참예수교회 기본신앙 10항 재림관 2부 재해와 재앙이 말해주는 역사의 미래",
+					url: "https://www.youtube.com/embed/56RPAKYhIz4", 
+					thumb: "./images/belief/thumb/belief10_1.jpg"
 				},
 				{
-					title: "참예수교회 기본신앙 10항 성일론 3부 일요일에서 안식일로 회복해야 합니다.",
-					url: "https://www.youtube.com/embed/C_T3UzTTqro", 
-					thumb: "./images/belief/thumb/belief08_1.jpg"
+					title: "참예수교회 기본신앙 10항 재림관 3부 말세에 나타날 참과 거짓",
+					url: "https://www.youtube.com/embed/u8iWdbRebhY", 
+					thumb: "./images/belief/thumb/belief10_1.jpg"
 				},
 				{
-					title: "참예수교회 기본신앙 10항 성일론 4부 은혜의 안식일 이렇게 지켜야 합니다.",
-					url: "https://www.youtube.com/embed/OWohU-4yYzk", 
-					thumb: "./images/belief/thumb/belief08_1.jpg"
+					title: "참예수교회 기본신앙 10항 재림관 4부 구원과 심판이 이루어지는 그리스도의 재림",
+					url: "https://www.youtube.com/embed/vvfNuGM92bw", 
+					thumb: "./images/belief/thumb/belief10_1.jpg"
 				},
 			],
 		}
@@ -1495,7 +1495,7 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 
 	
 
- })();
+//  })();
 
 
 function openModal(id){
