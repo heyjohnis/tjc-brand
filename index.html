@@ -7,7 +7,7 @@
 	<title>참예수교회</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>    
 	<script src="//cdn.polyfill.io/v1/polyfill.min.js" async defer></script>
-
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/default.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -375,13 +375,34 @@
 						<div class="image"></div>
 						<div class="youtube" style="display: none;">
 							<div class="btn_close" onclick="closeYoutube()">X</div>
-							<iframe id="ifr_youtube" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe id="ifr_youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 					</div>
 					<div class="belief_con_text">
-						<h3 class="title"></h3>
-						<p class="description"></p>
-						<ul class="youtube_list"></ul>
+						<div>
+							<h3 class="title"></h3>
+							<p class="description"></p>
+						</div>
+						<!-- Swiper -->
+						<div class="swipe">
+							<div class="swiper-button-prev"></div>
+							<div class="swiper-container">
+								<ul class="swiper-wrapper youtube_list">
+									<li class="swiper-slide"></li>
+									<li class="swiper-slide"></li>
+									<li class="swiper-slide"></li>
+									<li class="swiper-slide"></li>
+									<li class="swiper-slide"></li>
+									<li class="swiper-slide"></li>
+								</ul>
+							</div>
+							<div class="swiper-button-next"></div>
+						</div>
+<!--
+						<div>
+							<ul class="youtube_list"></ul>
+						</div>
+-->
 					</div>
 				</div>
             </div>
@@ -389,6 +410,23 @@
 		</section>
 
 		
+
+
+			<!-- Swiper JS -->
+			<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+			<!-- Initialize Swiper -->
+			<script>
+				var swiper = new Swiper('.swiper-container', {
+					slidesPerView: 3,
+					spaceBetween: 10,
+					navigation: {
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev',
+					}
+				});
+			</script>
+
 		<section class="scroll-section section-faq" id="scroll-section-4">
 			<div class="faq_title">
 				<h2>FAQ</h2>                     
