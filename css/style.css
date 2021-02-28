@@ -49,22 +49,34 @@ header{height:100vh;}
 .local-nav-links {
 	display: flex;
 	align-items: center;
-	max-width: 1000px;
+	max-width: 1280px;
 	height: 100%;
 	margin: 0 auto;
 }
 .global-nav-links{justify-content: space-between;}
 .local-nav-links .product-name {
+	display: flex;
+    align-items: center;
     margin-right: auto;
 	font-size: 1.4rem;
 	font-weight: bold;
 }
+.local-nav-links .product-name img {width:50px; margin-right:6px;}
 .local-nav-links a {
-	font-size: 0.8rem;
+	font-size: 0.85rem;
 }
-.local-nav-links a:not(.product-name) {
+
+.local-nav a div{font-size:0.8em}
+
+/* .local-nav-links a:not(.product-name) {
 	margin-left: 2em;
-}
+} */
+
+.local-nav-links .menu{display: inline-flex;}
+.local-nav-links .menu li{display: block; margin-left:2em; text-align: center;}
+.local-nav-links .m_menu{display: none;}
+.local-nav-links .btn_m_menu{display: none;}
+
 
 .sticky-elem-canvas {
 	top: 0;
@@ -637,6 +649,10 @@ align-items: center;
 
 /*960px */
 @media screen and (max-width: 60.063em  ) {
+
+	.local-nav-links .menu li{margin-left:1em;}
+
+
 	h2 {font-size: 3.0rem;}
 	.desc {font-size:0.875em;}
 	.ch_history_mn {font-size: 0.875em;}
@@ -704,6 +720,7 @@ align-items: center;
 
 /*768*/
 @media screen and (max-width: 48.063em ) {
+
 	.modal-popup .content { width: 70%; height: 60%; margin: 27% 15%; display: flex; flex-direction: column;}
 	.history_con_mov {width: 100%;}
 	.history_con_text {width: 100%; padding: 2em 1.5em 2em 1.5em;}
@@ -727,7 +744,19 @@ align-items: center;
 		
 }
 
+/* iPad */
+@media screen and (max-width: 767px ) {
 
+	.local-nav-links .m_menu{display: block; position: absolute; top:0.5em; right:0.5em; z-index:1;}
+	.local-nav-links .btn_m_menu{display: block;}
+
+	.local-nav{position:fixed !important; bottom:auto; top:0;}
+	.local-nav-links .menu {display:block; position: fixed; right:-100%; top:0; width:100%; transition:all 0.5s;}
+	.local-nav-links .btn_m_menu:checked + .menu{right:0;}
+
+
+	.local-nav-links .menu li{width:100%; margin-left:0; background: rgba(255,255,255,.8);}
+}
 
 /*414*/
 @media screen and (max-width: 25.938em ) {

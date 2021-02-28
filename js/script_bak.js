@@ -204,7 +204,7 @@
 		{name: '캐나다', left: 65, top:30, since:'1975', site:'http://tjccanada.org', desc: '캐나다교회 소개'},
 		{name: '영국', left: 11.6, top:31, since:'1976', site:'http://www.tjc.org.uk', desc: '영국교회 소개'},
 		{name: '나이지리아', left: 13.5, top:56.4, since:'1979', site:'', desc: '나이지리아교회 소개'},
-		{name: '호주', left: 50, top:80, since:'1982', site:'', desc: '호주교회 소개'},
+		{name: '호주', left: 50, top:80, since:'1982', site:'https://tjcadelaide.org.au/', desc: '호주교회 소개'},
 		{name: '프랑스',left: 12, top:33, since:'1983', site:'', desc: '프랑스교회 소개'},
 		{name: '필리핀', left: 43, top:52.2, since:'1983', site:'https://www.facebook.com/True-Jesus-church-Mansilingan-Bacolod-City-Philippines-175489899176559/timeline/', desc: '필리핀교회 소개'},
 		{name: '라이베리아',left: 8.8, top:54.7, since:'1985', site:'', desc: '라이베리아교회 소개'},
@@ -327,7 +327,7 @@
 		{ 
 			subject: "<span>제 2 항</span> 성경에 대한 우리의 믿음", 
 			description: "신,구약 성경은 하나님의 계시로 된 것임을 믿으며, 참 진리의 유일한 근거가 됨과 동시에 신도생활의 기준이 됨을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image01.jpg",
+			image_path: "./images/belief/thumb/belief_image02.jpg",
 			youtube:
 			[
 				{
@@ -357,7 +357,7 @@
 		{ 
 			subject: "<span>제 3 항</span> 교회에 대한 우리의 믿음", 
 			description: "본 교회는 예수 그리스도께서 늦은 비 성령으로 세우신 교회로서 사도교회의 부흥된 참 교회임을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image01.jpg",
+			image_path: "./images/belief/thumb/belief_image03.jpg",
 			youtube:
 			[
 				{
@@ -387,7 +387,7 @@
 		{ 
 			subject: "<span>제 4 항</span> 세례에 대한 우리의 믿음", 
 			description: "세례(침례)는 죄 사함을 받는 중생의 성례이며 반드시 물과 성령으로 거듭난 자가 주 예수 그리스도의 이름으로 흐르는 물에서 베풀며 받는 자는 머리를 숙이고 전신이 물에 잠기는 침례를 받아야 함을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image01.jpg",
+			image_path: "./images/belief/thumb/belief_image04.jpg",
 			youtube:
 			[
 				{
@@ -416,7 +416,7 @@
 		{ 
 			subject: "<span>제 5 항</span> 성령에 대한 우리의 믿음", 
 			description: "성령을 받는 것은 천국의 기업을 얻는 보증이며 방언(영언)을 말하는 것은 성령을 받은 증거가 됨을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image01.jpg",
+			image_path: "./images/belief/thumb/belief_image05.jpg",
 			youtube:
 			[
 				{
@@ -445,7 +445,7 @@
 		{ 
 			subject: "<span>제 6 항</span> 세족례에 대한 우리의 믿음", 
 			description: "세족례는 주님과 상관을 맺고 서로 사랑하고 성결, 겸손, 봉사, 용서의 교훈을 가르치는 성례이며 세례(침례)를 받은 모든 신자는 주 예수 그리스도의 이름으로 세족례를 일차 행하며 신자들 상호 간의 세족례는 필요시에 시행할 수 있음을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image01.jpg",
+			image_path: "./images/belief/thumb/belief_image06.jpg",
 			youtube:
 			[
 				{
@@ -469,7 +469,7 @@
 		{ 
 			subject: "<span>제 7 항</span> 성찬례에 대한 우리의 믿음", 
 			description: "성찬례는 주의 죽으심을 기념하며 주의 살과 피에 동참하여 주와 연합하고 영생(永生)을 받으며 마지막 날에 부활하는 성례임을 믿는다. 이 성례는 필요할 때마다 거행하며 반드시 한 개의 누룩 없는 떡과 포도즙으로 거행한다.",
-			image_path: "./images/belief/thumb/belief_image01.jpg",
+			image_path: "./images/belief/thumb/belief_image07.jpg",
 			youtube:
 			[
 				{
@@ -493,7 +493,7 @@
 		{ 
 			subject: "<span>제 8 항</span> 안식일에 대한 우리의 믿음", 
 			description: "안식일(금요일 일몰부터 토요일 일몰까지)은 하나님께서 복 주신 거룩한 날임을 믿는다. 단, 이 날을 은혜 아래서 하나님의 창조와 구속의 은혜를 기념하고 내세의 영원한 안식을 소망하며 지킨다.",
-			image_path: "./images/belief/thumb/belief_image01.jpg",
+			image_path: "./images/belief/thumb/belief_image08.jpg",
 			youtube:
 			[
 				{
@@ -522,28 +522,23 @@
 		{ 
 			subject: "<span>제 9 항</span> 구원에 대한 우리의 믿음", 
 			description: "구원은 본래 하나님의 은혜를 인하여 믿음으로 얻는 것임을 믿는다. 그리고 성령을 힘입어 성결을 이루도록 추구하고 하나님을 경외하며 사람을 사랑하는 성경교훈의 실천에 힘쓴다.",
-			image_path: "./images/belief/thumb/belief_image01.jpg",
+			image_path: "./images/belief/thumb/belief_image09.jpg",
 			youtube:
 			[
 				{
-					title: "참예수교회 기본신앙 9항 성일론 1부 에덴동산에서 예수님 시대까지의 안식일",
-					url: "https://www.youtube.com/embed/z6tyRRfdaTQ", 
-					thumb: "./images/belief/thumb/belief08_1.jpg"
+					title: "참예수교회 기본신앙 9항 구원론 1부 구원은 하나님의 은혜로 주어지는 것입니다.",
+					url: "https://www.youtube.com/embed/TmhZXHbyK54", 
+					thumb: "./images/belief/thumb/belief09_1.jpg"
 				},
 				{
-					title: "참예수교회 기본신앙 9항 성일론 2부 안식일을 지키는 의미는 이런 것입니다.",
-					url: "https://www.youtube.com/embed/aNwdvjxWZzw", 
-					thumb: "./images/belief/thumb/belief08_1.jpg"
+					title: "참예수교회 기본신앙 9항 구원론 2부 구원은 믿음으로 응답할 때 주어지는 것입니다.",
+					url: "https://www.youtube.com/embed/cTPU6BZ32TA", 
+					thumb: "./images/belief/thumb/belief09_1.jpg"
 				},
 				{
-					title: "참예수교회 기본신앙 9항 성일론 3부 일요일에서 안식일로 회복해야 합니다.",
-					url: "https://www.youtube.com/embed/C_T3UzTTqro", 
-					thumb: "./images/belief/thumb/belief08_1.jpg"
-				},
-				{
-					title: "참예수교회 기본신앙 9항 성일론 4부 은혜의 안식일 이렇게 지켜야 합니다.",
-					url: "https://www.youtube.com/embed/OWohU-4yYzk", 
-					thumb: "./images/belief/thumb/belief08_1.jpg"
+					title: "참예수교회 기본신앙 9항 구원론 3부 구원의 완성을 향해 나아가는 성도의 삶",
+					url: "https://www.youtube.com/embed/Y6MsmWCWSO8", 
+					thumb: "./images/belief/thumb/belief09_1.jpg"
 				},
 			],
 		},
@@ -551,28 +546,28 @@
 		{ 
 			subject: "<span>제 10 항</span> 재림에 대한 우리의 믿음", 
 			description: "주 예수 그리스도께서 반드시 세상 끝 날에 하늘로부터 강림하셔서 만민을 심판하시되 의인은 영생을 얻게 하시고 악인은 영벌을 받게 하신다는 것을 믿는다.",
-			image_path: "./images/belief/thumb/belief_image01.jpg",
+			image_path: "./images/belief/thumb/belief_image10.jpg",
 			youtube:
 			[
 				{
-					title: "참예수교회 기본신앙 10항 성일론 1부 에덴동산에서 예수님 시대까지의 안식일",
-					url: "https://www.youtube.com/embed/z6tyRRfdaTQ", 
-					thumb: "./images/belief/thumb/belief08_1.jpg"
+					title: "참예수교회 기본신앙 10항 재림관 1부 역사의 종말에 대한 근거들",
+					url: "https://www.youtube.com/embed/hQ50s8mlgOo", 
+					thumb: "./images/belief/thumb/belief10_1.jpg"
 				},
 				{
-					title: "참예수교회 기본신앙 10항 성일론 2부 안식일을 지키는 의미는 이런 것입니다.",
-					url: "https://www.youtube.com/embed/aNwdvjxWZzw", 
-					thumb: "./images/belief/thumb/belief08_1.jpg"
+					title: "참예수교회 기본신앙 10항 재림관 2부 재해와 재앙이 말해주는 역사의 미래",
+					url: "https://www.youtube.com/embed/56RPAKYhIz4", 
+					thumb: "./images/belief/thumb/belief10_1.jpg"
 				},
 				{
-					title: "참예수교회 기본신앙 10항 성일론 3부 일요일에서 안식일로 회복해야 합니다.",
-					url: "https://www.youtube.com/embed/C_T3UzTTqro", 
-					thumb: "./images/belief/thumb/belief08_1.jpg"
+					title: "참예수교회 기본신앙 10항 재림관 3부 말세에 나타날 참과 거짓",
+					url: "https://www.youtube.com/embed/u8iWdbRebhY", 
+					thumb: "./images/belief/thumb/belief10_1.jpg"
 				},
 				{
-					title: "참예수교회 기본신앙 10항 성일론 4부 은혜의 안식일 이렇게 지켜야 합니다.",
-					url: "https://www.youtube.com/embed/OWohU-4yYzk", 
-					thumb: "./images/belief/thumb/belief08_1.jpg"
+					title: "참예수교회 기본신앙 10항 재림관 4부 구원과 심판이 이루어지는 그리스도의 재림",
+					url: "https://www.youtube.com/embed/vvfNuGM92bw", 
+					thumb: "./images/belief/thumb/belief10_1.jpg"
 				},
 			],
 		}
@@ -1302,7 +1297,7 @@
     
 	function calcValues(values, currentYOffset) {
 		let rv;
-		// 현재 씬(스크롤섹션)에서 스크롤된 범위를 비율로 구하기
+		// 현재 씬(스크롤섹션)에서 스크롤된 범위를 비���로 구하기
 		const scrollHeight = sceneInfo[currentScene].scrollHeight;
 		const scrollRatio = currentYOffset / scrollHeight;
         // console.log("scrollHeight : ", scrollHeight);

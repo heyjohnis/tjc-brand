@@ -20,31 +20,37 @@
 
        <nav class="local-nav">
             <div class="local-nav-links">
-                <a href="#" class="product-name">참예수교회</a>
-                <a href="#scroll-section-1" data-scroll>
-                    교회역사
-                    <div>사도교회부터</div>
-                </a>
-                <a href="#scroll-section-2" data-scroll>
-                    교회분포
-                    <div>열방 가운데 교회</div>
-                </a>
-                <a href="#scroll-section-3" data-scroll>
-                    우리의 신앙
-                    <div>우리의 10가지 신앙</div> 
-                </a>
-                <a href="#scroll-section-4" data-scroll>
-                    FAQ
-                    <div>자주 찾은 질문</div>  
-                </a>
-                <a href="#scroll-section-5" data-scroll>
-                    간행물
-                    <div>대표 간행물 소개</div>
-                </a>
-                <a href="#scroll-section-6">
-                    커뮤니티
-                    <div>우리의 활동</div>
-                </a>
+                <a href="#" class="product-name"><img src="images/logo.svg" alt="logo image"/>참예수교회</a>
+
+				<label class="m_menu" for="m_menu">모바일버튼</label>
+				<input class="btn_m_menu" type="checkbox" id="m_menu" />
+
+				<ul class="menu">
+					<li><a href="#scroll-section-1" data-scroll>
+						교회역사
+						<div>사도교회부터</div>
+						</a></li>
+					<li><a href="#scroll-section-2" data-scroll>
+						교회분포
+						<div>열방 가운데 교회</div>
+						</a></li>
+					<li><a href="#scroll-section-3" data-scroll>
+						우리의 신앙
+						<div>우리의 10가지 신앙</div> 
+					</a></li>
+					<li><a href="#scroll-section-4" data-scroll>
+						FAQ
+						<div>자주 찾은 질문</div>  
+						</a></li>
+					<li><a href="#scroll-section-5" data-scroll>
+						간행물
+						<div>대표 간행물 소개</div>
+						</a></li>
+					<li><a href="#scroll-section-6">
+						커뮤니티
+						<div>우리의 활동</div>
+						</a></li>
+				</ul>
             </div>
         </nav>
         
@@ -287,7 +293,7 @@
             </div>
             <div class="modal-popup" id="church-modal">
                 <div class="content02">
-                    <div class="church-pic"><img src="./images/church/blanck.jpg"/></div>
+                    <div class="church-pic"><img src="./images/church/blank.pnga"/></div>
                     <ul>
                         <li class="church-name">교회이름</li>
                         <li class="since">설립년도</li>
@@ -410,23 +416,6 @@
 		</section>
 
 		
-
-
-			<!-- Swiper JS -->
-			<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-			<!-- Initialize Swiper -->
-			<script>
-				var swiper = new Swiper('.swiper-container', {
-					slidesPerView: 3,
-					spaceBetween: 10,
-					navigation: {
-						nextEl: '.swiper-button-next',
-						prevEl: '.swiper-button-prev',
-					}
-				});
-			</script>
-
 		<section class="scroll-section section-faq" id="scroll-section-4">
 			<div class="faq_title">
 				<h2>FAQ</h2>                     
@@ -577,10 +566,22 @@
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
-<scritpt>
 
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-</scritpt>
+<!-- Initialize Swiper -->
+<script>
+	var swiper = new Swiper('.swiper-container', {
+		slidesPerView: 3,
+		spaceBetween: 10,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		}
+	});
+</script>
+
 <!-- <script src="js/youtube.js"></script> -->
 <script src="js/sweet-scroll.min.js"></script>
 <script src="js/script.js"></script>

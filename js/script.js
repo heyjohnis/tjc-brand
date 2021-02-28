@@ -299,7 +299,7 @@
 	let belief_data = {
 		"01":
 		{ 
-			subject: "<span>제 1 항</span> 하나님에 대한 우리의 믿음", 
+			subject: "<span class='belief_no'>제 1 항</span> 하나님에 대한 우리의 믿음", 
 			description: "예수 그리스도께서는 말씀이 육신이 되어 죄인을 구속하시기 위하여 십자가 위에서 대신 죽으시고 삼 일만에 부활, 승천하신 것을 믿으며 그분은 인류의 유일하신 구주시며 천지의 주재시고 홀로 하나이신 참 하나님이심을 믿는다.",
 			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
@@ -329,7 +329,7 @@
 
 		"02":
 		{ 
-			subject: "<span>제 2 항</span> 성경에 대한 우리의 믿음", 
+			subject: "<span class='belief_no'>제 2 항</span> 성경에 대한 우리의 믿음", 
 			description: "신,구약 성경은 하나님의 계시로 된 것임을 믿으며, 참 진리의 유일한 근거가 됨과 동시에 신도생활의 기준이 됨을 믿는다.",
 			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
@@ -359,7 +359,7 @@
 
 		"03":
 		{ 
-			subject: "<span>제 3 항</span> 교회에 대한 우리의 믿음", 
+			subject: "<span class='belief_no'>제 3 항</span> 교회에 대한 우리의 믿음", 
 			description: "본 교회는 예수 그리스도께서 늦은 비 성령으로 세우신 교회로서 사도교회의 부흥된 참 교회임을 믿는다.",
 			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
@@ -389,7 +389,7 @@
 
 		"04":
 		{ 
-			subject: "<span>제 4 항</span> 세례에 대한 우리의 믿음", 
+			subject: "<span class='belief_no'>제 4 항</span> 세례에 대한 우리의 믿음", 
 			description: "세례(침례)는 죄 사함을 받는 중생의 성례이며 반드시 물과 성령으로 거듭난 자가 주 예수 그리스도의 이름으로 흐르는 물에서 베풀며 받는 자는 머리를 숙이고 전신이 물에 잠기는 침례를 받아야 함을 믿는다.",
 			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
@@ -418,7 +418,7 @@
 		},
 	"05":
 		{ 
-			subject: "<span>제 5 항</span> 성령에 대한 우리의 믿음", 
+			subject: "<span class='belief_no'>제 5 항</span> 성령에 대한 우리의 믿음", 
 			description: "성령을 받는 것은 천국의 기업을 얻는 보증이며 방언(영언)을 말하는 것은 성령을 받은 증거가 됨을 믿는다.",
 			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
@@ -447,7 +447,7 @@
 		},
 	"06":
 		{ 
-			subject: "<span>제 6 항</span> 세족례에 대한 우리의 믿음", 
+			subject: "<span class='belief_no'>제 6 항</span> 세족례에 대한 우리의 믿음", 
 			description: "세족례는 주님과 상관을 맺고 서로 사랑하고 성결, 겸손, 봉사, 용서의 교훈을 가르치는 성례이며 세례(침례)를 받은 모든 신자는 주 예수 그리스도의 이름으로 세족례를 일차 행하며 신자들 상호 간의 세족례는 필요시에 시행할 수 있음을 믿는다.",
 			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
@@ -471,7 +471,7 @@
 		},
 		"07":
 		{ 
-			subject: "<span>제 7 항</span> 성찬례에 대한 우리의 믿음", 
+			subject: "<span class='belief_no'>제 7 항</span> 성찬례에 대한 우리의 믿음", 
 			description: "성찬례는 주의 죽으심을 기념하며 주의 살과 피에 동참하여 주와 연합하고 영생(永生)을 받으며 마지막 날에 부활하는 성례임을 믿는다. 이 성례는 필요할 때마다 거행하며 반드시 한 개의 누룩 없는 떡과 포도즙으로 거행한다.",
 			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
@@ -495,7 +495,7 @@
 		},
 		"08":
 		{ 
-			subject: "<span>제 8 항</span> 안식일에 대한 우리의 믿음", 
+			subject: "<span class='belief_no'>제 8 항</span> 안식일에 대한 우리의 믿음", 
 			description: "안식일(금요일 일몰부터 토요일 일몰까지)은 하나님께서 복 주신 거룩한 날임을 믿는다. 단, 이 날을 은혜 아래서 하나님의 창조와 구속의 은혜를 기념하고 내세의 영원한 안식을 소망하며 지킨다.",
 			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
@@ -524,7 +524,7 @@
 		},
 		"09":
 		{ 
-			subject: "<span>제 9 항</span> 구원에 대한 우리의 믿음", 
+			subject: "<span class='belief_no'>제 9 항</span> 구원에 대한 우리의 믿음", 
 			description: "구원은 본래 하나님의 은혜를 인하여 믿음으로 얻는 것임을 믿는다. 그리고 성령을 힘입어 성결을 이루도록 추구하고 하나님을 경외하며 사람을 사랑하는 성경교훈의 실천에 힘쓴다.",
 			image_path: "./images/belief/thumb/belief_image01.jpg",
 			youtube:
@@ -553,7 +553,7 @@
 		},
 		"10":
 		{ 
-			subject: "<span>제 10 항</span> 재림에 대한 우리의 믿음", 
+			subject: "<span class='belief_no'>제 10 항</span> 재림에 대한 우리의 믿음", 
 			description: "주 예수 그리스도께서 반드시 세상 끝 날에 하늘로부터 강림하셔서 만민을 심판하시되 의인은 영생을 얻게 하시고 악인은 영벌을 받게 하신다는 것을 믿는다.",
 			image_path: "./images/belief/thumb/belief_image10.jpg",
 			youtube:
