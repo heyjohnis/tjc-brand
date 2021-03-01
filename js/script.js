@@ -8,6 +8,7 @@
 	let yOffset = 0; // window.pageYOffset 대신 쓸 변수
 	let prevScrollHeight = 0; // 현재 스크롤 위치(yOffset)보다 이전에 위치한 스크롤 섹션들의 스크롤 높이값의 합
 	let currentScene = 0; // 현재 활성화된(눈 앞에 보고있는) 씬(scroll-section)
+	let currentYOffset = 0;
 	let enterNewScene = false; // 새로운 scene이 시작된 순간 true
 	let acc = 0.2;
 	let delayedYOffset = 0;
@@ -53,33 +54,33 @@
 			},
 			values: {
 				videoImageCount: 30,
-				imageSequence: [0, 30, { start: 0, end: 0.55 }],
+				imageSequence: [0, 30],
 				randBg_opacity_in: [0, 1, { start: 0, end: 0.1 }],
 				canvas_opacity_in: [0, 1, { start: 0, end: 0.1 }],
 				canvas_opacity_out: [1, 0, { start: 0.45, end: 0.48 }],
 
                 menu_opacity_in: [0, 1, { start: 0, end: 0.05 }],
 
-				tit1_opacity_in: [0, 1, { start: 0.125, end: 0.175 }],
-				tit1_opacity_out: [1, 0, { start: 0.22, end: 0.27 }],
+				tit1_opacity_in: [0, 1, { start: 0.1, end: 0.12 }],
+				tit1_opacity_out: [1, 0, { start: 0.205, end: 0.225 }],
 
-				tit2_opacity_in: [0, 1, { start: 0.25, end: 0.3 }],                
-				tit2_opacity_out: [1, 0, { start: 0.345, end: 0.395 }],
+				tit2_opacity_in: [0, 1, { start: 0.225, end: 0.245 }],                
+				tit2_opacity_out: [1, 0, { start: 0.333, end: 0.350 }],
 
-				tit3_opacity_in: [0, 1, { start: 0.375, end: 0.425 }],
-				tit3_opacity_out: [1, 0, { start: 0.48, end: 0.52 }],
+				tit3_opacity_in: [0, 1, { start: 0.350, end: 0.370 }],
+				tit3_opacity_out: [1, 0, { start: 0.455, end: 0.475 }],
 
-				tit4_opacity_in: [0, 1, { start: 0.5, end: 0.55 }],
-				tit4_opacity_out: [1, 0, { start: 0.615, end: 0.645 }],
+				tit4_opacity_in: [0, 1, { start: 0.475, end: 0.495 }],
+				tit4_opacity_out: [1, 0, { start: 0.580, end: 0.600 }],
 				
-				tit5_opacity_in: [0, 1, { start: 0.625, end: 0.65 }],
-				tit5_opacity_out: [1, 0, { start: 0.67, end: 0.72 }],
+				tit5_opacity_in: [0, 1, { start: 0.600, end: 0.620 }],
+				tit5_opacity_out: [1, 0, { start: 0.705, end: 0.725 }],
 
-				tit6_opacity_in: [0, 1, { start: 0.75, end: 0.8 }],
-				tit6_opacity_out: [1, 0, { start: 0.845, end: 0.895 }],
+				tit6_opacity_in: [0, 1, { start: 0.725, end: 0.745 }],
+				tit6_opacity_out: [1, 0, { start: 0.830, end: 0.850 }],
 
-				tit7_opacity_in: [0, 1, { start: 0.875, end: 0.925 }],
-				tit7_opacity_out: [1, 0, { start: 0.9, end: 1.0 }],
+				// tit7_opacity_in: [0, 1, { start: 0.895, end: 0.925 }],
+				// tit7_opacity_out: [1, 0, { start: 0.9, end: 0.98 }],
 
 								
 
@@ -88,7 +89,7 @@
 		{
 			// 2 : 교회분포
 			type: 'sticky',
-			heightNum: 8,
+			heightNum: 14,
 			scrollHeight: 0,
 			slides: 2,
 			currentSlide: 0,
@@ -113,18 +114,19 @@
 			},
 			values: {
 				slidesWrap_opacity_in: [0, 1, { start: 0, end: 0.1 }],
-				slidesWrap_opacity_out: [1, 0, { start: 0.8, end: 0.95 }],
+				slidesWrap_opacity_out: [1, 0, { start: 0.8, end: 0.94 }],
 			}
 		},
 		{
 			// 3 : 우리의 믿음 
 			type: 'sticky',
-			heightNum: 1,
+			heightNum: 10,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-3'),
-				belief_content: document.querySelector('#scroll-section-3 .belief_board'),
-				belief_board: document.querySelectorAll('#scroll-section-3 .belief_board .belief'),
+				belief_content: document.querySelector('#scroll-section-3 .content'),
+				belief_board: document.querySelector('#scroll-section-3 .belief_board'),
+				belief_obj: document.querySelectorAll('#scroll-section-3 .belief_board .belief'),
 				belief_menu_set: document.querySelector('#scroll-section-3 .belief_menu'),
 				belief_menu: document.querySelectorAll('#scroll-section-3 .belief_menu .ico_belief'),
 				modal_title: document.querySelector('#belief_modal .title'),
@@ -138,14 +140,18 @@
 			},
 			values: {
 				belief_board_opacity_in: [0, 1, { start: 0, end: 0.2 }],
-				belief_menu_opacity_in: [0, 1, { start: 0.1, end: 0.25 }],
+				belief_board_opacity_out: [1, 0, { start: 0.9, end: 0.98}],
+				belief_content_opacity_in: [0, 1, { start: 0, end: 0.2 }],
+				belief_content_opacity_out: [1, 0, { start: 0.9, end: 0.98}],
+				belief_menu_set_opacity_in: [0, 1, { start: 0, end: 0.2 }],
+				belief_menu_set_opacity_out: [1, 0, { start: 0.9, end: 0.98}],
 
 			}
 		},
 		{
 			// 4 : FAQ
 			type: 'sticky',
-			heightNum: 1,
+			heightNum: 10,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-4'),
@@ -164,7 +170,7 @@
 		{
 			// 5 : 간행물
 			type: 'sticky',
-			heightNum: 1,
+			heightNum: 5,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-5'),
@@ -179,7 +185,7 @@
 		{
 			// 6
 			type: 'sticky',
-			heightNum: 1,
+			heightNum: 2,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-6'),
@@ -194,7 +200,7 @@
 		{name: '중국', left: 41, top:41, since:'1919', site:'http://www.tjc.org.cn', desc: '중국교회 소개'},
 		{name: '대만', left: 42.8, top:46.6, since:'1926', site:'http://www.tjc.org.tw', desc: '대만교회 소개'},
 		{name: '싱가폴', left: 38.9, top:60, since:'1927', site:'http://www.truejesuschurch.sg', desc: '싱가폴교회 소개'},
-		{name: '사바', left: 38.9, top:60, since:'1928', site:'', desc: '사바교회 소개'},
+		{name: '사바', left: 42, top:58, since:'1928', site:'', desc: '사바교회 소개'},
 		{name: '말레이지아', left: 38.7, top:61.5, since:'1928', site:'', desc: '말레이지아교회 소개'},
 		{name: '홍콩', left: 41, top:48, since:'1929', site:'http://www.tjchkga.com/Chin/Default.asp', desc: '홍콩교회 소개'},
 		{name: '하와이', left: 55.8, top:46, since:'1930', site:'', desc: '하와이교회 소개'},
@@ -257,7 +263,7 @@
 	];
 
 	// 국내교회 정보
-	let MAPSOPT2 = [
+	const MAPSOPT2 = [
 		{name: '김천교회', left: 50, top:50, since:'1947', site:'경상북도 김천시 평화중앙3길 30', tel: '054-434-2071', image:"./images/church/gimcheon.jpg"},
 		{name: '삼계교회', left: 36.7, top:62.9, since:'1949', site:'전라북도 임실군 삼계면 삼계리 충효로 1315-3', tel: '063-642-7619', image:"./images/church/samgye.jpg"},
 		{name: '쌍치기도소', left: 20.3, top:63.3, since:'1949', site:'전라북도 순창군 쌍치면 금성내동길 49-30', tel: '', image:""},
@@ -788,10 +794,9 @@
 	function playAnimation() {
 		const objs = sceneInfo[currentScene].objs;
 		const values = sceneInfo[currentScene].values;
-		const currentYOffset = yOffset - prevScrollHeight;
+		currentYOffset = yOffset - prevScrollHeight;
 		const scrollHeight = sceneInfo[currentScene].scrollHeight;
 		const scrollRatio = currentYOffset / scrollHeight;
-		// console.log(objs.menu_li);
 
 		switch (currentScene) {
 			case 0:
@@ -801,46 +806,50 @@
                 // objs.slides.style.position = 'fixed';
 				console.log('1 play');
 
-				if (scrollRatio <= 0.2) {
+				if (scrollRatio <= 0.2 && scrollRatio > 0.1) {
 					objs.menu.style.opacity = calcValues(values.menu_opacity_in, currentYOffset);
-					objs.canvas.style.opacity = calcValues(values.canvas_opacity_in, currentYOffset);
 				} else {
 					objs.menu.style.opacity = 1;
-					objs.canvas.style.opacity = calcValues(values.canvas_opacity_out, currentYOffset);
+				}
+				
+				objs.canvas.style.opacity = calcValues(values.canvas_opacity_in, currentYOffset);	
+				// if(scrollRatio > 0.95) {
+				// 	 objs.canvas.style.opacity = calcValues(values.canvas_opacity_out, currentYOffset);
+				// }
+
+				if (scrollRatio <= 0.9) {
+					let seq = Math.round(calcValues(values.imageSequence, currentYOffset));
+					seq = seq < 0 ? 0 : seq; 
+					objs.context.drawImage(objs.videoImages[seq], 0, 0);
 				}
 
-				if (scrollRatio <= 0.5) {
-					let sequence2 = Math.round(calcValues(values.imageSequence, currentYOffset));
-					objs.context.drawImage(objs.videoImages[sequence2], 0, 0);
-				}
 
-
-                if(scrollRatio <=0.2) {
+                if(scrollRatio <=0.163) {
 					removeActive();
 					objs.menu_li[0].classList.add('active_on');
 					objs.tit1.style.opacity = calcValues(values.tit1_opacity_in, currentYOffset);
 					
-				} else if(scrollRatio <=0.32) {
+				} else if(scrollRatio <=0.288) {
 					removeActive();
 					objs.menu_li[1].classList.add('active_on');
                     objs.tit1.style.opacity = calcValues(values.tit1_opacity_out, currentYOffset);
                     objs.tit2.style.opacity = calcValues(values.tit2_opacity_in, currentYOffset);
-				} else if(scrollRatio <=0.45) {
+				} else if(scrollRatio <=0.455) {
 					removeActive();
 					objs.menu_li[2].classList.add('active_on');
                     objs.tit2.style.opacity = calcValues(values.tit2_opacity_out, currentYOffset);
                     objs.tit3.style.opacity = calcValues(values.tit3_opacity_in, currentYOffset); 
-				} else if(scrollRatio <=0.56) {
+				} else if(scrollRatio <=0.538) {
 					removeActive();
 					objs.menu_li[3].classList.add('active_on');
                     objs.tit3.style.opacity = calcValues(values.tit3_opacity_out, currentYOffset);
                     objs.tit4.style.opacity = calcValues(values.tit4_opacity_in, currentYOffset); 
-				} else if(scrollRatio <=0.66) {
+				} else if(scrollRatio <=0.663) {
 					removeActive();
 					objs.menu_li[4].classList.add('active_on');
                     objs.tit4.style.opacity = calcValues(values.tit4_opacity_out, currentYOffset);
                     objs.tit5.style.opacity = calcValues(values.tit5_opacity_in, currentYOffset); 
-				} else if(scrollRatio <=0.81) {
+				} else if(scrollRatio <=0.788) {
 					removeActive();
 					objs.menu_li[5].classList.add('active_on');
                     objs.tit5.style.opacity = calcValues(values.tit5_opacity_out, currentYOffset);
@@ -848,6 +857,7 @@
                 } else {
 					removeActive();
 					objs.tit6.style.opacity = calcValues(values.tit6_opacity_out, currentYOffset);
+					gotoScene
 				} 
 				
 				function removeActive(){
@@ -857,6 +867,7 @@
 				}
                 
 			break;
+
             case 2:		// 교회 분포 
 				console.log('2 play');
 
@@ -866,47 +877,52 @@
 					objs.slidesWrap.style.opacity = calcValues(values.slidesWrap_opacity_out, currentYOffset);
 				}
 
-				const spots = document.querySelectorAll('#map1 .spot');
-				const spots2 = document.querySelectorAll('#map2 .spot');
+				const first_percent = 0.1; // 시작 시점 %
+				const interval1 = 0.6 / MAPSOPT1.length;	// 지점간 % = 지도표시구간 / 전체갯수
+				const interval2 = 0.6 / MAPSOPT2.length;
 
-				const interval1 = 0.7 / MAPSOPT1.length;
-				const interval2 = 0.7 / MAPSOPT2.length;
-
-				const first_percent = 0.1;
-
-				for(i = 0; i < spots.length; i++){
-					spots[i].style.opacity = calcValues([0, 1, { start: first_percent + interval1*i, end: first_percent + interval1*1.05*i}], currentYOffset);
-				}
-				for(i = 0; i < spots2.length; i++){
-					spots2[i].style.opacity = calcValues([0, 1, { start: first_percent + interval2*i, end: first_percent + interval2*1.05*i}], currentYOffset);
-				}
-
-				let currentSlide = sceneInfo[2].currentSlide;
+				let currentSlide = sceneInfo[2].currentSlide;	// 현재 슬라이드
 				let fr_map = null;
 				let map = null;
 				let mapSpot = null;
-				if(currentSlide == 0) {
+				let interval = 0;
+				let objSpot = null;
+				
+				if(currentSlide == 0) {	// 세계지도
+					objSpot = document.querySelectorAll('#map1 .spot');
 					fr_map = objs.fr_map1;
 					map = sceneInfo[2].objs.map1;
 					mapSpot = MAPSOPT1;
 					interval = interval1;
-				} else {
+				} else { 	// 국내지도
+					objSpot = document.querySelectorAll('#map2 .spot');
 					fr_map = objs.fr_map2;
 					map = sceneInfo[2].objs.map2;
 					mapSpot = MAPSOPT2;
 					interval = interval2;
 				}
-				// 지도 size
-				const map_size = map.style.width;
-				
-				// 시작시 인터벌을 둠으로써 밀리는 현상 방지
+
+				// 시작시 인터벌을 둠으로써 밀리는 현상 방지 
 				const first_interval = Math.round(first_percent/interval);
 
+				console.log("first_interval ", first_interval)
+
 				let currentSpot = Math.round((currentYOffset/scrollHeight/interval)) - first_interval;
-
-
-				currentSpot = currentSpot >= mapSpot.length ? mapSpot.length -1 : currentSpot;
+				currentSpot = currentSpot >= mapSpot.length ? mapSpot.length - 1 : currentSpot;
 				currentSpot = currentSpot < 0 ? 0 : currentSpot;
+
+				// 스크롤에 따라 교회 나타나기
+				for(i = 0; i < objSpot.length; i++){
+					objSpot[i].classList.remove('current');
+					//if(i > currentSpot - 3 && i < currentSpot + 3) {
+						let opacity = calcValues([0, 1, { start: first_percent + interval*(i-1.2), end: first_percent + interval*(i+0.5)}], currentYOffset);
+						objSpot[i].style.opacity = opacity;
+						if(opacity > 0 && opacity < 1) objSpot[i].classList.add('current');
+					//}
+				}
+
+				// 지도 size
+				const map_size = map.style.width;
 
 				// 교회설립연도
 				sceneInfo[2].objs.conYear.innerText = mapSpot[currentSpot].since;
@@ -922,10 +938,31 @@
 					fr_map.scrollLeft = currentLeft - winWith / 2;
 				} 
 
-
 			break;
 			case 3:		// 우리의 신앙
 				console.log('3 play');
+				
+				if(scrollRatio <=0.2) {
+					objs.belief_content.style.opacity = calcValues(values.belief_content_opacity_in, currentYOffset);
+					objs.belief_board.style.opacity = calcValues(values.belief_board_opacity_in, currentYOffset);
+					objs.belief_menu_set.style.opacity = calcValues(values.belief_menu_set_opacity_in, currentYOffset);
+
+				} else if(scrollRatio > 0.8 && scrollRatio <=0.99) {
+					objs.belief_content.style.opacity = calcValues(values.belief_content_opacity_out, currentYOffset);
+					objs.belief_board.style.opacity = calcValues(values.belief_board_opacity_out, currentYOffset);
+					objs.belief_menu_set.style.opacity = calcValues(values.belief_menu_set_opacity_out, currentYOffset);
+				}
+				
+				// 스크롤에 따라 아이템 나타내기
+				const obj = objs.belief_obj;
+				for(i = 0; i < obj.length; i++){
+					let opacity = calcValues([0, 1, { start: 0.1 + 0.03*(i), end: 0.1 + 0.03*(i+1)}], currentYOffset);
+					obj[i].style.opacity = opacity;
+				}
+
+
+
+
 			break;
 			case 4:		// FAQ
 				console.log('4 play');
@@ -951,8 +988,8 @@
 	
 	
     function setLayout() {
-		// 각 스크롤 섹션의 높이 세팅
-		console.log("resize");
+		
+		// 각 스크롤 섹션의 높이 세팅 
 		for (let i = 0; i < sceneInfo.length; i++) {
 			if (sceneInfo[i].type === 'sticky') {
 				sceneInfo[i].scrollHeight = sceneInfo[i].heightNum * window.innerHeight;
@@ -1149,7 +1186,7 @@
 
 
 	function setBelieveModal(){
-		let board = sceneInfo[3].objs.belief_board;
+		let board = sceneInfo[3].objs.belief_obj;
 		let ico = sceneInfo[3].objs.belief_menu;
 		board.forEach(function(el){
 			el.addEventListener('click', function(e){setBeliefModal(e);});
@@ -1221,12 +1258,12 @@
 					li.classList.add('current');
 				}
 				faq_list.appendChild(li);
-			}
+			} 
 		}
 	}
 
 	function setFaqContent(obj, title, discription){
-		console.log("title", title, discription);
+
 		sceneInfo[4].objs.faq_title.innerHTML = title;
 		sceneInfo[4].objs.faq_discription.innerHTML = discription;
 		let faq_list = document.querySelectorAll('.faq .faq_list li');
@@ -1330,9 +1367,12 @@
 			} else if (currentYOffset > partScrollEnd) {
 				rv = values[1];
 			}
+			
+
 		} else {
 			rv = scrollRatio * (values[1] - values[0]) + values[0];
 		}
+
 
 		return rv;
 	}
@@ -1343,7 +1383,6 @@
 
 		if (!enterNewScene) {
 			if (currentScene === 1 ) {
-				const currentYOffset = delayedYOffset - prevScrollHeight;
 				const objs = sceneInfo[currentScene].objs;
 				const values = sceneInfo[currentScene].values;
 				let sequence = Math.round(calcValues(values.imageSequence, currentYOffset));
@@ -1459,18 +1498,6 @@
 
 	});
 	
-
-	// document.addEventListener(
-	// 	'DOMContentLoaded',
-	// 	function (){
-	// 	  const scroller = new SweetScroll({
-	// 		/* some options */
-	// 	  });
-	// 	},
-	// 	false,
-	//   );
-	  	
-
 	
 	function setBackground(){
 		let bg = document.querySelectorAll('.random-background');
@@ -1492,13 +1519,11 @@
 	}
 
 
-
-	
-
 //  })();
 
 
 function openModal(id){
+	removeBackdrop();
 	let modal = document.querySelector('#'+id);
 	let backdrop = document.createElement('div');
 	backdrop.classList.add('backdrop');
@@ -1506,7 +1531,27 @@ function openModal(id){
 	modal.classList.add('show-modal');
 	backdrop.addEventListener('click', function(){
 		modal.classList.remove('show-modal');
-		let backdrop = document.querySelector('#'+ id + ' .backdrop');
-		backdrop.remove();
+		removeBackdrop();
 	});
 }
+
+function removeBackdrop(){
+	let backdrops = document.querySelectorAll('.backdrop');
+	backdrops.forEach(function(el){
+		el.remove();
+	});
+}
+
+
+function gotoScene(num) {
+	let top = 1;
+	for(let i = 0; i < num ; i ++) {
+		top += sceneInfo[i].scrollHeight;
+		console.log("Top : ",num,sceneInfo[num].scrollHeight,top);
+	}
+	document.querySelector('#m_menu').checked = false;
+	$("html, body").animate({ scrollTop: top }, "slow");
+	setTimeout(setLayout, 700);
+	
+}
+

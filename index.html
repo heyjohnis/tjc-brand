@@ -20,33 +20,33 @@
 
        <nav class="local-nav">
             <div class="local-nav-links">
-                <a href="#" class="product-name"><img src="images/logo.svg" alt="logo image"/>참예수교회</a>
+                <a href="#" class="product-name"><img src="images/logo.svg" onclick="gotoScene(0)" alt="logo image"/>참예수교회</a>
 
-				<label class="m_menu" for="m_menu">모바일버튼</label>
+				<label class="m_menu" for="m_menu"><img src="images/ico_menu_open.svg" alt="메뉴 열기 버튼"/></label>
 				<input class="btn_m_menu" type="checkbox" id="m_menu" />
 
 				<ul class="menu">
-					<li><a href="#scroll-section-1" data-scroll>
+					<li><a href="#scroll-section-1" onclick="gotoScene(1)">
 						교회역사
 						<div>사도교회부터</div>
 						</a></li>
-					<li><a href="#scroll-section-2" data-scroll>
+					<li><a href="#scroll-section-2" onclick="gotoScene(2)">
 						교회분포
 						<div>열방 가운데 교회</div>
 						</a></li>
-					<li><a href="#scroll-section-3" data-scroll>
+					<li><a href="#scroll-section-3" onclick="gotoScene(3)">
 						우리의 신앙
 						<div>우리의 10가지 신앙</div> 
 					</a></li>
-					<li><a href="#scroll-section-4" data-scroll>
+					<li><a href="#scroll-section-4" onclick="gotoScene(4)">
 						FAQ
 						<div>자주 찾은 질문</div>  
 						</a></li>
-					<li><a href="#scroll-section-5" data-scroll>
+					<li><a href="#scroll-section-5" onclick="gotoScene(5)">
 						간행물
 						<div>대표 간행물 소개</div>
 						</a></li>
-					<li><a href="#scroll-section-6">
+					<li><a href="#scroll-section-6" onclick="gotoScene(6)">
 						커뮤니티
 						<div>우리의 활동</div>
 						</a></li>
@@ -56,8 +56,9 @@
         
         <section class="scroll-section section-intro" id="scroll-section-0">
 	        <div class="tv">
-		        <div class="screen mute" id="tv"></div>
-            </div>
+	        	<div class="screen mute" id="tv"></div>
+	        </div>
+
         </section>
         
 		
@@ -139,7 +140,11 @@
 			<!-- 01 교회 역사: 컨텐츠 -->
             <div class="modal-popup" id="history-modal1">
 				<div class="content">
-					<div class="history_con_mov"></div>
+					<div class="history_con_mov">
+						<video muted autoplay loop>
+							<source src="video/01_1_mov.mp4" type="video/mp4">
+						</video>
+					</div>
 					<div class="history_con_text">
 						<h3>01. 사도교회의 태동과 복음의 변질</h3>
 						<p>
@@ -153,7 +158,11 @@
 			
             <div class="modal-popup" id="history-modal2">
                 <div class="content">
-					<div class="history_con_mov"></div>
+					<div class="history_con_mov">
+						<video muted autoplay loop>
+							<source src="video/02_1_mov.mp4" type="video/mp4">
+						</video>
+					</div>
 					<div class="history_con_text">
                     	<h3>02. 루터의 종교개혁과 그 한계점</h3>
                     	<p>
@@ -293,7 +302,7 @@
             </div>
             <div class="modal-popup" id="church-modal">
                 <div class="content02">
-                    <div class="church-pic"><img src="./images/church/blank.pnga"/></div>
+                    <div class="church-pic"><img src="./images/church/tjc_map.png"/></div>
                     <ul>
                         <li class="church-name">교회이름</li>
                         <li class="since">설립년도</li>
@@ -313,13 +322,13 @@
 		</section>
 
 		<section class="scroll-section section-belief" id="scroll-section-3">
-			<div class="bg_pattern">
+			<div class="bg_pattern" style="display: none;">
 			</div>
-			<div class="content">
+			<div class="content sticky-elem">
 				<h3>참예수교회 기본신앙 10개항</h3>
 				<h2>우리의 신앙</h2>                     
 			</div>     
-			<div class="belief_board">
+			<div class="belief_board sticky-elem">
 				<div class="belief01 belief">01</div>
 				<div class="belief02 belief">02</div>
 				<div class="belief03 belief">03</div>
@@ -332,48 +341,50 @@
 				<div class="belief10 belief">10</div>
 			</div>
 			
-			<ul class="belief_menu">
-				<li class="ico_belief01 ico_belief">
-					<span class="ico_item">01</span>
-					<span class="ico_txt">하나님</span>
-				</li>
-				<li class="ico_belief02 ico_belief">
-					<span class="ico_item">02</span>
-					<span class="ico_txt">성경</span>		
-				</li>
-				<li class="ico_belief03 ico_belief">
-					<span class="ico_item">03</span>
-					<span class="ico_txt">교회</span>
-				</li>
-				<li class="ico_belief04 ico_belief">
-					<span class="ico_item">04</span>
-					<span class="ico_txt">세례</span>
-				</li>
-				<li class="ico_belief05 ico_belief">
-					<span class="ico_item">05</span>
-					<span class="ico_txt">성령</span>
-				</li>
-				<li class="ico_belief06 ico_belief">
-					<span class="ico_item">06</span>
-					<span class="ico_txt">세족례</span>
-				</li>
-				<li class="ico_belief07 ico_belief">
-					<span class="ico_item">07</span>
-					<span class="ico_txt">성찬례</span>
-				</li>
-				<li class="ico_belief08 ico_belief">
-					<span class="ico_item">08</span>
-					<span class="ico_txt">안식일</span>
-				</li>
-				<li class="ico_belief09 ico_belief">
-					<span class="ico_item">09</span>
-					<span class="ico_txt">구원</span>
-				</li>
-				<li class="ico_belief10 ico_belief">
-					<span class="ico_item">10</span>
-					<span class="ico_txt">재림</span>
-				</li>
-			</ul>
+			<div class="belief_menu sticky-elem">
+				<ul class="ico_believes">
+					<li class="ico_belief01 ico_belief">
+						<span class="ico_item">01</span>
+						<span class="ico_txt">하나님</span>
+					</li>
+					<li class="ico_belief02 ico_belief">
+						<span class="ico_item">02</span>
+						<span class="ico_txt">성경</span>		
+					</li>
+					<li class="ico_belief03 ico_belief">
+						<span class="ico_item">03</span>
+						<span class="ico_txt">교회</span>
+					</li>
+					<li class="ico_belief04 ico_belief">
+						<span class="ico_item">04</span>
+						<span class="ico_txt">세례</span>
+					</li>
+					<li class="ico_belief05 ico_belief">
+						<span class="ico_item">05</span>
+						<span class="ico_txt">성령</span>
+					</li>
+					<li class="ico_belief06 ico_belief">
+						<span class="ico_item">06</span>
+						<span class="ico_txt">세족례</span>
+					</li>
+					<li class="ico_belief07 ico_belief">
+						<span class="ico_item">07</span>
+						<span class="ico_txt">성찬례</span>
+					</li>
+					<li class="ico_belief08 ico_belief">
+						<span class="ico_item">08</span>
+						<span class="ico_txt">안식일</span>
+					</li>
+					<li class="ico_belief09 ico_belief">
+						<span class="ico_item">09</span>
+						<span class="ico_txt">구원</span>
+					</li>
+					<li class="ico_belief10 ico_belief">
+						<span class="ico_item">10</span>
+						<span class="ico_txt">재림</span>
+					</li>
+				</ul>
+			</div>
 			
             <div class="modal-popup" id="belief_modal">
 				<div class="content">
@@ -417,10 +428,10 @@
 
 		
 		<section class="scroll-section section-faq" id="scroll-section-4">
-			<div class="faq_title">
+			<div class="faq_title sticky-elem">
 				<h2>FAQ</h2>                     
 			</div>
-			<div class="content">
+			<div class="content sticky-elem">
 				<ul class="faq_nav">
 					<li class="faq_menu faq_menu01 current" onclick="setFaqContentList('01');">
 						<div class="menu">
@@ -514,10 +525,10 @@
 		</section>
 
 		<section class="scroll-section section-books" id="scroll-section-5">
-			<div class="tit tit0">
+			<div class="tit tit0 sticky-elem">
 				<h2>간행물</h2>
 			</div>
-			<div class="content">
+			<div class="content sticky-elem">
 				<ul class="book_list">
 				</ul>
 			</div>
@@ -528,10 +539,10 @@
 		</div>
 
 		<section class="scroll-section section-community" id="scroll-section-6">
-			<div class="tit tit0">
+			<div class="tit tit0 sticky-elem">
 				<h2>커뮤니티</h2>
 			</div>
-			<div class="content">
+			<div class="content sticky-elem">
 				<ul class="community_mn">
 					<li >
 						<a href="/category/mov-all/worship/"> 
@@ -567,27 +578,22 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-<!-- Initialize Swiper -->
-<script>
-	var swiper = new Swiper('.swiper-container', {
-		slidesPerView: 3,
-		spaceBetween: 10,
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		}
-	});
-</script>
-
 <!-- <script src="js/youtube.js"></script> -->
-<script src="js/sweet-scroll.min.js"></script>
+
 <script src="js/script.js"></script>
 
 <!-- <script src="js/data.js"></script> -->
 
+<!-- Swiper JS -->
+<!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 
-    
+<!-- Initialize Swiper -->
+<!-- <script>
+	const swiper = new Swiper('.sub_menu', {
+		// Optional parameters
+		loop: true,
+		slidesPerView: 3,
+	});
+</script> -->
+
 </html>
