@@ -235,10 +235,12 @@ select {float:right; width: 45%; padding: 0.5em 3.0em 0.5em 1.12em; border: 2px 
 /********************************************
 *04 우리의 신앙
 *********************************************/
-#scroll-section-3 > .content {top:50%} 
-.section-belief h2{margin-top:-0.3em; text-align: center; color:#edece2; font-size:5.750rem;}
+#scroll-section-3 .wrap_area{top:0; width:100%; overflow: auto; height:100%}
+#scroll-section-3 .board_area{position: relative; height:100%; margin:auto;}
+#scroll-section-3 .tit {position:fixed; top:38%; width:100%;} 
+.section-belief h2{margin-top:-0.3em; text-align: center; color:#edece2; font-size:5rem;}
 .section-belief h3{text-align: center; color:#c7c6bb; font-size:1.2rem; font-family: 'Noto Sans KR';}
-.belief_board{top:3%; width:100%; min-height:100%; margin:0 auto;}
+.belief_board{top:0; width:100%; margin:0 auto;}
 .belief_board .belief{position:absolute; width:15%; height:400px;  background-position:top center; background-repeat: no-repeat; background-size: contain; z-index: 11; text-indent:-9999px;}
 .belief_board .belief:hover, .belief_menu li.ico_belief:hover {transform:scale(1.1); transition:all .4s ease;}
 
@@ -259,6 +261,20 @@ select {float:right; width: 45%; padding: 0.5em 3.0em 0.5em 1.12em; border: 2px 
 .belief_board .belief09{left:16%; top:34.35%; width:386px; height:485px; background-image: url(../images/belief/belief09.png);}
 .belief_board .belief09:hover{background-image: url(../images/belief/belief09_o.png);}
 .belief_board .belief10{left:66.48%; top:2.8%; width:480px; height:516px; background-image: url(../images/belief/belief10.png);}
+
+.belief_board .belief01 {left: 10%; top: 6.66%; width: 18%; height: 25%;}
+.belief_board .belief02 {left: 78%; top: 59%; width: 20%; height: 26%;}
+.belief_board .belief03 {left: 4.3%; top: 55.96%; width: 13%; height: 30%;}
+.belief_board .belief04 {left: 50.7%; top: 56%; width: 12%; height: 27%;}
+.belief_board .belief05 {left: 36.5%; top: 55.37%; width: 13%; height: 21%;}
+.belief_board .belief06 {left: 28%; top: 3.5%; width: 14%; height: 28%;}
+.belief_board .belief07 {left: 47%; top: 5%; width: 17%; height: 21%;}
+.belief_board .belief08 {left: 64%; top: 54%; width: 12%; height: 22%;}
+.belief_board .belief09 {left: 16%; top: 48%; width: 17%; height: 38%;}
+.belief_board .belief10 {left: 65.5%; top: 2.5%; width: 20%; height: 37%;}
+
+
+
 
 .belief_menu{bottom:3%; width:100%; overflow:auto; text-align: center; z-index:100;}
 .belief_menu li{display: inline-block; margin:5px;}
@@ -295,6 +311,10 @@ select {float:right; width: 45%; padding: 0.5em 3.0em 0.5em 1.12em; border: 2px 
 .belief_menu li.ico_belief10:hover .ico_item{background-image:url(../images/belief/ico_belief10_o.svg); border-color:#764356;}
 .belief_menu li.ico_belief10:hover .ico_txt {color:#764356;}
 
+
+
+#belief_modal{left:0; top:0;}
+#belief_modal .content{top:0;}
 #belief_modal .content > div{display:inline-block;}
 #belief_modal .content {width: 62%; height: 46%; margin: 13% 19%;}
 #belief_modal .content .view{float:left; width:58%; height:100%; overflow: hidden;  position: relative; }
@@ -455,17 +475,9 @@ align-items: center;
 	.desc {font-size:1.45rem;}
 	.history_con_text {padding: 2.5em 3.2em 5.5em 3.2em;}
 	.map .spot .label {font-size: 0.938rem;}
-	.section-belief h2 {font-size: 5.0em}
-	.belief_board .belief01 {left: 6.0%; top: 6.66%; width: 300px; height: 280px;}
-	.belief_board .belief02 {left: 79%; top: 60%; width: 318px; height: 260px;}
-	.belief_board .belief03 {left: 2.78%; top: 52.96%; width: 240px; height: 351px;}
-	.belief_board .belief04 {left: 51.68%; top: 52.74%; width: 207px; height: 288px;}
-	.belief_board .belief05 {left: 38%; top: 57.37%; width: 210px; height: 219px;}
-	.belief_board .belief06 {left: 25.4%; top: 4.35%; width: 264px; height: 324px;}
-	.belief_board .belief07 {left: 44.8%; top: 6.52%; width: 365px; height: 262px;}
-	.belief_board .belief08 {left: 64.86%; top: 56%; width: 230px; height: 245px;}
-	.belief_board .belief09 {left: 16.5%; top: 34.35%; width: 350px; height: 450px;}
-	.belief_board .belief10 {left: 66.48%; top: 2.8%; width: 450px; height: 500px;}
+	/* .section-belief h2 {font-size: 5.0em} */
+
+
 	#belief_modal .content {width: 70%; height: 50%; margin: 12% 15%;}
 	#belief_modal .content .view {width: 54%;}
 	#belief_modal .content .belief_con_text {width: 46%;}
@@ -488,18 +500,9 @@ align-items: center;
 	.content02 ul {padding: 2.5em 0 0 2.8em;}
 	.ch_fn { bottom: 2.1em;}
 	#scroll-section-3 .content {margin-top: -5.9em;}
-	.section-belief h3 { font-size: 1rem;}
-	.section-belief h2 { font-size: 4.5em;}
-	.belief_board .belief01 {left: 7%; top: 6.66%; width: 270px; height: 250px;}
-	.belief_board .belief02 {left: 78.5%; top: 60%; width: 295px; height: 230px;}
-	.belief_board .belief03 {left: 5%; top: 52.96%; width: 200px; height: 290px;}
-	.belief_board .belief04 {left: 51.68%; top: 49%; width: 195px; height: 268px;}
-	.belief_board .belief05 {left: 37%; top: 53.37%; width: 210px; height: 219px;}
-	.belief_board .belief06 {left: 26.4%; top: 3.5%; width: 245px; height: 281px;}
-	.belief_board .belief07 {left: 45%; top: 5%; width: 320px; height: 225px;}
-	.belief_board .belief08 {left: 64.86%; top: 54%; width: 210px; height: 220px;}
-	.belief_board .belief09 {left: 17.5%; top: 37%; width: 299px; height: 358px;}
-	.belief_board .belief10 {left: 66.48%; top: 2.8%; width: 382px; height: 400px;}
+	/* .section-belief h3 { font-size: 1rem;} */
+	/* .section-belief h2 { font-size: 4.5em;} */
+
 	#belief_modal .content {margin-top: 9em;}
 	#belief_modal .content span.belief_no {font-size: 1.2rem;}
 	#belief_modal .content h3 {margin-bottom: 0.9em; font-size: 2.0rem;}
@@ -534,16 +537,8 @@ align-items: center;
 	.con_church h5#con_church {font-size: 2.8rem;}
 	h4.sticky-elem span {font-size:1rem;}
 	.section-belief h2 {font-size: 4rem;}
-	.belief_board .belief01 {left: 10%; top: 6.66%; width: 252px; height: 235px;}
-	.belief_board .belief02 {left: 78%; top: 59%; width: 275px; height: 215px;}
-	.belief_board .belief03 {left: 4.3%; top: 55.96%; width: 185px; height: 263px;}
-	.belief_board .belief04 {left: 50.7%; top: 48%; width: 187px; height: 261px;}
-	.belief_board .belief05 {left: 36.5%; top: 55.37%; width: 195px; height: 215px;}
-	.belief_board .belief06 {left: 28%; top: 3.5%; width: 240px; height: 275px;}
-	.belief_board .belief07 {left: 47%; top: 5%; width: 270px; height: 210px;}
-	.belief_board .belief08 {left: 64%; top: 54%; width: 205px; height: 212px;}
-	.belief_board .belief09 {left: 16%; top: 34%; width: 295px; height: 357px;}
-	.belief_board .belief10 {left: 65.5%; top: 2.5%; width: 360px; height: 382px;}
+
+
 	#belief_modal .content {margin-top:8.1em;}
 	#belief_modal .content .view {width: 49%;}
 	#belief_modal .content .belief_con_text {width: 51%; padding: 32px 32px 20px 32px;}
@@ -580,18 +575,9 @@ align-items: center;
 	.since, .site, #church-modal .desc {font-size: 1rem;}
 	.ch_fn {bottom: 1.7em;}
 	#scroll-section-3 .content {margin-top: -4.9em;}
-	.section-belief h3 {font-size: 0.875rem; margin-bottom: 1.2em;}
+	.section-belief h3 {font-size: 0.875rem; margin-bottom: 1.2em;} 
 	.section-belief h2 {font-size: 3.2rem;}
-	.belief_board .belief01 {left: 10%; top: 6.66%; width: 207px; height: 205px;}
-	.belief_board .belief02 {left: 78%; top: 59%; width: 257px; height: 204px;}
-	.belief_board .belief03 {left: 4.3%; top: 50%; width: 175px; height: 252px;}
-	.belief_board .belief04 {left: 51.7%; top: 47.5%; width: 162px; height: 218px;}
-	.belief_board .belief05 {left: 37%; top: 51%; width: 179px; height: 190px;}
-	.belief_board .belief06 {left: 29%; top: 3.5%; width: 192px; height: 229px;}
-	.belief_board .belief07 {left: 47%; top: 5%; width: 255px; height: 190px;}
-	.belief_board .belief08 {left: 64%; top: 52%; width: 186px; height: 187px;}
-	.belief_board .belief09 {left: 17.5%; top: 34%; width: 250px; height: 310px;}
-	.belief_board .belief10 {left: 67%; top: 2.5%; width: 288px; height: 331px;}
+
 	#belief_modal .content {margin-top:7.1em;}
 	#belief_modal .content .view {width: 52%;}
 	#belief_modal .content .belief_con_text {width:48%;}
@@ -640,17 +626,8 @@ align-items: center;
 	.btn_ch_pre, .btn_ch_next {width: 46px; height: 46px;}
 	#scroll-section-3 .content {margin-top: -3.2em;}
 	.section-belief h3 {font-size: 0.813rem; margin-bottom: 1.2em;}
-	.section-belief h2 {font-size: 2.8rem;}
-	.belief_board .belief01 {left: 8.5%; top: 10.66%; width: 187px; height: 173px;}
-	.belief_board .belief02 {left: 79.5%; top: 59%; width: 200px; height: 160px;}
-	.belief_board .belief03 {left: 2%; top: 56%; width: 143px; height: 211px;}
-	.belief_board .belief04 {left: 52%; top: 51.5%; width: 132px; height: 180px;}
-	.belief_board .belief05 {left: 36%; top: 55%; width: 155px; height: 164px;}
-	.belief_board .belief06 {left: 28.5%; top: 7.5%; width: 175px; height: 212px;}
-	.belief_board .belief07 {left: 47%; top: 10%; width: 221px; height: 165px;}
-	.belief_board .belief08 {left: 65.5%; top: 56%; width: 142px; height: 167px;}
-	.belief_board .belief09 {left: 15.5%; top: 37%; width: 204px; height: 266px;}
-	.belief_board .belief10 {left: 68%; top: 7.5%; width: 255px; height: 295px;}
+	.section-belief h2 {font-size: 2.8rem;} 
+
 	.belief_menu {bottom: 4%;}
 	.belief_menu li.ico_belief .ico_item {width: 50px; height: 50px;}
 	.belief_menu li.ico_belief .ico_txt {font-size: 0.875rem;}
@@ -704,18 +681,9 @@ align-items: center;
 	.btn_ch_pre, .btn_ch_next {width: 42px; height: 42px;}
 	.ico_believes{width:555px; margin:auto;}
 
-	.section-belief h3 {font-size: 0.750rem; margin-bottom: 1.2em;}
-	.section-belief h2 {font-size: 2.3rem;}
-	.belief_board .belief01 {left: 8.5%; top: 10.66%; width: 156px; height: 143px;}
-	.belief_board .belief02 {left: 77.5%; top: 55%; width: 170px; height: 136px;}
-	.belief_board .belief03 {left: 5%; top: 51%; width: 114px; height: 167px;}
-	.belief_board .belief04 {left: 51%; top: 49.5%; width: 105px; height: 141px}
-	.belief_board .belief05 {left: 36%; top: 51%; width: 125px; height: 133px;}
-	.belief_board .belief06 {left: 26.5%; top: 7.5%; width: 151px; height: 179px;}
-	.belief_board .belief07 {left: 47%; top: 10%; width: 178px; height: 134px;}
-	.belief_board .belief08 {left: 63.5%; top: 52%; width: 113px; height: 126px;}
-	.belief_board .belief09 {left: 18%; top: 37%; width: 155px; height: 201px;}
-	.belief_board .belief10 {left: 66%; top: 7.5%; width: 191px; height: 220px;}
+	/* .section-belief h3 {font-size: 0.750rem; margin-bottom: 1.2em;}
+	.section-belief h2 {font-size: 2.3rem;} */
+
 	.belief_menu li.ico_belief .ico_item {width: 42px; height: 42px;}
 	.belief_menu li.ico_belief .ico_txt {font-size: 0.750rem;}
 	#belief_modal .content {width: 80%; height: 58%; margin: 13% 10%; margin-top: 4.1em;}

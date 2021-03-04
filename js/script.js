@@ -124,6 +124,7 @@
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-3'),
+				board_area: document.querySelector('#scroll-section-3 .board_area'),
 				belief_content: document.querySelector('#scroll-section-3 .content'),
 				belief_board: document.querySelector('#scroll-section-3 .belief_board'),
 				belief_obj: document.querySelectorAll('#scroll-section-3 .belief_board .belief'),
@@ -1034,6 +1035,9 @@
 		// 기타 obj Size Setting
 		sceneInfo[2].objs.map1.style.width = window.innerHeight * 1.8 + 'px';
 		sceneInfo[2].objs.map2.style.width = window.innerHeight * 1 + 'px';
+
+		sceneInfo[3].objs.board_area.style.width = window.innerHeight * 1.6 + 'px';
+
 		
 		setMapSpot(document.querySelector('#map1'), MAPSOPT1);
 		setMapSpot(document.querySelector('#map2'), MAPSOPT2);
@@ -1180,7 +1184,7 @@
 
 	// 우리의 믿음 모달 팝업 기본 셋
 	function setBelieveView(){
-		sceneInfo[3].objs.belief_content.style.height = window.innerHeight + 'px';
+		//sceneInfo[3].objs.belief_content.style.height = window.innerHeight + 'px';
 
 	}
 
