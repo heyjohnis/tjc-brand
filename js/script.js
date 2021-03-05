@@ -4,7 +4,7 @@
  
 //  (function() {
     
-    
+     
 	let yOffset = 0; // window.pageYOffset 대신 쓸 변수
 	let prevScrollHeight = 0; // 현재 스크롤 위치(yOffset)보다 이전에 위치한 스크롤 섹션들의 스크롤 높이값의 합
 	let currentScene = 0; // 현재 활성화된(눈 앞에 보고있는) 씬(scroll-section)
@@ -124,6 +124,7 @@
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-3'),
+				wrap_area: document.querySelector('#scroll-section-3 .wrap_area'),
 				board_area: document.querySelector('#scroll-section-3 .board_area'),
 				belief_content: document.querySelector('#scroll-section-3 .content'),
 				belief_board: document.querySelector('#scroll-section-3 .belief_board'),
@@ -956,9 +957,26 @@
 				
 				// 스크롤에 따라 아이템 나타내기
 				const obj = objs.belief_obj;
+				let current_item = null;
 				for(i = 0; i < obj.length; i++){
 					let opacity = calcValues([0, 1, { start: 0.1 + 0.03*(i), end: 0.1 + 0.03*(i+1)}], currentYOffset);
+					if(opacity > 0 && opacity < 1) current_item = obj[i];
 					obj[i].style.opacity = opacity;
+				}
+				
+				
+				if(current_item != null) {
+					const current_left = parseInt(getComputedStyle(current_item).left);
+					console.log("current_left", current_left);					
+					let angle = objs.wrap_area.scrollLeft + winWith;
+					console.log("angle : ", angle);
+
+					//if(currentSpot == 0) fr_map.scrollLeft = currentLeft - winWith / 2;
+
+					if(current_left < objs.wrap_area.scrollLeft || current_left > angle) {
+						console.log("넘어감");
+						objs.wrap_area.scrollLeft = current_left - winWith / 2;
+					} 
 				}
 
 
