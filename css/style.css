@@ -103,9 +103,11 @@ header{height:100vh;}
 #show-scene-3 #scroll-section-3 .sticky-elem,
 #show-scene-4 #scroll-section-4 .sticky-elem,
 #show-scene-5 #scroll-section-5 .sticky-elem,
-#show-scene-6 #scroll-section-6 .sticky-elem
+#show-scene-6 #scroll-section-6 .sticky-elem,
+#show-scene-4 #scroll-section-4 .sticky-elem.btn_next
  { display: block; will-change: transform, opacity;}
 #show-scene-4 #scroll-section-4 .sticky-elem{ display: flex; will-change: transform, opacity;}
+
 
 #scroll-section-0{background:#709295;}
 #scroll-section-1{background-color: rgb(199, 198, 187);}
@@ -126,15 +128,17 @@ header{height:100vh;}
 #show-scene-5 .local-nav .menu li:nth-child(5) a{font-weight: bold; color:#333;}
 #show-scene-6 .local-nav .menu li:nth-child(6) a{font-weight: bold; color:#333;} 
 
+/* 다음 버튼 */
+.btn_next{bottom:0; z-index: 100; width:100%; padding:1em 0; text-align: center; cursor: pointer;}
 
 
 
 /*팝업 레이아웃*/
-.modal-popup{display:none; position:fixed; top:0; width:100%; height:100%; z-index: 10;}
+.modal-popup{display:none; position:fixed; left:0; top:0; width:100%; height:100%; z-index: 10;}
 .modal-popup .content{position:absolute; width:67%; height:46.3%; margin:13% 16%; display: flex; justify-content: space-between; background:#fff; z-index:30;}
 .modal-popup .content02{position:absolute; width:28.65%; height:65.55%; margin:10% 36%; background:#fff; z-index:30;}
-.modal-popup .backdrop{position: absolute; width:100%; height:100%; background:rgba(0,0,0,0.6);z-index:20;}
-.modal-popup.show-modal{display:block; z-index:25;}
+.modal-popup .backdrop{position: fixed; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.6);z-index:20;}
+.modal-popup.show-modal{display:block; z-index:101;}
 
 
 .random-background{width:100%; height:100vh; position:absolute; top:0; left:0; z-index:1;}
@@ -172,7 +176,7 @@ h4 {font-size:1.125rem; color:rgb(68, 68, 68); font-weight:500; text-align: cent
 
 .con_church{width: 100%; position: fixed; left:0; top: 10%; display: flex; justify-content: center;  z-index:10; opacity:70%;}
 .con_church h5#con_year {font-size:3.250em; font-weight: bold; color:#ebf0f6;}
-.con_church h5#con_church {margin-left:0.3em; font-size:3.250em; font-weight: bold; color:#ebf0f6;}
+.con_church h5#con_church {margin-left:0.3em; font-size:3.250em; font-weight: bold; color:#fff;}
 
 h4.sticky-elem {bottom:3.75em; display: flex; justify-content: center;}
 h4.sticky-elem span {background:rgba(177, 185, 197, 1); padding: 0 0.3em;}
@@ -186,11 +190,11 @@ h4.sticky-elem span {background:rgba(177, 185, 197, 1); padding: 0 0.3em;}
 .map-frame #map1{background-image:url('../images/map1.png'); background-repeat: no-repeat; background-size:contain;}
 .map-frame #map2{background-image:url('../images/map3.png'); background-repeat: no-repeat; background-size:contain;}
 .map .spot{position: absolute; opacity:0; }
-.map .spot.current .dot{transform: scale(2.5); transition: all 0.3s; }
-.map .spot.current .label{margin:2em; transform: scale(2.5); transition: all 0.3s; }
+.map .spot.current .dot{transform: scale(1.5); transition: all 0.3s; }
+.map .spot.current .label{margin:1em; transform: scale(1.5); transition: all 0.3s; }
 .map .spot .dot {width:11px; height:11px; background:rgba(20,39,101,1); border-radius: 50%; border:3px solid rgb(125, 147, 164);}
 .map#map2 .spot{opacity: 1;}
-.map .spot .label{width:max-content; margin-top: 2px; background: rgba(177, 185, 197, 1);}
+.map .spot .label{width:max-content; margin-top: 2px; background: rgba(20,39,101,1); color: #ebf0f6; font-weight: 500;}
 .map .spot.show-label .label{display:block;}
 .slide_right {transform: translateX(-100%); transition:all .4s ease; }
 .map .spot:hover .dot{animation-duration: 0.6s; animation-name: glitter; animation-iteration-count:infinite;}
@@ -244,39 +248,39 @@ select {float:right; width: 45%; padding: 0.5em 3.0em 0.5em 1.12em; border: 2px 
 .belief_board .belief{position:absolute; width:15%; height:400px;  background-position:top center; background-repeat: no-repeat; background-size: contain; z-index: 11; text-indent:-9999px;}
 .belief_board .belief:hover, .belief_menu li.ico_belief:hover {transform:scale(1.1); transition:all .4s ease;}
 
-.belief_board .belief01{left:6.77%; top:6.66%; width:316px; height:294px; background-image: url(../images/belief/belief01.png);}
+/*.belief_board .belief01{left: -0.23%; top: 9.66%; width:316px; height:294px; background-image: url(../images/belief/belief01.png);}*/
 .belief_board .belief01:hover {background-image: url(../images/belief/belief01_o.png);}
-.belief_board .belief02{left:79.91%; top:60%; width:338px; height:270px; background-image: url(../images/belief/belief02.png);}
+/*.belief_board .belief02{left: 84%; top: 60%; width:338px; height:270px; background-image: url(../images/belief/belief02.png);}*/
 .belief_board .belief02:hover{background-image: url(../images/belief/belief02_o.png);}
-.belief_board .belief03{left:2.78%; top:52.96%; width:252px; height:369px; background-image: url(../images/belief/belief03.png);}
+/*.belief_board .belief03{left: -6.22%; top: 52.96%; width:252px; height:369px; background-image: url(../images/belief/belief03.png);}*/
 .belief_board .belief03:hover{background-image: url(../images/belief/belief03_o.png);}
-.belief_board .belief04{left:51.68%; top:53.74%; width:212px; height:293px; background-image: url(../images/belief/belief04.png);}
+/*.belief_board .belief04{left: 51.68%; top: 53.74%; width:212px; height:293px; background-image: url(../images/belief/belief04.png);}*/
 .belief_board .belief04:hover{background-image: url(../images/belief/belief04_o.png);}
-.belief_board .belief05{left:37.73%; top:57.37%; width:213px; height:226px; background-image: url(../images/belief/belief05.png);}
-.belief_board .belief06{left:26.4%; top:4.35%; width:264px; height:324px;  background-image: url(../images/belief/belief06.png);}
+/*.belief_board .belief05{left: 36.73%; top: 57.37%; width:213px; height:226px; background-image: url(../images/belief/belief05.png);}*/
+/*.belief_board .belief06{left: 22.4%; top: 4.35%; width:264px; height:324px;  background-image: url(../images/belief/belief06.png);}*/
 .belief_board .belief06:hover{background-image: url(../images/belief/belief06_o.png);}
-.belief_board .belief07{left:44.8%; top:6.52%; width:365px; height:274px; background-image: url(../images/belief/belief07.png);}
+/*.belief_board .belief07{left: 44.8%; top: 6.52%; width:365px; height:274px; background-image: url(../images/belief/belief07.png);}*/
 .belief_board .belief07:hover {background-image: url(../images/belief/belief07_o.png);}
-.belief_board .belief08{left:64.86%; top:57%; width:240px; height:268px; background-image: url(../images/belief/belief08.png);}
-.belief_board .belief09{left:16%; top:34.35%; width:386px; height:485px; background-image: url(../images/belief/belief09.png);}
+/*.belief_board .belief08{left: 66.86%; top: 57%; width:240px; height:268px; background-image: url(../images/belief/belief08.png);}*/
+/*.belief_board .belief09{left: 11%; top: 36.35%; width:386px; height:485px; background-image: url(../images/belief/belief09.png);}*/
 .belief_board .belief09:hover{background-image: url(../images/belief/belief09_o.png);}
-.belief_board .belief10{left:66.48%; top:2.8%; width:480px; height:516px; background-image: url(../images/belief/belief10.png);}
+/*.belief_board .belief10{left: 69.48%; top: 2.8%; width:480px; height:516px; background-image: url(../images/belief/belief10.png);}*/
 
-.belief_board .belief01 {left: 10%; top: 6.66%; width: 18%; height: 25%;}
-.belief_board .belief02 {left: 78%; top: 59%; width: 20%; height: 26%;}
-.belief_board .belief03 {left: 4.3%; top: 55.96%; width: 13%; height: 30%;}
-.belief_board .belief04 {left: 50.7%; top: 56%; width: 12%; height: 27%;}
-.belief_board .belief05 {left: 36.5%; top: 55.37%; width: 13%; height: 21%;}
-.belief_board .belief06 {left: 28%; top: 3.5%; width: 14%; height: 28%;}
-.belief_board .belief07 {left: 47%; top: 5%; width: 17%; height: 21%;}
-.belief_board .belief08 {left: 64%; top: 54%; width: 12%; height: 22%;}
-.belief_board .belief09 {left: 18%; top: 52%; width: 17%; height: 38%;}
-.belief_board .belief10 {left: 65.5%; top: 2.5%; width: 20%; height: 37%;}
-
-
+.belief_board .belief01 {left: 7%; top: 8.66%; width: 19%; height: 27%; background-image: url(../images/belief/belief01.png);}
+.belief_board .belief02 {left: 77%; top: 54%; width: 22%; height: 28%; background-image: url(../images/belief/belief02.png);}
+.belief_board .belief03 {left: 0.3%; top: 55.96%; width: 15%; height: 35%; background-image: url(../images/belief/belief03.png);}
+.belief_board .belief04 {left: 50.7%; top: 56%; width: 12%; height: 27%; background-image: url(../images/belief/belief04.png);}
+.belief_board .belief05 {left: 36.5%; top: 55.37%; width: 13%; height: 21%; background-image: url(../images/belief/belief05.png);}
+.belief_board .belief06 {left: 28%; top: 8.5%; width: 15%; height: 28%; background-image: url(../images/belief/belief06.png);}
+.belief_board .belief07 {left: 46%; top: 10%; width: 17%; height: 22%; background-image: url(../images/belief/belief07.png);}
+.belief_board .belief08 {left: 64%; top: 54%; width: 12%; height: 22%; background-image: url(../images/belief/belief08.png);}
+.belief_board .belief09 {left: 15%; top: 36%; width: 21%; height: 44%; background-image: url(../images/belief/belief09.png);}
+.belief_board .belief10 {left: 65.5%; top: 4.5%; width: 25%; height: 46%; background-image: url(../images/belief/belief10.png);}
 
 
 .belief_menu{bottom:3%; width:100%; overflow:auto; text-align: center; z-index:100;}
+.ico_believes{width:635px; margin:auto;}
+
 .belief_menu li{display: inline-block; margin:5px;}
 .belief_menu li.ico_belief .ico_item{display: flex;  width:60px; height:60px; border-radius: 50%; border:1px solid #dfdfdf; background-size: 80%; background-repeat:no-repeat; background-position: center; text-indent:-9999px;}
 .belief_menu li.ico_belief .ico_txt{margin-top:0.1em; color:#fff;}
@@ -357,9 +361,9 @@ align-items: center;
 *05 FAQ
 *********************************************/
 .section-faq{padding:8em 0; display: flex; justify-content: center; align-items: stretch; flex-flow: wrap;color:#fff; box-sizing:border-box; overflow:hidden;}
-.section-faq .faq_title{top: 0;height:100%; align-items: flex-end; justify-content: flex-end; margin-left:-9em; border-right:2px solid rgb(51, 97, 141);}
-.section-faq .faq_title h2{color:rgb(237, 236, 226); transform: rotate(-90deg);} 
-.section-faq .content{left:15%; top:10%; width: 70%; height:100%; flex-direction: column; justify-content: space-between; z-index: 11;}
+.section-faq .faq_title{ top: 15%; left: 10.3%; width: auto; height: 70%; align-items: flex-end; justify-content: flex-end; border-right:2px solid rgb(51, 97, 141);}
+.section-faq .faq_title h2{margin-bottom:1em; color:rgb(237, 236, 226); transform: rotate(-90deg);} 
+.section-faq .content{left: 20%; top: 15%; width: 60%; height: 70%; flex-direction: column; justify-content: space-between; z-index: 11;}
 .section-faq .faq_nav{width: 100%; display: flex; justify-content: space-between;}
 .section-faq .faq_nav li {flex-grow: 1;}
 .section-faq .faq_nav li .menu{text-align: center; border-right:1px solid rgba(255,255,255,0.5); color: #bbc3bf;}
@@ -377,7 +381,7 @@ align-items: center;
 .section-faq .faq_list li {margin-bottom:1.25em; font-family:'Noto Serif KR', serif; font-size:1.25rem; line-height: 1.6em;}
 .section-faq .faq_list li.current{color:#f6f5ee; font-weight:800;}
 .section-faq .faq_content .discription {font-size:1rem; color:#222; line-height:1.813em; }
-.faq_btn {width:100%; display: flex; position: relative;  justify-content: space-between;}
+.faq_btn {width:100%; /*display: flex;*/ display: none; position: relative;  justify-content: space-between;}
 .faq_btn .btn_faq_pre, .faq_btn .btn_faq_next {display: flex;}
 .faq_btn .btn_faq_wrap {display: flex; position:relative;}
 .faq_btn .btn_faq_txt {margin:0 22px; color:#33618d; font-size:1.125em; font-family:'Noto Serif KR', serif;}
@@ -414,6 +418,7 @@ align-items: center;
 .book_more span.more_line {float: left; width: 0%; height: 7px; background: rgb(51, 97, 141); transition: width 0.3s linear;}
 .book_list .book_more:hover > .more_line {width:80%;}
 
+.book_wrap{position:absolute; width:60%; left:20%; z-index: 100;}
 #pdf_view{position:absolute; left:10%; top:10%; width:80%; height:80%; z-index:100;}
 
 /********************************************
@@ -476,13 +481,14 @@ align-items: center;
 	.history_con_text {padding: 2.5em 3.2em 5.5em 3.2em;}
 	.map .spot .label {font-size: 0.938rem;}
 	/* .section-belief h2 {font-size: 5.0em} */
-
+	.map .spot .label {font-size: 0.938rem;}
+	.section-belief h2 {font-size: 5.0em}
 
 	#belief_modal .content {width: 70%; height: 50%; margin: 12% 15%;}
 	#belief_modal .content .view {width: 54%;}
 	#belief_modal .content .belief_con_text {width: 46%;}
+	.section-faq .faq_title {left: 9.3%;}
 	.faq {height: 75%;}
-	.section-faq .faq_title {margin-left: -11em;}
 	.section-faq .faq_content h4 {font-size: 2rem;}
 	.section-books {padding: 6em 12.500em 0 12.500em;}
 	.section-community h2 { font-size: 4rem;}
@@ -502,12 +508,14 @@ align-items: center;
 	#scroll-section-3 .content {margin-top: -5.9em;}
 	/* .section-belief h3 { font-size: 1rem;} */
 	/* .section-belief h2 { font-size: 4.5em;} */
+	.section-belief h3 { font-size: 1rem;}
+	.section-belief h2 { font-size: 4.5em;}
 
 	#belief_modal .content {margin-top: 9em;}
 	#belief_modal .content span.belief_no {font-size: 1.2rem;}
 	#belief_modal .content h3 {margin-bottom: 0.9em; font-size: 2.0rem;}
 	.section-faq {padding: 7em 0;}
-	.section-faq .faq_title {margin-left: -10em;}
+	.section-faq .faq_title {left: 9.9%;}
 	.section-faq .faq_content h4 {font-size: 1.8rem;}
 	.section-faq .faq_list li {margin-bottom:1.25em; font-family:'Noto Serif KR', serif; font-size:1.125rem; line-height: 1.6em;}
 	.section-books h2 {font-size: 3.375rem;}
@@ -538,7 +546,6 @@ align-items: center;
 	h4.sticky-elem span {font-size:1rem;}
 	.section-belief h2 {font-size: 4rem;}
 
-
 	#belief_modal .content {margin-top:8.1em;}
 	#belief_modal .content .view {width: 49%;}
 	#belief_modal .content .belief_con_text {width: 51%; padding: 32px 32px 20px 32px;}
@@ -546,8 +553,9 @@ align-items: center;
 	#belief_modal .content h3 {margin-bottom: 0.8em; font-size: 1.8rem;}
 	.youtube_list li {width: 100px; height: 57px; margin-right: 0.5em;}
 	.section-faq .faq_nav li .menu .num {font-size: 1.6rem;}
-	.section-faq .faq_title {margin-left: -9em;}
+
 	.faq {height: 78%;}
+	.section-faq .faq_title { left: 9.5%;}
 	.section-faq .faq_content {padding: 1.875em 1.8em 2.5em 1.8em;}
 	.section-faq .faq_content h4 {font-size: 1.8rem;}
 	.faq_btn .btn_faq_txt {font-size: 1rem;}
@@ -582,7 +590,7 @@ align-items: center;
 	#belief_modal .content .view {width: 52%;}
 	#belief_modal .content .belief_con_text {width:48%;}
 	.section-faq {padding: 5em 0;}
-	.section-faq .faq_title {margin-left: -8em;}
+	.section-faq .faq_title {left: 10.5%;}
 	.section-faq .faq_nav li .menu .num {font-size: 1.375rem;}
 	.section-faq .faq_nav li .menu .title {font-size: 0.875em;}
 	.faq h3 { margin: 0.8em 0 1.25em;}
@@ -606,6 +614,7 @@ align-items: center;
 	.history_con_mov { float: left; width: 48%;}
 	.history_con_text {width: 52%;}
 	.ch_fn {padding: 0 2.8em;}
+	.section-faq .faq_title {left: 10%;}
 }
 
 
@@ -628,15 +637,17 @@ align-items: center;
 	.section-belief h3 {font-size: 0.813rem; margin-bottom: 1.2em;}
 	.section-belief h2 {font-size: 2.8rem;} 
 
+	.belief_board .belief08 {left: 63.5%;}
+	.belief_board .belief02 {left: 76%; top: 54%; width: 20%; height: 26%;}
 	.belief_menu {bottom: 4%;}
 	.belief_menu li.ico_belief .ico_item {width: 50px; height: 50px;}
 	.belief_menu li.ico_belief .ico_txt {font-size: 0.875rem;}
 	#belief_modal .content {width: 80%; height: 50%; margin: 13% 10%; margin-top:7.1em;}
 	#belief_modal .content h3 {font-size: 1.5rem;}
 	#belief_modal .content .description {font-size: 0.875em;}
+	.section-faq .content {width: 70%; left: 15%;}
 	.section-faq .faq_nav li.current .menu {padding: 0 0.8em;}
-	.section-faq .faq_title {margin-left: -6em;}
-	.section-faq .content {width: 75%;}
+	.section-faq .faq_title {left: 3%;}
 	.section-faq .faq_nav li .menu .num {font-size: 1.25rem;}
 	.faq h3 {font-size: 0.875em;}
 	.section-faq .faq_list li {font-size: 0.938em;}
@@ -679,11 +690,11 @@ align-items: center;
 	.ch_fn {padding: 0 1.8em; bottom: 1.2em;}
 	.ch_fn button {margin-right: 0.5em;}
 	.btn_ch_pre, .btn_ch_next {width: 42px; height: 42px;}
-	.ico_believes{width:555px; margin:auto;}
 
 	/* .section-belief h3 {font-size: 0.750rem; margin-bottom: 1.2em;}
 	.section-belief h2 {font-size: 2.3rem;} */
 
+	.belief_menu{bottom:1%}
 	.belief_menu li.ico_belief .ico_item {width: 42px; height: 42px;}
 	.belief_menu li.ico_belief .ico_txt {font-size: 0.750rem;}
 	#belief_modal .content {width: 80%; height: 58%; margin: 13% 10%; margin-top: 4.1em;}
@@ -694,7 +705,6 @@ align-items: center;
 	.section-faq .content {width: 70%;}
 	.section-faq .faq_nav li .menu .num {font-size: 1.063rem;}
 	.section-faq .faq_nav li .menu .title {font-size: 0.750rem;}
-	.section-faq .faq_title {margin-left: -4.5em;}
 	.faq { padding: 0 0 0 2em;}
 	.section-faq .faq_list li {font-size: 0.813rem;}
 	.faq h3 {font-size: 0.750em;}
@@ -716,7 +726,7 @@ align-items: center;
 /******Mobile******/
 
 
-/*768*/
+/*768*//* iPad */
 @media screen and (max-width: 48.063em ) {
 	.local-nav {height: 48px;}
 	.local-nav-links .product-name img {width: 48px; margin-right: 4px;}
@@ -740,11 +750,6 @@ align-items: center;
 	#belief_modal .content span.belief_no {font-size: 0.85rem; width: 100%; margin-bottom: 0.3em;}
 	#belief_modal .content .belief_con_text { width: 100%; padding: 20px 20px; float: left; overflow-y: scroll;}
 	#belief_modal .content { width: 60%; height: 50%; margin: 25% 20%;}
-		
-}
-
-/* iPad */
-@media screen and (max-width: 767px ) {
 
 	.local-nav-links .m_menu{display: flex; align-content: center; z-index: 10000;}
 	.local-nav-sticky .local-nav {background:rgba(220, 220, 220, 0.95);}
@@ -767,10 +772,20 @@ align-items: center;
 	.btn_ch_pre, .btn_ch_next {width: 54px; height: 54px;}
 	select { width: 49%; padding: 0.5em 1.3em 0.5em 0.5em; font-size: 1.2rem;}
 	#belief_modal .content { width: 80%; height: 70%; margin: 25% 10%;}
+	.belief_board .belief01 {left: 2%; top: 10%; width: 17%; height: 25%;}
+	.belief_board .belief02 {left: 74%; top: 10%; width: 22%; height: 27%;}
+	.belief_board .belief03 {left: 3%; top: 49.96%; width: 13%; height: 30%;}
+	.belief_board .belief04 {left: 51.7%; top: 48%; width: 14%; height: 31%;}
+	.belief_board .belief05 {left: 34.5%; top: 51.37%; width: 15%; height: 25%;}
+	.belief_board .belief06 {left: 20%; top: 8.5%; width: 15%; height: 28%;}
+	.belief_board .belief07 {left: 36%; top: 10%; width: 19%; height: 23%;}
+	.belief_board .belief08 {left: 68.5%; top: 52%; width: 13%; height: 23%;}
+	.belief_board .belief09 {left: 18%; top: 48.5%; width: 15%; height: 32%;}
+	.belief_board .belief10 {left: 55.5%; top: 5.5%; width: 17%; height: 31%;}
 	.section-faq {padding: 4em 0;}
-	.section-faq .content { width: 85%; justify-content: start;}
-	.section-faq .faq_title { height: auto; width: 100%; display: flex; align-items: start; justify-content: start; margin-left: 8%; border-right: 0; }
-	.section-faq .faq_title h2 { transform:none; font-size: 2.0rem;}
+	.section-faq .content {left:7%;  top: 21%; width: 86%; justify-content: start;}
+	.section-faq .faq_title { left: 7%; top: 10%; height: auto; width: 86%; align-items: start; justify-content: start; border-right: 0;}
+	.section-faq .faq_title h2 { transform:none; font-size: 2.0rem; margin-bottom: 0.4em;}
 	.faq{ display: flex; flex-direction: column; padding:0; justify-content: start;}
 	.section-faq .faq_list li {margin-bottom: 1em;}
 	.faq_tit_con { float: left; width: 100%;}

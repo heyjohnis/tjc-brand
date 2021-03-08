@@ -56,9 +56,12 @@
         
         <section class="scroll-section section-intro" id="scroll-section-0">
 	        <div class="tv">
-	        	<div class="screen mute" id="tv"></div>
+	        	<!-- <div class="screen mute" id="tv"></div> -->
+				<video muted autoplay loop>
+					<source src="video/intro_mov.mp4" type="video/mp4">
+				</video>
 	        </div>
-
+			<div class="btn_next" onclick="gotoScene(1)">▼ 교회역사</div>
         </section>
         
 		
@@ -251,6 +254,8 @@
                 </div>
             </div>
 			<!-- //01 교회 역사: 컨텐츠 -->
+			<div class="btn_next sticky-elem" onclick="gotoScene(2)">▼ 교회분포</div>
+
         </section>
 		<!-- //01 교회 역사 -->
 		
@@ -319,6 +324,8 @@
 					</div>
                 </div>
             </div>
+			<div class="btn_next sticky-elem" onclick="gotoScene(3)">▼ 우리의 신앙</div>
+
 		</section>
 
 		<section class="scroll-section section-belief" id="scroll-section-3">
@@ -332,16 +339,16 @@
 			<div class="wrap_area sticky-elem">
 				<div class="board_area">
 					<div class="belief_board">
-						<div class="belief01 belief">01</div>
-						<div class="belief02 belief">02</div>
 						<div class="belief03 belief">03</div>
-						<div class="belief04 belief">04</div>
-						<div class="belief05 belief">05</div>
-						<div class="belief06 belief">06</div>
-						<div class="belief07 belief">07</div>
-						<div class="belief08 belief">08</div>
+						<div class="belief01 belief">01</div>
 						<div class="belief09 belief">09</div>
+						<div class="belief06 belief">06</div>
+						<div class="belief05 belief">05</div>
+						<div class="belief07 belief">07</div>
+						<div class="belief04 belief">04</div>
+						<div class="belief08 belief">08</div>
 						<div class="belief10 belief">10</div>
+						<div class="belief02 belief">02</div>
 					</div>
 				</div>
 			</div>
@@ -429,11 +436,12 @@
 				</div>
 			</div>
 
+			<div class="btn_next sticky-elem" onclick="gotoScene(4)">▼ FAQ</div>
 		</section>
 
 		
 		<section class="scroll-section section-faq" id="scroll-section-4">
-			<div class="faq_title">
+			<div class="faq_title sticky-elem">
 				<h2>FAQ</h2>                     
 			</div>
 			<div class="content sticky-elem">
@@ -526,6 +534,7 @@
 				</div>
 				
 			</div>
+			<div class="btn_next sticky-elem" onclick="gotoScene(5)">▼ 간행물</div>
 
 		</section>
 
@@ -537,11 +546,25 @@
 				<ul class="book_list">
 				</ul>
 			</div>
-		</section>
+			<div class="btn_next sticky-elem" onclick="gotoScene(6)">▼ 커뮤니티</div>
 
-		<div class="modal-popup" id="books_modal">
-			<iframe frameborder="0" id="pdf_view"></iframe>
-		</div>
+			<div class="modal-popup" id="books_modal">
+				<!-- <iframe frameborder="0" id="pdf_view"></iframe> -->
+				<div class="book_wrap">
+					<div class="thumb"><img src="" /></div>
+					<div class="book_content">
+						<h3 class="book_title"></h3>
+						<div class="book_description"></div>
+						<div class="book_info"></div>
+						<!-- <div class="price"></div> -->
+						<div class="btns">
+							<div class="btn_preview">미리보기</div>
+							<div class="btn_order" href="#">주문</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 		<section class="scroll-section section-community" id="scroll-section-6">
 			<div class="tit tit0 sticky-elem">

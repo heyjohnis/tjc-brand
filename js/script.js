@@ -180,6 +180,10 @@
 				book_title: document.querySelector('#scroll-section-5 .book_title'),
 				book_img: document.querySelector('#scroll-section-5 .book_img'),
 				book_description: document.querySelector('#scroll-section-5 .book_img'),
+				modal_title: document.querySelector('#books_modal .book_title'),
+				modal_description: document.querySelector('#books_modal .book_description'),
+				modal_info: document.querySelector('#books_modal .book_info'),
+				modal_thumb: document.querySelector('#books_modal .thumb img'),
 			},
 			values: {
 			}
@@ -763,18 +767,20 @@
 	}
 
 	const BOOKS = [
-		// {
-		// 	book_id: "001",
-		// 	book_title: "성경의 핵심 진리",
-		// 	book_img: "./images/book/book001.jpg",
-		// 	book_pdf: "book001",
-		// 	book_description: "원본인 중문의 ‘성경의 핵심 진리＇(구 성경요도)는 1960년에 처음 출판되었고 짧은 기간에 2천부가 판매되었다. 서술식이 아닌 요약식의 구성은 본서의 한계를 나타내고 있지만 순수한 성경의 가르침은 오늘날에도 진지하게 성경을 연구하려는 분들에게 좋은 안내자가 될 것이다."
-		// },
+		{
+			book_id: "001",
+			book_title: "성경의 핵심 진리",
+			book_img: "./images/book/book001.jpg",
+			book_pdf: "book001",
+			book_info: "초판인쇄 2008년 3월 20일\n초판발행 2008년 3월 25일\n편저 양요한\n역 김세한\n펴낸곳 참예수교회 한국총회\nGeneral Assembly of True Jesus Church in Korea\n주소 대전광역시 동구 대동 14-6\n전화 042) 638-6611, 6612, 6613\nhttp://www.tjc.or.kr\n출판등록 2008년 3월 7일 제364-2008-00009호\nISBN 978-89-960913-0-1",
+			book_description: "원본인 중문의 ‘성경의 핵심 진리＇(구 성경요도)는 1960년에 처음 출판되었고 짧은 기간에 2천부가 판매되었다. 서술식이 아닌 요약식의 구성은 본서의 한계를 나타내고 있지만 순수한 성경의 가르침은 오늘날에도 진지하게 성경을 연구하려는 분들에게 좋은 안내자가 될 것이다.",
+		},
 		{
 			book_id: "002",
 			book_title: "성령론",
 			book_img: "./images/book/book002.jpg",
 			book_pdf: "book002",
+			book_info: "",
 			book_description: "성령론은 대만 참예수교회의 1세대 지도자요 교회 역사의 산 증인이신 사순도 장로님의 역작이다. 오랜 기간 ‘성령보’라는 월간지에 연재된 내용을 단행본으로 출간했고 1913년 한국 참예수교회 빛처럼 출판사에서 출간하게 되었다. 이는 본회의 성령론이 얼마나 성경적인지를 보여주고 성령에 대한 진리를 갈구하는 자들에게 좋은 길잡이가 될 것이다."
 		},
 		{
@@ -782,6 +788,7 @@
 			book_title: "참예수교회 한국설립 70주년 기념호",
 			book_img: "./images/book/book003.jpg",
 			book_pdf: "book003",
+			book_info: "",
 			book_description: "2018년은 참예수교회 한국 총회 선교 70주년이 되는 해이다. 이를 기념하여 참한총의 빛처럼 출판사에서는 그 동안 30주년, 30주년, 50주년 기념호를 총망라하여 70주년 기념호를 발행하게 되었다. 참예수교회의 역사에 대해서 궁금한 분들은 이 한 권으로 그 발자취를 더듬을 수 있을 것이다."
 		},
 		{
@@ -789,6 +796,7 @@
 			book_title: "한국 땅에 임한 성령의 역사",
 			book_img: "./images/book/book004.jpg",
 			book_pdf: "book004",
+			book_info: "",
 			book_description: "2018년은 참예수교회 한국 총회 선교 70주년이 되는 해이다. 이를 기념하여 참한총의 빛처럼 출판사에서는 70주년 기념호의 부록의 성격으로 본 사진집을 발행하게 되었다. 이 사진집은 과거를 추억하는 신도들에게 소중한 자료가 될 것이다."
 		}
 	]
@@ -1266,6 +1274,8 @@
 	// FAQ 컨텐츠 세팅
 	function setFaqContentList(num){
 
+		clickFaqMenu(num);
+
 		sceneInfo[4].objs.faq_subject.innerHTML = faq_data[num].subject;
 		let faq_list = sceneInfo[4].objs.faq_list;
 		faq_list.innerHTML = '';
@@ -1282,6 +1292,15 @@
 				faq_list.appendChild(li);
 			} 
 		}
+	}
+
+	// Click Menu - current 
+	function clickFaqMenu(num){
+		const menu = sceneInfo[4].objs.faq_menu;
+		for (let i = 0; i < menu.length; i++ ) {
+			menu[i].classList.remove('current');
+		}
+		document.querySelector('.faq_menu.faq_menu'+num).classList.add('current');
 	}
 
 	function setFaqContent(obj, title, discription){
@@ -1325,8 +1344,14 @@
 	}
 
 	function modalBook(idx){
-		const pdf = document.querySelector('#pdf_view');
-		pdf.src = './pdf/web/viewer.html?fileNm='+BOOKS[idx].book_pdf;
+
+		sceneInfo[5].objs.modal_title.innerText = BOOKS[idx].book_title;
+		sceneInfo[5].objs.modal_description.innerText = BOOKS[idx].book_description;
+		sceneInfo[5].objs.modal_info.innerText = BOOKS[idx].book_info;
+		console.log("title : ", BOOKS[idx].book_title);
+		sceneInfo[5].objs.modal_thumb.src = BOOKS[idx].book_img;
+		//const pdf = document.querySelector('#pdf_view');
+		//pdf.src = './pdf/web/viewer.html?fileNm='+BOOKS[idx].book_pdf;
 		openModal('books_modal');
 	}
 
@@ -1507,9 +1532,6 @@
 		});
 		
 
-
-
-
         window.addEventListener('orientationchange', function(){
             setTimeout(setLayout, 500);
 		});
@@ -1536,7 +1558,7 @@
 	function setRandomColor(){
 		let bg = document.querySelectorAll('.random-background > div');
 		for(let i = 0; i < bg.length; i++) {
-			bg[i].style.opacity = Math.random()*0.2;
+			bg[i].style.opacity = Math.random()*0.14;
 		}
 	}
 
