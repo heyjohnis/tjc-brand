@@ -180,6 +180,7 @@
 				book_title: document.querySelector('#scroll-section-5 .book_title'),
 				book_img: document.querySelector('#scroll-section-5 .book_img'),
 				book_description: document.querySelector('#scroll-section-5 .book_img'),
+				modal_book: document.querySelector('#scroll-section-5 #pdf_view'),
 				modal_title: document.querySelector('#books_modal .book_title'),
 				modal_description: document.querySelector('#books_modal .book_description'),
 				modal_info: document.querySelector('#books_modal .book_info'),
@@ -1350,11 +1351,28 @@
 		sceneInfo[5].objs.modal_info.innerText = BOOKS[idx].book_info;
 		console.log("title : ", BOOKS[idx].book_title);
 		sceneInfo[5].objs.modal_thumb.src = BOOKS[idx].book_img;
-		//const pdf = document.querySelector('#pdf_view');
-		//pdf.src = './pdf/web/viewer.html?fileNm='+BOOKS[idx].book_pdf;
+		const pdf = sceneInfo[5].objs.modal_book;
+		pdf.src = './pdf/web/viewer.html?fileNm='+BOOKS[idx].book_pdf;
 		openModal('books_modal');
 	}
 
+	function openBookPreview(){
+		removeBackdrop();
+		const modal = document.querySelector('#books_modal');
+		modal.classList.remove('show-modal');
+		openModal('preview_modal');
+	}
+
+	function openBookOrder(){
+		removeBackdrop();
+		const modal = document.querySelector('#books_modal');
+		modal.classList.remove('show-modal');
+		openModal('order_modal');
+	}
+
+	/***************************** 
+	공통 이벤트
+	******************************/
 
 
 	function scrollLoop() {
@@ -1565,6 +1583,10 @@
 
 //  })();
 
+
+/***************************** 
+모달팝업
+******************************/
 
 function openModal(id){
 	removeBackdrop();

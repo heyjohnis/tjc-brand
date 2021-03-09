@@ -549,7 +549,6 @@
 			<div class="btn_next sticky-elem" onclick="gotoScene(6)">▼ 커뮤니티</div>
 
 			<div class="modal-popup" id="books_modal">
-				<!-- <iframe frameborder="0" id="pdf_view"></iframe> -->
 				<div class="book_wrap">
 					<div class="thumb"><img src="" /></div>
 					<div class="book_content">
@@ -558,12 +557,40 @@
 						<div class="book_info"></div>
 						<!-- <div class="price"></div> -->
 						<div class="btns">
-							<div class="btn_preview">미리보기</div>
-							<div class="btn_order" href="#">주문</div>
+							<div class="btn_preview" onclick="openBookPreview()">미리보기</div>
+							<div class="btn_order" onclick="openBookOrder()">주문</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<div class="modal-popup" id="preview_modal">
+				<iframe frameborder="0" id="pdf_view"></iframe>
+			</div>
+			<div class="modal-popup" id="order_modal">
+				<div class="order_wrap">
+					<div class="book_content">
+						<form name="frm_order" action="order_book.php" method="post">
+							<label for="book_name">도서명</label>
+							<input type="text" id="book_name" />
+							<label for="order_count">주문수량</label>
+							<input type="text" id="order_count" />
+							<label for="order_name">신청자</label>
+							<input type="text" id="order_name" />
+							<label for="order_tel">신청자연락처</label>
+							<input type="text" id="order_tel" />
+							<label for="order_add">수령주소</label>
+							<input type="text" id="order_add" />
+							<label for="order_memo">기타요청사항</label>
+							<textarea type="text" id="order_memo"></textarea>
+
+							<div class="btns">
+								<button type="submit" class="btn_order">주문</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
 		</section>
 
 		<section class="scroll-section section-community" id="scroll-section-6">
