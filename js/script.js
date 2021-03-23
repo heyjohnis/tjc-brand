@@ -25,6 +25,7 @@
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-0'),     
+				intro_mov: document.querySelector('#intro_mov'),    
 			},
 			values: {
 
@@ -101,7 +102,7 @@
 				btnPrev: document.querySelector('.section-church .prev'),
 				btnNext: document.querySelector('.section-church .btn-slide.next'),
 				title: document.querySelector('.section-church h2'),
-				
+				process: document.querySelector('.section-church .process'),
 				fr_map1: document.querySelector('#slide-world .map-frame'),
 				fr_map2: document.querySelector('#slide-korea .map-frame'),
 				map1: document.querySelector('.section-church #map1'),
@@ -110,7 +111,11 @@
 				btnChNext: document.querySelector('.section-church .btn_ch_next'),
 				btnChPrev: document.querySelector('.section-church .btn_ch_pre'),
 				conYear : document.querySelector('#con_year'),
-				conChurch : document.querySelector('#con_church')
+				conChurch : document.querySelector('#con_church'),
+				curYear : document.querySelector('#cur_year'),
+				curChurch : document.querySelector('#cur_church'),
+				start_year : document.querySelector('#start_year')
+
 			},
 			values: {
 				slidesWrap_opacity_in: [0, 1, { start: 0, end: 0.1 }],
@@ -120,7 +125,7 @@
 		{
 			// 3 : 우리의 믿음 
 			type: 'sticky',
-			heightNum: 10,
+			heightNum: 5,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-3'),
@@ -153,7 +158,7 @@
 		{
 			// 4 : FAQ
 			type: 'sticky',
-			heightNum: 10,
+			heightNum: 3,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-4'),
@@ -172,7 +177,7 @@
 		{
 			// 5 : 간행물
 			type: 'sticky',
-			heightNum: 5,
+			heightNum: 3,
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-5'),
@@ -273,7 +278,7 @@
 	const MAPSOPT2 = [
 		{name: '김천교회', left: 50, top:50, since:'1947', site:'경상북도 김천시 평화중앙3길 30', tel: '054-434-2071', image:"./images/church/gimcheon.jpg"},
 		{name: '삼계교회', left: 36.7, top:62.9, since:'1949', site:'전라북도 임실군 삼계면 삼계리 충효로 1315-3', tel: '063-642-7619', image:"./images/church/samgye.jpg"},
-		{name: '쌍치기도소', left: 20.3, top:63.3, since:'1949', site:'전라북도 순창군 쌍치면 금성내동길 49-30', tel: '', image:""},
+		{name: '쌍치기도소', left: 35.3, top:64.3, since:'1949', site:'전라북도 순창군 쌍치면 금성내동길 49-30', tel: '', image:""},
 		{name: '전주교회', left: 35.3, top:57.5, since:'1949', site:'전라북도 전주시 완산구 백제대로 20-37(평화동1가)', tel: '063-223-6451', image:"./images/church/jeonju.jpg"},
 		{name: '서도교회', left: 37.7, top:64.7, since:'1949', site:'전라북도 남원시 사매면 노봉길 9', desc: '063-634-8430', image:"./images/church/seodo.jpg"},
 		{name: '동부교회', left: 34, top:23, since:'1949', site:'서울특별시 동대문구 회기로 23가길 12(회기동)', tel: '02-966-4294', image:"./images/church/dongbu.jpg"},
@@ -773,7 +778,7 @@
 			book_title: "성경의 핵심 진리",
 			book_img: "./images/book/book001.jpg",
 			book_pdf: "book001",
-			book_info: "초판인쇄 2008년 3월 20일\n초판발행 2008년 3월 25일\n편저 양요한\n역 김세한\n펴낸곳 참예수교회 한국총회\nGeneral Assembly of True Jesus Church in Korea\n주소 대전광역시 동구 대동 14-6\n전화 042) 638-6611, 6612, 6613\nhttp://www.tjc.or.kr\n출판등록 2008년 3월 7일 제364-2008-00009호\nISBN 978-89-960913-0-1",
+			book_info: "초판인쇄 : 2008년 3월 20일\n초판발행 : 2008년 3월 25일\n편저 : 양요한\n역 : 김세한\n펴낸곳 : 참예수교회 한국총회\nGeneral Assembly of True Jesus Church in Korea\n주소 : 대전광역시 동구 대동 14-6\n전화 : 042) 638-6611, 6612, 6613\nhttp://www.tjc.or.kr\n출판등록 : 2008년 3월 7일 제364-2008-00009호\nISBN : 978-89-960913-0-1",
 			book_description: "원본인 중문의 ‘성경의 핵심 진리＇(구 성경요도)는 1960년에 처음 출판되었고 짧은 기간에 2천부가 판매되었다. 서술식이 아닌 요약식의 구성은 본서의 한계를 나타내고 있지만 순수한 성경의 가르침은 오늘날에도 진지하게 성경을 연구하려는 분들에게 좋은 안내자가 될 것이다.",
 		},
 		{
@@ -781,7 +786,7 @@
 			book_title: "성령론",
 			book_img: "./images/book/book002.jpg",
 			book_pdf: "book002",
-			book_info: "",
+			book_info: "초판 인쇄 : 2013년 3월 20일\n초판 발행 : 2013년 3월 25일\n지은이 : 사순도\n옮긴이 : <빛처럼> 편집팀\n펴낸곳 : 참예수교회 한국총회\nGeneral Assembly of True Jesus Church in Korea\n주소 : 대전광역시 동구 대동 14-6\n전화 : 042) 638-6611, 6612, 6613\nhttp://www.tjc.or.kr\n출판등록 : 2008년 3월 7일 제364-2008-00009호\nISBN : 978-89-960913-8-7 03230",
 			book_description: "성령론은 대만 참예수교회의 1세대 지도자요 교회 역사의 산 증인이신 사순도 장로님의 역작이다. 오랜 기간 ‘성령보’라는 월간지에 연재된 내용을 단행본으로 출간했고 1913년 한국 참예수교회 빛처럼 출판사에서 출간하게 되었다. 이는 본회의 성령론이 얼마나 성경적인지를 보여주고 성령에 대한 진리를 갈구하는 자들에게 좋은 길잡이가 될 것이다."
 		},
 		{
@@ -789,7 +794,7 @@
 			book_title: "참예수교회 한국설립 70주년 기념호",
 			book_img: "./images/book/book003.jpg",
 			book_pdf: "book003",
-			book_info: "",
+			book_info: "초판 인쇄 :  2018년 12월 17일\n초판 발행 :  2018년 12월 18일\n편    집 : 참예수교회 정보출판부\n펴 낸 곳 : 참예수교회 한국총회 General Assembly of True Jesus Church in Korea\n주    소 : 대전광역시 동구 동대전로 110번길 74-10(대동)\n전    화 : 042) 638-6611, 6612, 6613\nhttp://www.tjc.or.kr/\n출판등록 : 2008년 3월 7일 제364-2008-000009호\nISBN : 979-11-85887-13-5",
 			book_description: "2018년은 참예수교회 한국 총회 선교 70주년이 되는 해이다. 이를 기념하여 참한총의 빛처럼 출판사에서는 그 동안 30주년, 30주년, 50주년 기념호를 총망라하여 70주년 기념호를 발행하게 되었다. 참예수교회의 역사에 대해서 궁금한 분들은 이 한 권으로 그 발자취를 더듬을 수 있을 것이다."
 		},
 		{
@@ -797,7 +802,7 @@
 			book_title: "한국 땅에 임한 성령의 역사",
 			book_img: "./images/book/book004.jpg",
 			book_pdf: "book004",
-			book_info: "",
+			book_info: "초판 인쇄 : 2018년 12월 17일\n초판 발행 : 2018년 12월 18일\n편     집 : 참예수교회 정보출판부\n펴 낸 곳 : 참예수교회 한국 총회 General Assembly of True Jesus Church in Korea\n주     소 : 대전광역시 동구 동대전로 110번길 74-10(대동)\n전     화 : 042) 638-6611, 6612, 6613\nhttp://www.tjc.or.kr/\n출판등록 : 2008년 3월 7일 제364-2008-000009호\nISBN : 979-11-85887-14-2",			
 			book_description: "2018년은 참예수교회 한국 총회 선교 70주년이 되는 해이다. 이를 기념하여 참한총의 빛처럼 출판사에서는 70주년 기념호의 부록의 성격으로 본 사진집을 발행하게 되었다. 이 사진집은 과거를 추억하는 신도들에게 소중한 자료가 될 것이다."
 		}
 	]
@@ -812,10 +817,14 @@
 		switch (currentScene) {
 			case 0:
 				console.log('0 play');
+				objs.intro_mov.play();
+
 			break;
 			case 1:     // 역사
                 // objs.slides.style.position = 'fixed';
 				console.log('1 play');
+
+				sceneInfo[0].objs.intro_mov.pause();
 
 				if (scrollRatio <= 0.2 && scrollRatio > 0.1) {
 					objs.menu.style.opacity = calcValues(values.menu_opacity_in, currentYOffset);
@@ -845,7 +854,7 @@
 					objs.menu_li[1].classList.add('active_on');
                     objs.tit1.style.opacity = calcValues(values.tit1_opacity_out, currentYOffset);
                     objs.tit2.style.opacity = calcValues(values.tit2_opacity_in, currentYOffset);
-				} else if(scrollRatio <=0.455) {
+				} else if(scrollRatio <=0.413) {
 					removeActive();
 					objs.menu_li[2].classList.add('active_on');
                     objs.tit2.style.opacity = calcValues(values.tit2_opacity_out, currentYOffset);
@@ -881,7 +890,7 @@
 
             case 2:		// 교회 분포 
 				console.log('2 play');
-
+				sceneInfo[0].objs.intro_mov.pause();
 				if(scrollRatio <=0.2) {
 					objs.slidesWrap.style.opacity = calcValues(values.slidesWrap_opacity_in, currentYOffset);
 				} else if(scrollRatio > 0.8 && scrollRatio <=0.95) {
@@ -900,12 +909,14 @@
 				let objSpot = null;
 				
 				if(currentSlide == 0) {	// 세계지도
+					objs.start_year.innerText = '1919'
 					objSpot = document.querySelectorAll('#map1 .spot');
 					fr_map = objs.fr_map1;
 					map = sceneInfo[2].objs.map1;
 					mapSpot = MAPSOPT1;
 					interval = interval1;
 				} else { 	// 국내지도
+					objs.start_year.innerText = '1947'
 					objSpot = document.querySelectorAll('#map2 .spot');
 					fr_map = objs.fr_map2;
 					map = sceneInfo[2].objs.map2;
@@ -936,8 +947,16 @@
 				const map_size = map.style.width;
 
 				// 교회설립연도
-				sceneInfo[2].objs.conYear.innerText = mapSpot[currentSpot].since;
-				sceneInfo[2].objs.conChurch.innerText = mapSpot[currentSpot].name;
+				objs.conYear.innerText = mapSpot[currentSpot].since;
+				objs.conChurch.innerText = mapSpot[currentSpot].name;
+
+				// 좌측 연도 게이지
+				objs.curYear.innerText = mapSpot[currentSpot].since;
+				objs.curChurch.innerText = mapSpot[currentSpot].name;
+
+				let percent = Math.ceil(currentSpot/mapSpot.length*100);
+				console.log("current : ",currentSpot, percent, "%");
+				objs.process.style.height = percent + "%";
 
 				let angle = fr_map.scrollLeft + winWith;
 				currentLeft = mapSpot[currentSpot].left * parseInt(map_size) * 0.01;
@@ -952,7 +971,7 @@
 			break;
 			case 3:		// 우리의 신앙
 				console.log('3 play');
-				
+				sceneInfo[0].objs.intro_mov.pause();
 				if(scrollRatio <=0.2) {
 					objs.belief_content.style.opacity = calcValues(values.belief_content_opacity_in, currentYOffset);
 					objs.belief_board.style.opacity = calcValues(values.belief_board_opacity_in, currentYOffset);
@@ -994,12 +1013,15 @@
 			break;
 			case 4:		// FAQ
 				console.log('4 play');
+				sceneInfo[0].objs.intro_mov.pause();
 			break;
 			case 5:		// 발행서적
 				console.log('5 play');
+				sceneInfo[0].objs.intro_mov.pause();
 				break;
 			case 6:
 				console.log('6 play');
+				sceneInfo[0].objs.intro_mov.pause();
 			break;
         }
 	}
@@ -1325,7 +1347,7 @@
 		sceneInfo[5].objs.book_list.innerHTML = '';
 		BOOKS.forEach(function(book, idx){
 			let li = document.createElement('li');
-			const html = '<div class="image">'
+			const html = '<div class="image" onclick="modalBook('+idx+');">'
 					+ '<img src="'+book.book_img+'" />'
 					+ '</div>'
 					+ '<div class="title">'+book.book_title+'</div>'
@@ -1344,9 +1366,12 @@
 
 	}
 
+	let selBook = '';
+
 	function modalBook(idx){
 
-		sceneInfo[5].objs.modal_title.innerText = BOOKS[idx].book_title;
+		selBook = BOOKS[idx].book_title;
+		sceneInfo[5].objs.modal_title.innerText = selBook;
 		sceneInfo[5].objs.modal_description.innerText = BOOKS[idx].book_description;
 		sceneInfo[5].objs.modal_info.innerText = BOOKS[idx].book_info;
 		console.log("title : ", BOOKS[idx].book_title);
@@ -1368,7 +1393,26 @@
 		const modal = document.querySelector('#books_modal');
 		modal.classList.remove('show-modal');
 		openModal('order_modal');
+		document.querySelector('#book_name').value = selBook;
 	}
+
+	function sendEmail(){
+		const book = document.querySelector('#book_name').value;
+		const name = document.querySelector('#order_name').value;
+		const tel = document.querySelector('#order_tel').value;
+		const addr = document.querySelector('#order_add').value;
+		const memo = document.querySelector('#order_memo').value;
+		const cnt = document.querySelector('#order_count').value;
+		const checked = document.querySelector('#order_privacy').checked;
+
+		if(name == '') {alert("신청자명을 입력하세요"); return;}
+		if(tel == '') {alert("연락처를 입력하세요"); return;}
+		if(!checked) {alert("개인정보활용동의를 확인하세요"); return;}
+
+		document.querySelector('#send_mail').src = "http://m.koreafp.co.kr/mail.php?book="+book+"&name="+name+"&tel="+tel+"&addr="+addr+"&memo="+memo+"&cnt="+cnt;
+
+	}
+	
 
 	/***************************** 
 	공통 이벤트
@@ -1608,8 +1652,8 @@ function removeBackdrop(){
 	});
 }
 
-
 function gotoScene(num) {
+
 	let top = 1;
 	for(let i = 0; i < num ; i ++) {
 		top += sceneInfo[i].scrollHeight;
@@ -1618,6 +1662,45 @@ function gotoScene(num) {
 	document.querySelector('#m_menu').checked = false;
 	$("html, body").animate({ scrollTop: top }, "slow");
 	setTimeout(setLayout, 700);
-	
+	// setTimeout(initScene(num), 700);
 }
+
+function initScene(num) {
+	switch (num) {
+		case 0:
+			console.log('init 0');
+		break;
+		case 1:
+			console.log('init 1');
+			// 가끔 버그 발생으로 처리
+			sceneInfo[1].objs.tit1.style.opacity = 0;
+			sceneInfo[1].objs.tit2.style.opacity = 0;
+			sceneInfo[1].objs.tit3.style.opacity = 0;
+			sceneInfo[1].objs.tit4.style.opacity = 0;
+			sceneInfo[1].objs.tit5.style.opacity = 0;
+			sceneInfo[1].objs.tit6.style.opacity = 0;
+			sceneInfo[1].objs.tit7.style.opacity = 0;
+			sceneInfo[1].objs.canvas.style.opacity = 0;
+
+		break;
+		case 2:
+			console.log('init 2');
+		break;
+		case 3:
+			console.log('init 3');
+		break;
+		case 4:
+			console.log('init 4');
+		break;
+		case 5:
+			console.log('init 5');
+		break;
+		case 6:
+			console.log('init 6');
+		break;
+	}
+
+}
+
+
 

@@ -4,10 +4,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="icon" type="image/svg+xml" href="images/logo.svg">
+
 	<title>참예수교회</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>    
 	<script src="//cdn.polyfill.io/v1/polyfill.min.js" async defer></script>
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"> -->
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/default.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -55,9 +57,15 @@
         </nav>
         
         <section class="scroll-section section-intro" id="scroll-section-0">
+			<div class="tit_wrap">
+				<div class="opening_tit">
+					<span class="opening_tit_left">사도시대의</span>
+					<span class="opening_tit_right">성령과 진리의 교회</span>
+				</div>
+			</div>
 	        <div class="tv">
 	        	<!-- <div class="screen mute" id="tv"></div> -->
-				<video muted autoplay loop>
+				<video autoplay loop muted playsinline id="intro_mov">
 					<source src="video/intro_mov.mp4" type="video/mp4">
 				</video>
 	        </div>
@@ -76,7 +84,7 @@
                 <h2>교회역사</h2>
                 <p class="desc">말일에 여호와의 전의 산이 모든 산 꼭대기에 굳게 설 것이요<br/>
                     모든 작은 산 위에 뛰어나리니 만방이 그리로 모여들 것이라<br/>
-                    사 2:2
+                    (이사야 2장 2절)
 				</p>
 			</div>
             <div class="tit tit1 sticky-elem">
@@ -264,16 +272,20 @@
         <section class="scroll-section section-church" id="scroll-section-2">
 			<!-- 02 교회 분포: 타이틀 -->
 
-            <div class="tit tit1 sticky-elem">
+            <div class="tit tit1">
 				<h2>교회분포</h2>
-                <p class="desc">너는 여호와의 입으로 정하실<br>새 이름으로 일컬음이 될 것이며<br>사 62:2</p>
-            </div>
-            <div class="tit tit2 sticky-elem">
-                <h2>교회분포</h2>
-                <p class="desc">참예수교회는 2020년 현재<br>세계 63개국에  60여만명의 신도가 있습니다.</p>
+                <p class="desc">너는 여호와의 입으로 정하실 새 이름으로 일컬음이 될 것이며<br>(이사야 62장 2절)</p>
             </div>
  			<!-- // 02 교회 분포: 타이틀 -->   
 			
+			<div class="history_process sticky-elem">
+				<div class="start_year" id="start_year">1919</div>
+				<div class="process">
+					<div class="current_year"><span id="cur_year">1919</span><span id="cur_church" style="display: none;">중국교회</span></div>
+				</div>
+				<div class="last_year">2021</div>
+			</div>
+
             <div class="slides sticky-elem">
                 <div class="slides-scroll-wrap">
 					<div class="con_church">
@@ -569,24 +581,42 @@
 			<div class="modal-popup" id="order_modal">
 				<div class="order_wrap">
 					<div class="book_content">
-						<form name="frm_order" action="order_book.php" method="post">
-							<label for="book_name">도서명</label>
-							<input type="text" id="book_name" />
-							<label for="order_count">주문수량</label>
-							<input type="text" id="order_count" />
-							<label for="order_name">신청자</label>
-							<input type="text" id="order_name" />
-							<label for="order_tel">신청자연락처</label>
-							<input type="text" id="order_tel" />
-							<label for="order_add">수령주소</label>
-							<input type="text" id="order_add" />
-							<label for="order_memo">기타요청사항</label>
-							<textarea type="text" id="order_memo"></textarea>
-
+						<h3>도서주문</h3>
+						<ul>
+							<li>
+								<label for="book_name">도서명</label>
+								<input type="text" id="book_name" readonly />
+							</li>
+							<li>
+								<label for="order_count">주문수량</label>
+								<input type="text" id="order_count" />
+							</li>
+							<li>
+								<label for="order_name">신청자<span>*</span></label>
+								<input type="text" id="order_name" />
+							</li>
+							<li>
+								<label for="order_tel">신청자연락처<span>*</span></label>
+								<input type="text" id="order_tel" />
+							</li>
+							<li>
+								<label for="order_add">수령주소</label>
+								<input type="text" id="order_add" />
+							</li>
+							<li>
+								<label for="order_memo">기타요청사항</label>
+								<textarea type="text" id="order_memo"></textarea>
+							</li>
+							<li>
+								<input type="checkbox" id="order_privacy"  />
+								<label for="order_privacy">개인정보활용동의<span>*</span></label>
+								<textarea type="text" id="order_memo" rows="4"></textarea>
+							</li>							
 							<div class="btns">
-								<button type="submit" class="btn_order">주문</button>
+								<button type="submit" class="btn_order" onclick="sendEmail()">주문</button>
 							</div>
-						</form>
+						</ul>
+							<iframe id="send_mail" src style="height:1px; width:1px;"></iframe>
 					</div>
 				</div>
 			</div>
