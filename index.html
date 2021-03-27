@@ -65,7 +65,7 @@
 			</div>
 	        <div class="tv">
 	        	<!-- <div class="screen mute" id="tv"></div> -->
-				<video autoplay loop muted playsinline preload="auto" id="intro_mov" poster="./images/intro_mov.jpg">
+				<video autoplay loop muted playsinline preload="auto" id="intro_mov">
 					<source src="video/intro_mov.mp4" type="video/mp4">
 				</video>
 	        </div>
@@ -90,26 +90,35 @@
             <div class="tit tit1 sticky-elem">
                 <h2>사도교회</h2>
                 <p class="desc">이른비 성령에 의해<br/>영혼 구원의 복음과 사명이 시작된 교회</p>
+				<div class="btn_history" onclick="modalHistory(1)">
+					<span>상세보기</span>
+				</div>
+
             </div>			
             <div class="tit tit2 sticky-elem">
                 <h2>루터의 종교개혁과 그 한계점</h2>
                 <p class="desc">이른비 성령에 의해<br/>영혼 구원의 복음과 사명이 시작된 교회</p>
+				<div class="btn_history" onclick="modalHistory(2)">상세보기</div>
 			</div>
             <div class="tit tit3 sticky-elem">
                 <h2>20세기에 나타난 오순절 운동</h2>
                 <p class="desc">이른비 성령에 의해<br/>영혼 구원의 복음과 사명이 시작된 교회</p>
+				<div class="btn_history" onclick="modalHistory(3)">상세보기</div>
 			</div>
             <div class="tit tit4 sticky-elem">
                 <h2>중국에 출현한 말세의 참 교회</h2>
                 <p class="desc">이른비 성령에 의해<br/>영혼 구원의 복음과 사명이 시작된 교회</p>
+				<div class="btn_history" onclick="modalHistory(4)">상세보기</div>
 			</div>
             <div class="tit tit5 sticky-elem">
                 <h2>중국 공산화 이후의 참예수교회</h2>
                 <p class="desc">이른비 성령에 의해<br/>영혼 구원의 복음과 사명이 시작된 교회</p>
+				<div class="btn_history" onclick="modalHistory(5)">상세보기</div>
 			</div>
             <div class="tit tit6 sticky-elem">
                 <h2>한국에 전파된 참예수교회</h2>
                 <p class="desc">이른비 성령에 의해<br/>영혼 구원의 복음과 사명이 시작된 교회</p>
+				<div class="btn_history" onclick="modalHistory(6)">상세보기</div>
             </div>
             <div class="tit tit7 sticky-elem">
                 <h2>참예수교회</h2>
@@ -120,27 +129,27 @@
 			<!-- 01 교회 역사: 로컬 메뉴 -->
 			<div class="sub_menu sticky-elem">
 				<ul class="ch_history_mn_wrap">
-					<li onclick="openModal('history-modal1')" class="active_on">
+					<li onclick="modalHistory(1)" class="active_on">
 						<label class="ch_history_no">01</label>
 						<div class="ch_history_mn">사도교회의 태동과<br>복음의 변질</div>
 					</li>
-					<li onclick="openModal('history-modal2')">
+					<li onclick="modalHistory(2)">
 						<label class="ch_history_no">02</label>
 						<div class="ch_history_mn">루터의 종교개혁과<br>그 한계점</div>
 					</li>
-					<li onclick="openModal('history-modal3')">
+					<li onclick="modalHistory(3)">
 						<label class="ch_history_no">03</label>
 						<div class="ch_history_mn">20세기에 나타난<br>오순절 운동</div>
 					</li>
-					<li onclick="openModal('history-modal4')">
+					<li onclick="modalHistory(4)">
 						<label class="ch_history_no">04</label>
 						<div class="ch_history_mn">중국에 출현한<br>말세의 참 교회</div>
 					</li>
-					<li onclick="openModal('history-modal5')">
+					<li onclick="modalHistory(5)">
 						<label class="ch_history_no">05</label>
 						<div class="ch_history_mn">중국 공산화 이후의<br>참예수교회</div>
 					</li>
-					<li onclick="openModal('history-modal6')">
+					<li onclick="modalHistory(6)">
 						<label class="ch_history_no">06</label>
 						<div class="ch_history_mn">한국에 전파된<br>참예수교회</div>
 					</li>
@@ -152,7 +161,7 @@
             <div class="modal-popup" id="history-modal1">
 				<div class="content">
 					<div class="history_con_mov">
-						<video muted autoplay loop>
+						<video muted playsinline>
 							<source src="video/01_1_mov.mp4" type="video/mp4">
 						</video>
 					</div>
@@ -170,7 +179,7 @@
             <div class="modal-popup" id="history-modal2">
                 <div class="content">
 					<div class="history_con_mov">
-						<video muted autoplay loop>
+						<video muted autoplay loop playsinline>
 							<source src="video/02_1_mov.mp4" type="video/mp4">
 						</video>
 					</div>
@@ -185,7 +194,11 @@
 			
             <div class="modal-popup" id="history-modal3">
                 <div class="content">
-					<div class="history_con_mov"></div>
+					<div class="history_con_mov">
+						<video muted autoplay loop playsinline>
+							<source src="video/03_1_mov.mp4" type="video/mp4">
+						</video>
+					</div>
 					<div class="history_con_text">
 						<h3>03. 20세기에 나타난 오순절 운동</h3>
 						<p>
@@ -199,7 +212,11 @@
 			
             <div class="modal-popup" id="history-modal4">
                 <div class="content">
-					<div class="history_con_mov"></div>
+					<div class="history_con_mov">
+						<video muted autoplay loop playsinline>
+							<source src="video/04_1_mov.mp4" type="video/mp4">
+						</video>
+					</div>
 					<div class="history_con_text">
 						<h3>04. 중국에 출현한 말세의 참 교회</h3>
 						<p>
@@ -225,7 +242,11 @@
             </div>
             <div class="modal-popup" id="history-modal5">
                 <div class="content">
-					<div class="history_con_mov"></div>
+					<div class="history_con_mov">
+						<video muted autoplay loop playsinline>
+							<source src="video/05_1_mov.mp4" type="video/mp4">
+						</video>
+					</div>
 					<div class="history_con_text">
                     	<h3>05. 중국 공산화 이후의 참예수교회</h3>
 						<p>
@@ -239,7 +260,11 @@
             
 			<div class="modal-popup" id="history-modal6">
                 <div class="content">
-					<div class="history_con_mov"></div>
+					<div class="history_con_mov">
+						<video muted autoplay loop playsinline>
+							<source src="video/06_1_mov.mp4" type="video/mp4">
+						</video>
+					</div>
 					<div class="history_con_text">					
 						<h3>06. 한국에 전파된 참예수교회</h3>
 						<p>1943년 7월 30일 재일 교포 배상용(고 배영도 장로)씨는 일본 오사카 소재 참예수교회에서 전도되어 성령을 받고 한국인 최초로 중생(거듭남)하게 된다. 그 후 2차 세계대전이 막바지에 이르렀을 때 일본의 각처에 폭격이 심해졌는데 배상용씨는 이를 피해 1945년 1월 한국으로 건너오게 된다. 그 후 다시 일본으로 되돌아갈 수 없어 고향인 김천에 정착하게 된다. 
@@ -603,13 +628,15 @@
 								<label for="order_add">수령주소</label>
 								<input type="text" id="order_add" />
 							</li>
-							<li>
+							<li class="textarea">
 								<label for="order_memo">기타요청사항</label>
 								<textarea type="text" id="order_memo"></textarea>
 							</li>
-							<li>
-								<input type="checkbox" id="order_privacy"  />
-								<label for="order_privacy">개인정보활용동의<span>*</span></label>
+							<li class="textarea">
+								<div>
+									<input type="checkbox" id="order_privacy"  />
+									<label for="order_privacy">개인정보활용동의<span>*</span></label>
+								</div>
 								<textarea type="text" id="order_memo" rows="4"></textarea>
 							</li>							
 							<div class="btns">

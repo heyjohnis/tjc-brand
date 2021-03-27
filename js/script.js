@@ -47,6 +47,20 @@
 				tit5: document.querySelector('.section-history .tit5'),
 				tit6: document.querySelector('.section-history .tit6'),
 				tit7: document.querySelector('.section-history .tit7'),
+
+                btn1: document.querySelector('.section-history .tit1 .btn_history'),
+                btn2: document.querySelector('.section-history .tit2 .btn_history'),
+                btn3: document.querySelector('.section-history .tit3 .btn_history'),
+                btn4: document.querySelector('.section-history .tit4 .btn_history'),
+                btn5: document.querySelector('.section-history .tit5 .btn_history'),
+                btn6: document.querySelector('.section-history .tit6 .btn_history'),
+
+				video1: document.querySelector('#history-modal1 video'),
+				video2: document.querySelector('#history-modal2 video'),
+				video3: document.querySelector('#history-modal3 video'),
+				video4: document.querySelector('#history-modal4 video'),
+				video5: document.querySelector('#history-modal5 video'),
+				video6: document.querySelector('#history-modal6 video'),
 				// randBg: document.querySelector('.section-history .random-background'),
 
 				canvas: document.querySelector('#video-canvas-0'),
@@ -826,6 +840,17 @@
 
 				sceneInfo[0].objs.intro_mov.pause();
 
+				// 상세보기 버튼
+				function activeButton(num){
+					for(let i = 1; i < 7; i++){
+						objs['btn'+i].style.display = 'none';
+						objs['tit'+i].style.zIndex = '10';
+					}
+					objs['btn'+num].style.display = 'block';
+					objs['tit'+num].style.zIndex = '11';
+
+				}
+
 				if (scrollRatio <= 0.2 && scrollRatio > 0.1) {
 					objs.menu.style.opacity = calcValues(values.menu_opacity_in, currentYOffset);
 				} else {
@@ -843,34 +868,45 @@
 					objs.context.drawImage(objs.videoImages[seq], 0, 0);
 				}
 
-
                 if(scrollRatio <=0.163) {
 					removeActive();
+					activeButton(1);
 					objs.menu_li[0].classList.add('active_on');
 					objs.tit1.style.opacity = calcValues(values.tit1_opacity_in, currentYOffset);
 					
+
 				} else if(scrollRatio <=0.288) {
 					removeActive();
+					activeButton(2);
+
 					objs.menu_li[1].classList.add('active_on');
                     objs.tit1.style.opacity = calcValues(values.tit1_opacity_out, currentYOffset);
                     objs.tit2.style.opacity = calcValues(values.tit2_opacity_in, currentYOffset);
 				} else if(scrollRatio <=0.413) {
 					removeActive();
+					activeButton(3);
+
 					objs.menu_li[2].classList.add('active_on');
                     objs.tit2.style.opacity = calcValues(values.tit2_opacity_out, currentYOffset);
                     objs.tit3.style.opacity = calcValues(values.tit3_opacity_in, currentYOffset); 
 				} else if(scrollRatio <=0.538) {
 					removeActive();
+					activeButton(4);
+
 					objs.menu_li[3].classList.add('active_on');
                     objs.tit3.style.opacity = calcValues(values.tit3_opacity_out, currentYOffset);
                     objs.tit4.style.opacity = calcValues(values.tit4_opacity_in, currentYOffset); 
 				} else if(scrollRatio <=0.663) {
 					removeActive();
+					activeButton(5);
+
 					objs.menu_li[4].classList.add('active_on');
                     objs.tit4.style.opacity = calcValues(values.tit4_opacity_out, currentYOffset);
                     objs.tit5.style.opacity = calcValues(values.tit5_opacity_in, currentYOffset); 
 				} else if(scrollRatio <=0.788) {
 					removeActive();
+					activeButton(6);
+
 					objs.menu_li[5].classList.add('active_on');
                     objs.tit5.style.opacity = calcValues(values.tit5_opacity_out, currentYOffset);
                     objs.tit6.style.opacity = calcValues(values.tit6_opacity_in, currentYOffset); 
@@ -1100,6 +1136,39 @@
 		//FAQ 
 		setBackground();
 	}
+
+
+	/***************************** 
+	교회역사
+	******************************/
+
+	function modalHistory(num) {
+		const id = 'history-modal' + num;
+		const objs = sceneInfo[1].objs;
+
+		for(let i = 1; i < 7; i++) 
+			objs['video'+i].pause();
+		
+		if(num == 1) {
+			const video = objs.video1;
+			const source = document.querySelector('#history-modal1 source');
+			const sources = ['video/01_1_mov.mp4', 'video/01_2_mov.mp4'];
+			var active = 0;
+			
+			video.play();
+			video.addEventListener('ended', function(e){
+				active = (++active) % sources.length;
+				console.log("active : ", active);
+				video.src = sources[active];
+				video.play();
+			});
+			
+		} else {
+			objs['video'+num].play();
+		}
+		openModal(id);
+	}
+
 
 	/***************************** 
 	교회분포
@@ -1461,8 +1530,7 @@
 		// 현재 씬(스크롤섹션)에서 스크롤된 범위를 비율로 구하기
 		const scrollHeight = sceneInfo[currentScene].scrollHeight;
 		const scrollRatio = currentYOffset / scrollHeight;
-        // console.log("scrollHeight : ", scrollHeight);
-        // console.log("scrollRatio : ", scrollRatio);
+
 		if (values.length === 3) {
 			// start ~ end 사이에 애니메이션 실행
 			const partScrollStart = values[2].start * scrollHeight;
