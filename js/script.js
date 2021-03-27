@@ -1601,6 +1601,9 @@
 		// 동적 이미지 세팅
 		setCanvasImages();
 
+		const loading = document.querySelector("#loading");
+		loading.style.display = 'none';
+
 
 	});
 	
