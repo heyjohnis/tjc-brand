@@ -17,7 +17,7 @@
 	
 	
 <body>
-    <div class="container">
+    <div class="container" style="height:100vh">
     	<div class="random-background" style="position:fixed;"></div>
 
        <nav class="local-nav">
@@ -595,7 +595,7 @@
 						<!-- <div class="price"></div> -->
 						<div class="btns">
 							<div class="btn_preview" onclick="openBookPreview()">미리보기</div>
-							<div class="btn_order" onclick="openBookOrder()">주문</div>
+							<div class="btn_order" onclick="openBookOrder()">도서신청</div>
 						</div>
 					</div>
 				</div>
@@ -637,10 +637,10 @@
 									<input type="checkbox" id="order_privacy"  />
 									<label for="order_privacy">개인정보활용동의<span>*</span></label>
 								</div>
-								<textarea type="text" id="order_memo" rows="4"></textarea>
+								<!-- <textarea type="text" id="order_memo" rows="4"></textarea> -->
 							</li>							
 							<div class="btns">
-								<button type="submit" class="btn_order" onclick="sendEmail()">주문</button>
+								<button type="submit" class="btn_order" onclick="sendEmail()">도서신청</button>
 							</div>
 						</ul>
 							<iframe id="send_mail" src style="height:1px; width:1px;"></iframe>
@@ -656,35 +656,28 @@
 			</div>
 			<div class="content sticky-elem">
 				<ul class="community_mn">
-					<li >
-						<a href="/category/mov-all/worship/"> 
-							<img src="images/community01.svg" alt="설교/강의" class="img_origin"/>						
-							<img src="images/community01_o.svg" alt="설교/강의" class="img_on"/>
-						</a>
+					<li id="link_worship" >
+						<img src="images/community01.svg" alt="설교/강의" class="img_origin"/>						
+						<img src="images/community01_o.svg" alt="설교/강의" class="img_on"/>
 					</li>
-					<li>
-						<a href="/testimony">
-							<img src="images/community02.svg" alt="우리의 간증" class="img_origin"/>
-							<img src="images/community02_o.svg" alt="우리의 간증" class="img_on"/>
-						</a>
+					<li id="link_testimony">
+						<img src="images/community02.svg" alt="우리의 간증" class="img_origin"/>
+						<img src="images/community02_o.svg" alt="우리의 간증" class="img_on"/>
 					</li>
-					<li>
-						<a href="mission">
-							<img src="images/community03.svg" alt="행사/활동" class="img_origin"/>
-							<img src="images/community03_o.svg" alt="행사/활동" class="img_on"/>
-						</a>
+					<li id="link_mission">
+						<img src="images/community03.svg" alt="행사/활동" class="img_origin"/>
+						<img src="images/community03_o.svg" alt="행사/활동" class="img_on"/>
 					</li>
-					<li>
-						<a href="/시설예약">
-							<img src="images/community04.svg" alt="시설예약" class="img_origin"/>
-							<img src="images/community04_o.svg" alt="시설예약" class="img_on"/>
-						</a>
+					<li id="link_booking">
+						<img src="images/community04.svg" alt="시설예약" class="img_origin"/>
+						<img src="images/community04_o.svg" alt="시설예약" class="img_on"/>
 					</li>
 				</ul>
 			</div>
 		</section>
     </div>
 	<div id="loading">
+		<div class="backdrop"></div>
 		<div class="loading_spin"></div>
 	</div>
 </body>

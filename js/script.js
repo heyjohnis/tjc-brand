@@ -215,6 +215,11 @@
 			scrollHeight: 0,
 			objs: {
 				container: document.querySelector('#scroll-section-6'),
+				tit: document.querySelector('#scroll-section-6 .tit'),
+				link_worship: document.querySelector('#link_worship'),
+				link_testimony: document.querySelector('#link_testimony'),
+				link_mission: document.querySelector('#link_mission'),
+				link_booking: document.querySelector('#link_booking'),
 			},
 			values: {
 			}
@@ -963,7 +968,7 @@
 				// 시작시 인터벌을 둠으로써 밀리는 현상 방지 
 				const first_interval = Math.round(first_percent/interval);
 
-				console.log("first_interval ", first_interval)
+				//console.log("first_interval ", first_interval)
 
 				let currentSpot = Math.round((currentYOffset/scrollHeight/interval)) - first_interval;
 				currentSpot = currentSpot >= mapSpot.length ? mapSpot.length - 1 : currentSpot;
@@ -991,7 +996,7 @@
 				objs.curChurch.innerText = mapSpot[currentSpot].name;
 
 				let percent = Math.ceil(currentSpot/mapSpot.length*100);
-				console.log("current : ",currentSpot, percent, "%");
+				//console.log("current : ",currentSpot, percent, "%");
 				objs.process.style.height = percent + "%";
 
 				let angle = fr_map.scrollLeft + winWith;
@@ -1000,7 +1005,7 @@
 				if(currentSpot == 0) fr_map.scrollLeft = currentLeft - winWith / 2;
 
 				if(currentLeft < fr_map.scrollLeft || currentLeft > angle) {
-					console.log("넘어감");
+					//console.log("넘어감");
 					fr_map.scrollLeft = currentLeft - winWith / 2;
 				} 
 
@@ -1031,14 +1036,14 @@
 				
 				if(current_item != null) {
 					const current_left = parseInt(getComputedStyle(current_item).left);
-					console.log("current_left", current_left);					
+					//console.log("current_left", current_left);					
 					let angle = objs.wrap_area.scrollLeft + winWith;
-					console.log("angle : ", angle);
+					//console.log("angle : ", angle);
 
 					//if(currentSpot == 0) fr_map.scrollLeft = currentLeft - winWith / 2;
 
 					if(current_left < objs.wrap_area.scrollLeft || current_left > angle) {
-						console.log("넘어감");
+						//console.log("넘어감");
 						objs.wrap_area.scrollLeft = current_left - winWith / 2;
 					} 
 				}
@@ -1058,6 +1063,7 @@
 			case 6:
 				console.log('6 play');
 				sceneInfo[0].objs.intro_mov.pause();
+
 			break;
         }
 	}
@@ -1094,7 +1100,7 @@
 				let slideObj = sceneInfo[i].objs.slide;
                 for(let i = 0; i < slideObj.length; i++){
 					slideObj[i].style.width = winWith+'px';
-					console.log("win : ", winWith+'px');
+					//console.log("win : ", winWith+'px');
                 }
                 
             } 
@@ -1158,7 +1164,7 @@
 			video.play();
 			video.addEventListener('ended', function(e){
 				active = (++active) % sources.length;
-				console.log("active : ", active);
+				//console.log("active : ", active);
 				video.src = sources[active];
 				video.play();
 			});
@@ -1215,7 +1221,7 @@
 				setChurchSelect(mapSpotObj);
 				openModal('church-modal');
 				sceneInfo[2].currentPop = i;
-				console.log("pop_index : ", sceneInfo[2].currentPop);
+				//console.log("pop_index : ", sceneInfo[2].currentPop);
 			});
 		}
 	}
@@ -1242,7 +1248,7 @@
 		
 		objs.slidesWrap.style.left = currentSlide * winWith * -1 + 'px'
 		document.querySelector('body, html').scrollTop = sceneInfo[0].scrollHeight + sceneInfo[1].scrollHeight;
-		console.log("scrollTop : ", sceneInfo[0].scrollHeight + sceneInfo[1].scrollHeight); 
+		//console.log("scrollTop : ", sceneInfo[0].scrollHeight + sceneInfo[1].scrollHeight); 
 		if(currentSlide < 1) {
 			objs.btnPrev.style.display = 'none';
 			objs.btnNext.style.display = 'block';
@@ -1256,14 +1262,14 @@
 	// goto 한국교회
 	sceneInfo[2].objs.btnNext.addEventListener('click', function(){
 		sceneInfo[2].currentSlide ++;
-		console.log("sceneInfo[2].currentSlide ++ : ", sceneInfo[2].currentSlide);
+		//console.log("sceneInfo[2].currentSlide ++ : ", sceneInfo[2].currentSlide);
 		currentSlide();
 	});
 
 	// goto 세계교회
 	sceneInfo[2].objs.btnPrev.addEventListener('click', function(){
 		sceneInfo[2].currentSlide --;
-		console.log("sceneInfo[2].currentSlide ++ : ", sceneInfo[2].currentSlide);
+		//console.log("sceneInfo[2].currentSlide ++ : ", sceneInfo[2].currentSlide);
 		currentSlide();
 	});
 
@@ -1320,7 +1326,7 @@
 
 	// 우리의 믿음 모달 팝업 데이터 처리
 	function setBeliefModal(e){
-		console.log("el : ", e.target.innerText);
+		//console.log("el : ", e.target.innerText);
 		let num = e.target.innerText;
 		let data = belief_data[num];
 
@@ -1350,7 +1356,7 @@
 		let ifr = sceneInfo[3].objs.youtube_ifr;
 		ifr.src = url;
 		youtube.style.display = 'block';
-		console.log("youtube : ", url, image, title);
+		//console.log("youtube : ", url, image, title);
 	}
 
 	function closeYoutube(){
@@ -1416,17 +1422,18 @@
 		sceneInfo[5].objs.book_list.innerHTML = '';
 		BOOKS.forEach(function(book, idx){
 			let li = document.createElement('li');
-			const html = '<div class="image" onclick="modalBook('+idx+');">'
+			li.setAttribute('onclick', 'modalBook('+idx+')');
+			const html = '<div class="image">'
 					+ '<img src="'+book.book_img+'" />'
 					+ '</div>'
 					+ '<div class="title">'+book.book_title+'</div>'
 					+ '<p>'+book.book_description+'</p>'
-					+ '  <a onclick="modalBook('+idx+');" class="book_more">'
+					+ '  <a class="book_more">'
 					+ '	<span class="more_link">'
 					+ '		<span class="more_arr"></span>'
 					+ '		<span class="more_arr"></span>'
 					+ '		<span class="more_arr"></span>'
-					+ '		<span class="more_txt">샘플보기</span>'
+					+ '		<span class="more_txt">상세보기</span>'
 					+ '	</span>'
 					+ '	<span class="more_line"></span>';
 			li.innerHTML = html;
@@ -1443,7 +1450,7 @@
 		sceneInfo[5].objs.modal_title.innerText = selBook;
 		sceneInfo[5].objs.modal_description.innerText = BOOKS[idx].book_description;
 		sceneInfo[5].objs.modal_info.innerText = BOOKS[idx].book_info;
-		console.log("title : ", BOOKS[idx].book_title);
+		//console.log("title : ", BOOKS[idx].book_title);
 		sceneInfo[5].objs.modal_thumb.src = BOOKS[idx].book_img;
 		const pdf = sceneInfo[5].objs.modal_book;
 		pdf.src = './pdf/web/viewer.html?fileNm='+BOOKS[idx].book_pdf;
@@ -1670,7 +1677,33 @@
 		setCanvasImages();
 
 		const loading = document.querySelector("#loading");
+		const container = document.querySelector(".container");
 		loading.style.display = 'none';
+		container.style.height = 'auto';
+
+		// 커뮤니터 버튼
+		sceneInfo[6].objs.tit.addEventListener('click', function(){
+			localStorage.opennedBrand = "1"
+			location.href="/";
+		});
+
+		sceneInfo[6].objs.link_worship.addEventListener('click', function(){
+			localStorage.opennedBrand = "1"
+			location.href="/category/mov-all/worship/";
+		});
+
+		sceneInfo[6].objs.link_testimony.addEventListener('click', function(){
+			localStorage.opennedBrand = "1"
+			location.href="/testimony";
+		});
+		sceneInfo[6].objs.link_mission.addEventListener('click', function(){
+			localStorage.opennedBrand = "1"
+			location.href="/mission";
+		});
+		sceneInfo[6].objs.link_booking.addEventListener('click', function(){
+			localStorage.opennedBrand = "1"
+			location.href="/booking";
+		});
 
 
 	});
@@ -1728,7 +1761,7 @@ function gotoScene(num) {
 	let top = 1;
 	for(let i = 0; i < num ; i ++) {
 		top += sceneInfo[i].scrollHeight;
-		console.log("Top : ",num,sceneInfo[num].scrollHeight,top);
+		//console.log("Top : ",num,sceneInfo[num].scrollHeight,top);
 	}
 	document.querySelector('#m_menu').checked = false;
 	$("html, body").animate({ scrollTop: top }, "slow");

@@ -19,6 +19,7 @@ a {color: rgb(68, 68, 68); text-decoration: none;}
 	background-size:cover;
 	background-position: center;
 }
+#loading .backdrop{width:100%; height:100%; background: rgba(0,0,0,0.6);}
 .loading_spin {
 	display: inline-block;
 	position: absolute;
@@ -236,7 +237,7 @@ h4.sticky-elem span {background:rgba(177, 185, 197, 1); padding: 0 0.3em;}
 .map-frame .map{position:absolute; height:100%;}
 .map-frame #map1{background-image:url('../images/map1.png'); background-repeat: no-repeat; background-size:contain;}
 .map-frame #map2{background-image:url('../images/map3.png'); background-repeat: no-repeat; background-size:contain;}
-.map .spot{position: absolute; opacity:0; }
+.map .spot{position: absolute; opacity:0; cursor: pointer;}
 .map .spot .dot {width:11px; height:11px; background:rgba(20,39,101,1); border-radius: 50%; border:3px solid rgb(125, 147, 164);}
 .map .spot .label{width:max-content; margin-top: 2px; padding:0.05em 0.15em; background: rgba(20,39,101,1); color: #ebf0f6; font-weight: 500;}
 .map .spot.current .dot{transform: scale(1.5); transition: all 0.3s; }
@@ -292,7 +293,7 @@ select {float:right; width: 45%; padding: 0.5em 3.0em 0.5em 1.12em; border: 2px 
 .section-belief h2{margin-top:-0.3em; text-align: center; color:#edece2; font-size:5rem;}
 .section-belief h3{text-align: center; color:#c7c6bb; font-size:1.2rem; font-family: 'Noto Sans KR';}
 .belief_board{top:0; width:100%; margin:0 auto;}
-.belief_board .belief{position:absolute; width:15%; height:400px;  background-position:top center; background-repeat: no-repeat; background-size: contain; z-index: 11; text-indent:-9999px;}
+.belief_board .belief{position:absolute; width:15%; height:400px;  background-position:top center; background-repeat: no-repeat; background-size: contain; z-index: 11; text-indent:-9999px; cursor: pointer;}
 .belief_board .belief:hover, .belief_menu li.ico_belief:hover {transform:scale(1.1); transition:all .4s ease;}
 
 /*.belief_board .belief01{left: -0.23%; top: 9.66%; width:316px; height:294px; background-image: url(../images/belief/belief01.png);}*/
@@ -328,7 +329,7 @@ select {float:right; width: 45%; padding: 0.5em 3.0em 0.5em 1.12em; border: 2px 
 .belief_menu{bottom:3%; width:100%; overflow:auto; text-align: center; z-index:100;}
 .ico_believes{width:100%; margin:auto;}
 
-.belief_menu li{display: inline-block; margin:5px;}
+.belief_menu li{display: inline-block; margin:5px; cursor: pointer;}
 .belief_menu li.ico_belief .ico_item{display: flex;  width:60px; height:60px; border-radius: 50%; border:1px solid #dfdfdf; background-size: 80%; background-repeat:no-repeat; background-position: center; text-indent:-9999px;}
 .belief_menu li.ico_belief .ico_txt{margin-top:0.1em; color:#fff;}
 .belief_menu li.ico_belief01 .ico_item{background-image:url(../images/belief/ico_belief01.svg);}
@@ -453,7 +454,7 @@ align-items: center;
 .book_content{width:100%; margin:2em;}
 .section-books h2 {color:rgb(237, 236, 226); font-size:5.0em; margin-bottom: 0.844em; z-index: 10;}
 .book_list{width:100%; display:flex; justify-content: space-between;}
-.book_list li{width:330px; z-index:10;}
+.book_list li{width:330px; z-index:10; cursor: pointer;}
 .book_list .title {font-size:1.3rem; margin:2.5em 0 1.389em; font-weight: 500;}
 .book_list p {height:2.9em; margin-bottom:2.083em; overflow: hidden; text-overflow:ellipsis; word-wrap: break-word; font-family:'Noto Serif KR', serif; font-size:1.5rem;}
 .book_list .book_more {display: flex;}
@@ -474,7 +475,7 @@ align-items: center;
 .book_wrap .book_description{margin-bottom:1em; color:#777;}
 .book_wrap .book_content .btns{margin-top:2em;}
 .book_wrap .book_content .btns > div,
-.book_wrap .book_content .btns > button{display:inline-flex; padding:1em 2em; background:#eee;}
+.book_wrap .book_content .btns > button{display:inline-flex; padding:1em 2em; background:#eee; cursor: pointer;}
 #pdf_view{position:absolute; left:10%; top:10%; width:80%; height:80%; z-index:101;}
 
 .order_wrap{display:flex; position:absolute; width:40%; left:30%; z-index: 101; background:#fff; color:#555;}
@@ -495,11 +496,11 @@ align-items: center;
 *********************************************/
 
 .section-community {padding: 170px 200px 0 170px;}
-.section-community .tit{left:20%; top:20%;}
+.section-community .tit{left:20%; top:20%; cursor:pointer;}
 .section-community  h2 {color: rgb(237, 236, 226); font-size: 6.75rem;}
 .section-community .content{left:20%; top:30%; width:60%;}
 .section-community .community_mn {float: left; width: 100%; margin-top: 5.45%;}
-.section-community .community_mn li {float:left; width:50%; margin-bottom: 7.4%;}
+.section-community .community_mn li {float:left; width:50%; margin-bottom: 7.4%; cursor:pointer;}
 .section-community .community_mn li img {width:90%; display: block;}
 .section-community .community_mn li img.img_on {display: none;}
 .section-community .community_mn li:hover img.img_origin {display: none;}
