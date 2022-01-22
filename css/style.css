@@ -905,13 +905,13 @@ align-items: center;
 	.belief_menu {overflow: scroll;}
 	.ico_believes {width: 605px; margin: auto;}
 	.section-faq {padding: 4em 0;}
-	.section-faq .content {left:7%;  top: 21%; width: 86%; justify-content: start;}
+	.section-faq .content {left:7%;  top: 18%; width: 86%; justify-content: start;}
 	.section-faq .faq_title { left: 7%; top: 10%; height: auto; width: 86%; align-items: start; justify-content: start; border-right: 0;}
 	.section-faq .faq_title h2 { transform:none; font-size: 2.0rem; margin-bottom: 0.4em;}
 	.faq{ display: flex; flex-direction: column; padding:0; justify-content: start;}
-	.section-faq .faq_list li {margin-bottom: 1em;}
+	.section-faq .faq_list li {margin-bottom: 0.6em; line-height: 1.2em; letter-spacing: -0.07em;}
 	.faq_tit_con { float: left; width: 100%;}
-	.section-faq .faq_content { width: 100%; padding: 1.875em 1em; margin-top: 1em; }
+	.section-faq .faq_content { width: 100%; padding: 1.875em 1em; margin-top: 1em; overflow: auto; }
 	.faq h3 {margin: 1.25em 0;}
 	.faq_btn {margin-top: 2em;}
 	.section-books h2 {font-size: 2em;}
