@@ -220,6 +220,9 @@
 				link_testimony: document.querySelector('#link_testimony'),
 				link_mission: document.querySelector('#link_mission'),
 				link_booking: document.querySelector('#link_booking'),
+				link_community: document.querySelector('#link_community'),
+				link_home: document.querySelector('#link_home'),
+
 			},
 			values: {
 			}
@@ -1697,6 +1700,17 @@
 			localStorage.opennedBrand = "1"
 			location.href="/booking";
 		});
+
+		sceneInfo[6].objs.link_community.addEventListener('click', function(){
+			localStorage.opennedBrand = "1"
+			location.href="/";
+		});
+
+		sceneInfo[6].objs.link_home.addEventListener('click', function(){
+			localStorage.opennedBrand = "1"
+			location.href="/";
+		});
+
 
 
 	});
