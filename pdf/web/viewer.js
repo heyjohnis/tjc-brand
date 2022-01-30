@@ -4658,7 +4658,7 @@ var OptionKind = {
 var url = unescape(location);
 var param = url.split('?');
 var fileNm = param[1].replace('fileNm=','');
-var pdf_url = 'http://tjc.or.kr/brand/pdf/'+fileNm+'.pdf';
+var pdf_url = 'https://tjc.or.kr/brand/pdf/'+fileNm+'.pdf';
 
 
 exports.OptionKind = OptionKind;
